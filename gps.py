@@ -12,7 +12,7 @@ boat=ssid+'_'+date
 a=1
 while a:
 	rcv = port.readline()
-	#print rcv[0:6]
+	print rcv[0:6]
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		#print msg
