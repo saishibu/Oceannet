@@ -1,31 +1,39 @@
+#!/usr/bin/python
 import nanostation as ns
 import time
 import RPi.GPIO as GPIO
-from dbwrite import todb
-import dbwrite as db
-mode='test_office'
+boat='Sarveshwara_May5'
 data=dict()
+diri=""
 cj,opener=ns.login()
-pos=db.fromdb()
+print "login success"
+ns.statusled(1)
+pos=ns.fromdb()
+#pos=0
 while 1:
 	ns.stop()
-	statusled(1)
+	ns.statusled(0)
 	signal,rssi,noise,ccq,distance = ns.fetchstatus(cj,opener)
-	ns.rssiled(rssi)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
+	ns.rssiled(signalinv)
+
+	#automation:
 	if signalinv > th:
 		ns.fwd()
-		dir='fwd'
+		diri='fwd'
 		pos=pos+1
 		if pos >36:
 			ns.rev()
 			pos=pos+1
-			dir='rev'
+			diri='rev'
 		if pos >72:
 			pos=0
-	data={'lat':0,'lon':0,'dir':dir,'mode':mode,'ss':signal,'nf':noise,'rssi':rssi'pos':pos,'ccq':ccq,'d':distance}
-	db.todb(data)
+	#Data storage
+	data={'dir':diri,'boat':boat,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance}
+	print data
+	ns.todb(data)
+	ns.breathe(5)
 
 
 

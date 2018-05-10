@@ -1,6 +1,7 @@
 import urllib, urllib2, cookielib
-import ssl,json
-
+import ssl,json,time
+import pymysql
+import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM) 
 GPIO.setwarnings(False) 
 GPIO.setup(17,GPIO.OUT)  #REV
@@ -10,11 +11,34 @@ GPIO.setup(19,GPIO.OUT) #RSSI 0
 GPIO.setup(13,GPIO.OUT)	#RSSI 1
 GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
+#sleep function 
+def breathe(t):
+	t1=0
+	for t1 in range(t):
+		GPIO.output(26,GPIO.HIGH)
+		time.sleep(1)
+		GPIO.output(26,GPIO.LOW)
+#write to database
+def todb(data):
+	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("INSERT INTO proto1(BOAT, SS, NF, CCQ, D, RSSI, POS, DIR) VALUES(%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s);",data)
+	conn.commit()
+	conn.close()
+#read last position from database
+def fromdb():
+	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("SELECT pos FROM proto1  limit 1;")
+	pos=cur.fetchall()
+	pos=pos[0]
+	pos=pos[0]
+	return pos
 #Status LED Config
 def statusled(cond):
 	if cond == 1:
 		GPIO.output(26,GPIO.HIGH) #status led on
-	if cond == 0
+	if cond == 0:
 		GPIO.output(26,GPIO.LOW) #status led on
 #RSSI LED Config
 def rssiled(rssi):
@@ -41,21 +65,21 @@ def rssiled(rssi):
 		GPIO.output(5,GPIO.LOW)   #RSSI 3
 	if 0 <= rssi <= 25: #all off (no coverage)
 		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.HIGH) #RSSI 1
+		GPIO.output(13,GPIO.LOW) #RSSI 1
 		GPIO.output(6,GPIO.LOW)   #RSSI 2
-		GPIO.output(5,GPIO.LOW)   #RSSI 3
+		GPIO.output(5,GPIO.HIGH)   #RSSI 3
 #Login to Nanostation
-def login(ip,login,username,password):
+def login():
 	ssl._create_default_https_context = ssl._create_unverified_context
 	cj=cookielib.CookieJar()
 	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-	r=opener.open('https://192.168.179.107/login.cgi')
-	login_data=urllib.urlencode({'username':user, 'password':pswd,'action':'login'})
-	r=opener.open('https://192.168.179.107/login.cgi',login_data)
+	r=opener.open('https://192.168.179.116/login.cgi')
+	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
+	r=opener.open('https://192.168.179.116/login.cgi',login_data)
 	return cj,opener
 #Fetch Status from Nanostation
 def fetchstatus(cj,opener):
-	status_page=opener.open('https://192.168.179.107/status.cgi')
+	status_page=opener.open('https://192.168.179.116/status.cgi')
 	status=status_page.read()
 	json_status=json.loads(status)
 	signal=json_status['wireless']['signal']
@@ -68,28 +92,25 @@ def fetchstatus(cj,opener):
 def thmap(distance):
 	if distance<=1000:
 		th=65
-		return th
-	if distance<=15000:
+	if 1001<distance<=15000:
 		th=75
-		return th
-	if distance<=30000:
+	if 15001<distance<=30000:
 		th=85
-		return th
-	if distance<=45000:
+	if 30001<distance<=45000:
 		th=95
-		return th
+	return th
 #Direction control for Channel Master
-def fwd_ch():
+def fwd():
 	GPIO.output(27,GPIO.HIGH)
 	GPIO.output(17,GPIO.LOW)
-def rev_ch():
+def rev():
 	GPIO.output(17,GPIO.HIGH)
 	GPIO.output(27,GPIO.LOW)
-def stop_ch():
+def stop():
 	GPIO.output(27,GPIO.LOW)
 	GPIO.output(17,GPIO.LOW)
 
 #TBD: For inhouse developed rotator
-def fwd_step():
-def rev_step():
-def stop_step():
+#def fwd_step():
+#def rev_step():
+#def stop_step():
