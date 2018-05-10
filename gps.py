@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import serial,pynmea2,time,pymysql
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
