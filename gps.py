@@ -16,7 +16,8 @@ while a:
 		print lat
 		lon=msg.lon
 		print lon
-		data={'BOAT':BOAT,'lat':lat,'long':long}
+		data={'BOAT':BOAT,'lat':lat,'lon':lon}
+		print data
 		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
 		conn.commit()
 		print "GPS Committed"
