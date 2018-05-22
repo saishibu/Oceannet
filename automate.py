@@ -34,6 +34,7 @@ while 1:
 	print data
 	ns.todb(data)
 	ns.breathe(5)
+GPIO.cleanup()
 
 
 

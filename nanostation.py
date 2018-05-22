@@ -46,7 +46,7 @@ def rssiled(rssi):
 	if rssi >= 80: #all ON
 		GPIO.output(19,GPIO.HIGH) #RSSI 4
 		GPIO.output(13,GPIO.HIGH) #RSSI 3
-		GPIO.output(6,Gall off PIO.HIGH)  #RSSI 2
+		GPIO.output(6,GPIO.HIGH)  #RSSI 2
 		GPIO.output(5,GPIO.HIGH)  #RSSI 1
 	if 65 <= rssi <= 79: #RSSI3 off
 		GPIO.output(19,GPIO.HIGH) #RSSI 4
@@ -73,13 +73,13 @@ def login():
 	ssl._create_default_https_context = ssl._create_unverified_context
 	cj=cookielib.CookieJar()
 	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-	r=opener.open('https://192.168.179.116/login.cgi')
+	r=opener.open('https://192.168.179.118/login.cgi')
 	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
-	r=opener.open('https://192.168.179.116/login.cgi',login_data)
+	r=opener.open('https://192.168.179.118/login.cgi',login_data)
 	return cj,opener
 #Fetch Status from Nanostation
 def fetchstatus(cj,opener):
-	status_page=opener.open('https://192.168.179.116/status.cgi')
+	status_page=opener.open('https://192.168.179.118/status.cgi')
 	status=status_page.read()
 	json_status=json.loads(status)
 	signal=json_status['wireless']['signal']
