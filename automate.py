@@ -1,8 +1,11 @@
 #!/usr/bin/python
 import nanostation as ns
 import time
+import datetime
 import RPi.GPIO as GPIO
-boat='test_setup'
+date=datetime.date.today().strftime("%d_%b_%y")
+boat='test_setup_'+date
+
 data=dict()
 diri=""
 cj,opener=ns.login()
@@ -16,7 +19,7 @@ while 1:
 	signal,rssi,noise,ccq,distance = ns.fetchstatus(cj,opener)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
-	ns.rssiled(signalinv)
+	ns.rssiled(rssi)
 
 	#automation:
 	if signalinv > th:

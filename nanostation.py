@@ -48,12 +48,12 @@ def rssiled(rssi):
 		GPIO.output(13,GPIO.HIGH) #RSSI 3
 		GPIO.output(6,GPIO.HIGH)  #RSSI 2
 		GPIO.output(5,GPIO.HIGH)  #RSSI 1
-	if 65 <= rssi <= 79: #RSSI3 off
+	if 61 <= rssi <= 79: #RSSI3 off
 		GPIO.output(19,GPIO.HIGH) #RSSI 4
 		GPIO.output(13,GPIO.HIGH) #RSSI 3
 		GPIO.output(6,GPIO.HIGH)  #RSSI 2
 		GPIO.output(5,GPIO.LOW)   #RSSI 1
-	if 41 <= rssi <= 64: #RSSI3&2 off
+	if 41 <= rssi <= 60: #RSSI3&2 off
 		GPIO.output(19,GPIO.HIGH) #RSSI 4
 		GPIO.output(13,GPIO.HIGH) #RSSI 3
 		GPIO.output(6,GPIO.LOW)   #RSSI 2
@@ -91,7 +91,7 @@ def fetchstatus(cj,opener):
 #Threshold mapping based on distance
 def thmap(distance):
 	if distance<=1000:
-		th=65
+		th=50
 	if 1001<distance<=15000:
 		th=75
 	if 15001<distance<=30000:
