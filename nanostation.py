@@ -43,31 +43,31 @@ def statusled(cond):
 #RSSI LED Config
 def rssiled(rssi):
 	#RSSI
-	if rssi >= 90: #all ON
-		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.HIGH) #RSSI 1
+	if rssi >= 80: #all ON
+		GPIO.output(19,GPIO.HIGH) #RSSI 4
+		GPIO.output(13,GPIO.HIGH) #RSSI 3
+		GPIO.output(6,Gall off PIO.HIGH)  #RSSI 2
+		GPIO.output(5,GPIO.HIGH)  #RSSI 1
+	if 65 <= rssi <= 79: #RSSI3 off
+		GPIO.output(19,GPIO.HIGH) #RSSI 4
+		GPIO.output(13,GPIO.HIGH) #RSSI 3
 		GPIO.output(6,GPIO.HIGH)  #RSSI 2
-		GPIO.output(5,GPIO.HIGH)  #RSSI 3
-	if 75 <= rssi <= 89: #RSSI3 off
-		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.HIGH) #RSSI 1
-		GPIO.output(6,GPIO.HIGH)  #RSSI 2
-		GPIO.output(5,GPIO.LOW)   #RSSI 3
-	if 51 <= rssi <= 74: #RSSI3&2 off
-		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.HIGH) #RSSI 1
+		GPIO.output(5,GPIO.LOW)   #RSSI 1
+	if 41 <= rssi <= 64: #RSSI3&2 off
+		GPIO.output(19,GPIO.HIGH) #RSSI 4
+		GPIO.output(13,GPIO.HIGH) #RSSI 3
 		GPIO.output(6,GPIO.LOW)   #RSSI 2
-		GPIO.output(5,GPIO.LOW)   #RSSI 3
-	if 26 <= rssi <= 50: #RSSI 3,2,1 off
-		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.LOW) #RSSI 1
+		GPIO.output(5,GPIO.LOW)   #RSSI 1
+	if 21 <= rssi <= 40: #RSSI 3,2,1 off
+		GPIO.output(19,GPIO.HIGH) #RSSI 4
+		GPIO.output(13,GPIO.LOW) #RSSI 3
 		GPIO.output(6,GPIO.LOW)   #RSSI 2
-		GPIO.output(5,GPIO.LOW)   #RSSI 3
-	if 0 <= rssi <= 25: #all off (no coverage)
-		GPIO.output(19,GPIO.HIGH) #RSSI 0
-		GPIO.output(13,GPIO.LOW) #RSSI 1
+		GPIO.output(5,GPIO.LOW)   #RSSI 1
+	if 0 <= rssi <= 20: #(no coverage/Very Poor)
+		GPIO.output(19,GPIO.HIGH) #RSSI 4
+		GPIO.output(13,GPIO.LOW) #RSSI 3
 		GPIO.output(6,GPIO.LOW)   #RSSI 2
-		GPIO.output(5,GPIO.HIGH)   #RSSI 3
+		GPIO.output(5,GPIO.HIGH)   #RSSI 1
 #Login to Nanostation
 def login():
 	ssl._create_default_https_context = ssl._create_unverified_context
