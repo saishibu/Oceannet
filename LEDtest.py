@@ -12,38 +12,45 @@ GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
 #Status LED
 GPIO.output(26,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(26,GPIO.LOW)
-time.sleep(2)
+time.sleep(1)
+print "Status LED Completed" 
 #FWD LED
 GPIO.output(27,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(27,GPIO.LOW)
-time.sleep(2)
+time.sleep(1)
+print "FWD LED Completed" 
 #Rev LED
 GPIO.output(17,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(17,GPIO.LOW)
-time.sleep(2)
-#RSSI1
+time.sleep(1)
+print "REV LED Completed" 
+#RSSI4 - 
 GPIO.output(19,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(19,GPIO.LOW)
-time.sleep(2)
-#RSSI2
-GPIO.output(13,GPIO.HIGH)
-time.sleep(2)
-GPIO.output(13,GPIO.LOW)
-time.sleep(2)
+time.sleep(1)
+print "RSSI4 LED Completed" 
 #RSSI3
+GPIO.output(13,GPIO.HIGH)
+time.sleep(1)
+GPIO.output(13,GPIO.LOW)
+time.sleep(1)
+print "RSSI3 LED Completed" 
+#RSSI2
 GPIO.output(6,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(6,GPIO.LOW)
-time.sleep(2)
+time.sleep(1)
+print "RSSI2 LED Completed" 
 #RSSI4
 GPIO.output(5,GPIO.HIGH)
-time.sleep(2)
+time.sleep(1)
 GPIO.output(5,GPIO.LOW)
-time.sleep(2)
+time.sleep(1)
+print "RSSI1 LED Completed" 
 
-print "LED Test Complete"
+print "Success: LED Test Complete"
