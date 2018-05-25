@@ -53,4 +53,69 @@ GPIO.output(5,GPIO.LOW)
 time.sleep(1)
 print "RSSI1 LED Completed" 
 
+#Full signal
+GPIO.output(5,GPIO.HIGH) #4
+GPIO.output(6,GPIO.HIGH) #3
+GPIO.output(13,GPIO.HIGH) #2
+GPIO.output(19,GPIO.HIGH) #1
+time.sleep(1)
+GPIO.output(5,GPIO.LOW)
+GPIO.output(6,GPIO.LOW)
+GPIO.output(13,GPIO.LOW)
+GPIO.output(19,GPIO.LOW)
+time.sleep(1)
+print "Full Signal  Completed" 
+
+#75% signal
+GPIO.output(5,GPIO.HIGH) #4
+GPIO.output(6,GPIO.HIGH) #3
+GPIO.output(13,GPIO.HIGH) #2
+#GPIO.output(19,GPIO.HIGH) #1
+time.sleep(1)
+GPIO.output(5,GPIO.LOW)
+GPIO.output(6,GPIO.LOW)
+GPIO.output(13,GPIO.LOW)
+#GPIO.output(19,GPIO.LOW)
+time.sleep(1)
+print "75% Signal  Completed" 
+
+#50% signal
+GPIO.output(5,GPIO.HIGH) #4
+GPIO.output(6,GPIO.HIGH) #3
+#GPIO.output(13,GPIO.HIGH) #2
+#GPIO.output(19,GPIO.HIGH) #1
+time.sleep(1)
+GPIO.output(5,GPIO.LOW)
+GPIO.output(6,GPIO.LOW)
+#GPIO.output(13,GPIO.LOW)
+#GPIO.output(19,GPIO.LOW)
+time.sleep(1)
+print "50% Signal  Completed" 
+
+#25% signal
+GPIO.output(5,GPIO.HIGH) #4
+#GPIO.output(6,GPIO.HIGH) #3
+#GPIO.output(13,GPIO.HIGH) #2
+#GPIO.output(19,GPIO.HIGH) #1
+time.sleep(1)
+GPIO.output(5,GPIO.LOW)
+#GPIO.output(6,GPIO.LOW)
+#GPIO.output(13,GPIO.LOW)
+#GPIO.output(19,GPIO.LOW)
+time.sleep(1)
+print "25% Signal  Completed" 
+
+#No signal
+GPIO.output(5,GPIO.HIGH) #4
+#GPIO.output(6,GPIO.HIGH) #3
+GPIO.output(13,GPIO.HIGH) #2
+#GPIO.output(19,GPIO.HIGH) #1
+time.sleep(1)
+GPIO.output(5,GPIO.LOW)
+#GPIO.output(6,GPIO.LOW)
+GPIO.output(13,GPIO.LOW)
+#GPIO.output(19,GPIO.LOW)
+time.sleep(1)
+print "N0 Signal  Completed" 
+
 print "Success: LED Test Complete"
