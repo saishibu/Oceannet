@@ -2,4 +2,6 @@
 
 import iperf3
 server = iperf3.Server()
-result = server.run()
+server.verbose=0
+while 1:
+	result = server.run()

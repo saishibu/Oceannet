@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 5, in <module>
+    port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialutil.py", line 240, in __init__
+    self.open()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 268, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
