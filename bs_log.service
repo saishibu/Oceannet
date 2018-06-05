@@ -1,0 +1,11 @@
+[Unit]
+Description=oceannet Basestation log service
+After=network.target
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/Oceannet/bs_datafetch.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
