@@ -2,7 +2,7 @@
 import nanostation as ns
 import time
 import RPi.GPIO as GPIO
-boat='Sarveshwara_May10'
+boat='test_setup'
 data=dict()
 diri=""
 cj,opener=ns.login()

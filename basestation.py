@@ -28,5 +28,5 @@ def fetchstatus(cj,opener,url):
 	noise=json_status['wireless']['noisef']
 	ccq=json_status['wireless']['ccq']
 	distance=json_status['wireless']['distance']
-	devices=json_status['wireless']['polling']['airsync_connections']
+	devices=json_status['wireless']['count']
 	return signal,rssi,noise,ccq,distance,devices
