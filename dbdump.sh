@@ -1,13 +1,14 @@
 #!/bin/bash
 
-cd /home/pi/Oceannet
+cd /home/saishibu/Oceannet
 
 ip=$1
 timestamp=$(date +%d%b%Y\ %T)
-
+echo "$ip"
+echo "$timestamp"
 
 logfile=$ip_dbdump.log
-
+echo "-----------------------------" >> $logfile
 echo "Making dump of oceannet table at $ip"
 echo "$timestamp	Creating dump of $ip - dump filename: $ip" >> $logfile
 output=$((mysqldump -h $ip -u on -pamma autosys proto1 > ${timestamp}_data_${ip}.sql) 2>&1)
