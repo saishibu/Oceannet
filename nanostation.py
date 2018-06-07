@@ -29,9 +29,9 @@ def mapip(essid):
 	cur.execute("SELECT ssid,CPE FROM boat_data;")
 	data=cur.fetchall()
 	for row in data:
-		print row(0)
-		if row(0)==essid:
-			ip=row(1)
+		print row[0]
+		if row[0]==essid:
+			ip=row[1]
 	return ip
 #sleep function 
 def breathe(t):
