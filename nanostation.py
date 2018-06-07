@@ -28,7 +28,10 @@ def mapip(essid):
 	cur=conn.cursor()
 	cur.execute("SELECT ssid,CPE FROM boat_data;")
 	ip=cur.fetchall()
-	print ip
+	#for i in ip[0]:
+		#id 
+	print ip[0]
+	print ip[1]
 	#ip=ip[0]
 	#ip=ip[1]
 	
