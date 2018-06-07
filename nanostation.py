@@ -28,8 +28,9 @@ def mapip(essid):
 	cur=conn.cursor()
 	cur.execute("SELECT CPE FROM `boat_data` WHERE ssid=@essid;")
 	ip=cur.fetchall()
+	print ip
 	ip=ip[0]
-	ip=ip[0]
+	#ip=ip[0]
 	
 	return ip
 #sleep function 
