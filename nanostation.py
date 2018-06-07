@@ -15,7 +15,7 @@ GPIO.setup(5,GPIO.OUT)  #RSSI 3
 
 #Extract SSID
 def extssid():
-	scanoutput = check_output(["iwlist", "wlan0", "scan"])
+	scanoutput = check_output(["iwconfig", "wlan0"])
 	for line in scanoutput.split():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
