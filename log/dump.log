@@ -1,0 +1,120 @@
+-----------------------------
+06Jun2018 16:43:09	Creating dump of 192.168.179.119 - dump filename: 192.168.179.119
+./dbdump.sh: line 23: ${timestamp}_data_${ip}.sql: ambiguous redirect
+./dbdump.sh: line 24: ${timestamp}_gps_${ip}.sql: ambiguous redirect
+06Jun2018 16:43:09	Remove date from remote db at 192.168.179.119
+-----------------------------
+06Jun2018 16:47:34	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 16:47:34	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (110) when trying to connect
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (110) when trying to connect
+06Jun2018 16:47:34	DB Extraction success
+06Jun2018 16:47:34	Remove date from remote db at 192.168.179.119
+-----------------------------
+06Jun2018 16:54:30	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 16:54:30	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/$datalog: ambiguous redirect
+./dbdump.sh: line 28: dump/$gpslog: ambiguous redirect
+06Jun2018 16:54:30	DB Extraction success
+06Jun2018 16:54:30	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (110)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (110)
+-----------------------------
+06Jun2018 16:59:11	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 16:59:11	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 16:59:11	DB Extraction success
+06Jun2018 16:59:11	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+-----------------------------
+06Jun2018 17:15:37	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:15:37	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 17:15:37	DB Extraction success
+06Jun2018 17:15:37	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+-----------------------------
+06Jun2018 17:15:50	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:15:50	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 17:15:50	DB Extraction success
+06Jun2018 17:15:50	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+-----------------------------
+06Jun2018 17:19:52	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:19:52	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 17:19:52	DB Extraction success
+06Jun2018 17:19:52	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+-----------------------------
+06Jun2018 17:24:25	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:24:25	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 17:24:25	DB Extraction success
+06Jun2018 17:24:25	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (111)
+-----------------------------
+06Jun2018 17:27:34	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:27:34	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps_192.168.179.119.sql: No such file or directory
+06Jun2018 17:27:34	DB Extraction success
+06Jun2018 17:27:34	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+-----------------------------
+06Jun2018 17:29:08	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:29:08	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+./dbdump.sh: line 27: dump/data.sql: No such file or directory
+./dbdump.sh: line 28: dump/gps.sql: No such file or directory
+06Jun2018 17:29:08	DB Extraction success
+06Jun2018 17:29:08	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+-----------------------------
+06Jun2018 17:31:42	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:31:42	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+06Jun2018 17:31:42	DB Extraction success
+06Jun2018 17:31:42	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+-----------------------------
+06Jun2018 17:33:02	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:33:02	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+06Jun2018 17:33:02	DB Extraction success
+06Jun2018 17:33:02	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+-----------------------------
+06Jun2018 17:33:30	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:33:30	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+06Jun2018 17:33:30	DB Extraction success
+06Jun2018 17:33:30	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+-----------------------------
+06Jun2018 17:37:51	Creating dump of data from 192.168.179.119 - dump filename: datalog
+06Jun2018 17:37:51	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (113) when trying to connect
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (113) when trying to connect
+06Jun2018 17:37:51	DB Extraction success
+06Jun2018 17:37:51	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
