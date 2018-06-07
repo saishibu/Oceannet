@@ -27,14 +27,11 @@ def mapip(essid):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	cur.execute("SELECT ssid,CPE FROM boat_data;")
-	ip=cur.fetchall()
-	#for i in ip[0]:
-		#id 
-	print ip[0]
-	print ip[1]
-	#ip=ip[0]
-	#ip=ip[1]
-	
+	data=cur.fetchall()
+	for row in data:
+		print row(0)
+		if row(0)==essid:
+			ip=row(1)
 	return ip
 #sleep function 
 def breathe(t):
