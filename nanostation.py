@@ -1,6 +1,7 @@
 import urllib, urllib2, cookielib
 import ssl,json,time
 import pymysql
+from subprocess import check_output
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM) 
 GPIO.setwarnings(False) 
@@ -11,6 +12,26 @@ GPIO.setup(19,GPIO.OUT) #RSSI 0
 GPIO.setup(13,GPIO.OUT)	#RSSI 1
 GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
+
+#Extract SSID
+def extssid():
+	scanoutput = check_output(["iwlist", "wlan0", "scan"])
+
+	for line in scanoutput.split():
+		if line.startswith("ESSID"):
+		ssid = line.split('"')[1]
+    
+	return ssid
+#Map SSID to CPE IP
+def mapip(essid):
+	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("SELECT CPE FROM boat_data  WHERE ssid=essid;")
+	ip=cur.fetchall()
+	ip=ip[0]
+	ip=ip[0]
+	
+	return ip
 #sleep function 
 def breathe(t):
 	t1=0
