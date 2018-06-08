@@ -5,10 +5,12 @@ import datetime
 import RPi.GPIO as GPIO
 date=datetime.date.today().strftime("%d_%b_%y")
 boat='test_setup_'+date
-
+ssid=ns.extssid()
+cpe_ip=ns.mapip(ssid)
+print ssid,cpe_ip
 data=dict()
 diri=""
-cj,opener=ns.login()
+cj,opener=ns.login(cpe_ip)
 print "login success"
 ns.statusled(1)
 pos=ns.fromdb()
@@ -16,7 +18,7 @@ pos=ns.fromdb()
 while 1:
 	ns.stop()
 	ns.statusled(0)
-	signal,rssi,noise,ccq,distance = ns.fetchstatus(cj,opener)
+	signal,rssi,noise,ccq,distance = ns.fetchstatus(cj,opener,cpe_ip)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
 	ns.rssiled(rssi)
