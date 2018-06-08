@@ -98,7 +98,7 @@ def rssiled(rssi):
 		print "nil"
 #Login to Nanostation
 def login(ip):
-	url='https://'+ip+'/login.cgi
+	url='https://'+ip+'/login.cgi'
 	ssl._create_default_https_context = ssl._create_unverified_context
 	cj=cookielib.CookieJar()
 	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
@@ -108,7 +108,7 @@ def login(ip):
 	return cj,opener
 #Fetch Status from Nanostation
 def fetchstatus(cj,opener,ip):
-	url='https://'+ip+'/status.cgi
+	url='https://'+ip+'/status.cgi'
 	status_page=opener.open(url)
 	status=status_page.read()
 	json_status=json.loads(status)
