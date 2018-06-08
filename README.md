@@ -1,5 +1,7 @@
 # Oceannet
-Deployment code for Oceannet Automatic Antenna orientation system
+
+### Disclaimer: DO NOT COPY WITHOUT PERMISSION
+#### Deployment code for Oceannet Automatic Antenna orientation system
 folder has both server(Base Station) and client (Nano Station) apps
 Add iperf and automate services
 
@@ -7,3 +9,5 @@ Add iperf and automate services
 2) Enable both the services by systemctl enable iperf.service & systemctl enable automate.service
 3)reboot the pi
 4) test iperf from base station with port 5001
+###### © Amrita Vishwa Vidyapeetham |Amrita Center for Wireless Networks & Applications
+refer oceannnet.amrita.edu for more details
