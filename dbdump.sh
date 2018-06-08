@@ -26,17 +26,30 @@ echo "Making dump of data table at $ip"
 echo "$timestamp	Creating dump of data from $ip - dump filename: datalog" >> $logfile
 echo "Making dump of GPS table at $ip"
 echo "$timestamp	Creating dump of GPS from $ip - dump filename: gpslog" >> $logfile
-output=$((mysqldump -h $ip -uoceannet -pamma autosys proto1 > dbdump/$datalog ) 2>&1)
-output2=$((mysqldump -h $ip -u oceannet -pamma autosys gps_log > dbdump/$gpslog ) 2>&1)
+output=$((mysqldump -h $ip -uoceannet -pamma autosys proto1 --skip-add-drop-table > dbdump/$datalog ) 2>&1)
+output2=$((mysqldump -h $ip -u oceannet -pamma autosys gps_log --skip-add-drop-table > dbdump/$gpslog ) 2>&1)
 writeLog "$output"
 writeLog "$output2"
 echo "$timestamp	DB Extraction success" >> $logfile
 
+## insert into own db
+ echo "Inserting dump into own database"
+ echo "$timestamp	Inserting into own db" >> $logfile
+ output3=$((mysql -uroot -pamma Oceannet  < dump/$datalog) 2>&1)
+ output4=$((mysql -uroot -pamma Oceannet  < dump/$gpslog) 2>&1)
+ writeLog "$output3"
+ writeLog "$output4"
+ ## Remove old data from database
 echo "Remove data from the node database"
 echo "$timestamp	Remove date from remote db at $ip" >> $logfile
-output3=$((mysql -h $ip -uoceannet -pamma autosys -e "DELETE FROM proto1") 2>&1)
-output4=$((mysql -h $ip -uoceannet -pamma autosys -e "DELETE FROM gps_log") 2>&1)
-writeLog "$output3"
-writeLog "$output4"
+output5=$((mysql -h $ip -uoceannet -pamma autosys -e "TRUNCATE TABLE proto1") 2>&1)
+output6=$((mysql -h $ip -uoceannet -pamma autosys -e "TRUNCATE TABLE gps_log") 2>&1)
+writeLog "$output5"
+writeLog "$output6"
+## Make a dummy value
+echo "Make a dummy Value"
+echo "$timestamp	Make a dummy Value at $ip" >> $logfile
+output7=$((mysql -h $ip -uoceannet -pamma autosys -e "NSERT INTO proto1(BOAT, SS, NF, CCQ, D, RSSI, POS, DIR) VALUES('dummy',0,0,0,0,0,0,'');") 2>&1)
+writeLog "$output7"
 
 
