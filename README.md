@@ -10,4 +10,4 @@ Add iperf and automate services
 3)reboot the pi
 4) test iperf from base station with port 5001
 ###### © Amrita Vishwa Vidyapeetham |Amrita Center for Wireless Networks & Applications
-####### refer oceannnet.amrita.edu for more details
+###### refer oceannnet.amrita.edu for more details
