@@ -118,3 +118,59 @@ mysqldump: [Warning] Using a password on the command line interface can be insec
 06Jun2018 17:37:51	Remove date from remote db at 192.168.179.119
 mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
 mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
+-----------------------------
+08Jun2018 17:42:28	Creating dump of data from  - dump filename: datalog
+08Jun2018 17:42:28	Creating dump of GPS from  - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2005: Unknown MySQL server host '-uoceannet' (11) when trying to connect
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2005: Unknown MySQL server host '-u' (11) when trying to connect
+08Jun2018 17:42:28	DB Extraction success
+08Jun2018 17:42:28	Inserting into own db
+./dbdump.sh: line 38: dump/data_.sql: No such file or directory
+./dbdump.sh: line 39: dump/gps_.sql: No such file or directory
+08Jun2018 17:42:28	Remove date from remote db at 
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+08Jun2018 17:42:28	Make a dummy Value at 
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+-----------------------------
+08Jun2018 17:46:25	Creating dump of data from  - dump filename: datalog
+08Jun2018 17:46:25	Creating dump of GPS from  - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2005: Unknown MySQL server host '-uoceannet' (11) when trying to connect
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2005: Unknown MySQL server host '-uoceannet' (11) when trying to connect
+08Jun2018 17:46:25	DB Extraction success
+08Jun2018 17:46:25	Inserting into own db
+./dbdump.sh: line 38: dump/data_.sql: No such file or directory
+./dbdump.sh: line 39: dump/gps_.sql: No such file or directory
+08Jun2018 17:46:25	Remove date from remote db at 
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+08Jun2018 17:46:25	Make a dummy Value at 
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2005 (HY000): Unknown MySQL server host '-uoceannet' (11)
+-----------------------------
+08Jun2018 17:48:11	Creating dump of data from 192.168.179.119 - dump filename: datalog
+08Jun2018 17:48:11	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+08Jun2018 17:48:11	DB Extraction success
+08Jun2018 17:48:11	Inserting into own db
+./dbdump.sh: line 38: dump/data_192.168.179.119.sql: No such file or directory
+./dbdump.sh: line 39: dump/gps_192.168.179.119.sql: No such file or directory
+08Jun2018 17:48:11	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+08Jun2018 17:48:11	Make a dummy Value at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NSERT INTO proto1(BOAT, SS, NF, CCQ, D, RSSI, POS, DIR) VALUES('dummy',0,0,0,0,0' at line 1
+-----------------------------
+08Jun2018 17:54:17	Creating dump of data from 192.168.179.119 - dump filename: datalog
+08Jun2018 17:54:17	Creating dump of GPS from 192.168.179.119 - dump filename: gpslog
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (113) when trying to connect
+mysqldump: [Warning] Using a password on the command line interface can be insecure. mysqldump: Got error: 2003: Can't connect to MySQL server on '192.168.179.119' (113) when trying to connect
+08Jun2018 17:54:17	DB Extraction success
+08Jun2018 17:54:17	Inserting into own db
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+08Jun2018 17:54:17	Remove date from remote db at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
+08Jun2018 17:54:17	Make a dummy Value at 192.168.179.119
+mysql: [Warning] Using a password on the command line interface can be insecure. ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.179.119' (113)
