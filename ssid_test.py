@@ -1,3 +1,4 @@
+#test script
 import nanostation as ns
 ssid=ns.extssid()
 print ssid
