@@ -15,10 +15,10 @@ while a:
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		lat=msg.lat
-		lat=dm_to_sd(lat)
+		lat=pynmea2.dm_to_sd(lat)
 		print lat
 		lon=msg.lon
-		lon=dm_to_sd(lon)
+		lon=pynmea2.dm_to_sd(lon)
 		print lon
 		data={'BOAT':boat,'lat':lat,'lon':lon}
 		print data
