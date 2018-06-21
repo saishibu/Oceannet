@@ -12,15 +12,15 @@ boat=ssid+'_'+date
 a=1
 while a:
 	rcv = port.readline()
-	print rcv[0:6]
+	#print rcv[0:6]
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		lat=msg.lat
 		lat=pynmea2.dm_to_sd(lat)
-		print lat
+		#print lat
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
-		print lon
+		#print lon
 		data={'BOAT':boat,'lat':lat,'lon':lon}
 		print data
 		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
