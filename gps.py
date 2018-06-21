@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
-import serial,pynmea2,time,pymysql
-
+import serial,pynmea2,time,pymysql,datetime
+import nanostation as ns
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
-BOAT='Sarveshwara_May10'
+date=datetime.date.today().strftime("%d_%b_%y")
+ssid=ns.extssid()
+boat=ssid+'_'+date
 a=1
 while a:
 	rcv = port.readline()
@@ -13,10 +15,12 @@ while a:
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		lat=msg.lat
+		lat=dm_to_sd(lat)
 		print lat
 		lon=msg.lon
+		lon=dm_to_sd(lon)
 		print lon
-		data={'BOAT':BOAT,'lat':lat,'lon':lon}
+		data={'BOAT':boat,'lat':lat,'lon':lon}
 		print data
 		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
 		conn.commit()
