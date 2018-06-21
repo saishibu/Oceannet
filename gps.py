@@ -2,6 +2,7 @@
 
 import serial,pynmea2,time,pymysql,datetime
 import nanostation as ns
+import subprocess,os
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
