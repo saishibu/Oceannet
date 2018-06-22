@@ -13,8 +13,7 @@ a=1
 while a:
 	rcv = port.readline()
 	#print rcv[0:6]
-	#if rcv[0:6] == '$GPGGA':
-	if rcv[0:6] == '$GPRMC':
+	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		print msg
 		lat=msg.lat
@@ -23,13 +22,18 @@ while a:
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
 		#print lon
-		speed=msg.spd_over_grnd_kmph
-		print speed
 		data={'BOAT':boat,'lat':lat,'lon':lon}
 		print data
 		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
 		conn.commit()
 		print "GPS Committed"
+	
+	if rcv[0:6] == '$GPRMC':
+		msg=pynmea2.parse(rcv)
+		print msg
+		speed=msg.spd_over_grnd_kmph
+		print speed
+		
 		a=0
 conn.close()
 print "GPS Updated"
