@@ -37,10 +37,10 @@ while a:
 		a=0
 conn.close()
 print "GPS Updated"
-except IndexError:
+#except IndexError:
         # print("To catch an error...")
-        continue
-except KeyboardInterrupt:
-        print("\nProgram stopped.")
-        exit()
+ #       continue
+#except KeyboardInterrupt:
+ #       print("\nProgram stopped.")
+  #      exit()
 	
