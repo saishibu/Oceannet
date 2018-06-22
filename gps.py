@@ -22,19 +22,19 @@ while a:
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
 		#print lon
-		data={'BOAT':boat,'lat':lat,'lon':lon}
-		print data
-		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
-		conn.commit()
-		print "GPS Committed"
+		
 	
 	if rcv[0:6] == '$GPRMC':
 		msg=pynmea2.parse(rcv)
 		print msg
 		speed=msg.spd_over_grnd
 		print speed
-		
 		a=0
+data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+print data
+#cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
+conn.commit()
+print "GPS Committed"
 conn.close()
 print "GPS Updated"
 #except IndexError:
