@@ -22,7 +22,8 @@ while a:
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
 		#print lon
-		speed=msg.
+		speed=msg.speed_kn
+		print speed
 		data={'BOAT':boat,'lat':lat,'lon':lon}
 		print data
 		cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
