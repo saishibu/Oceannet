@@ -16,6 +16,7 @@ while a:
 	#if rcv[0:6] == '$GPGGA':
 	if rcv[0:6] == '$GPRMC':
 		msg=pynmea2.parse(rcv)
+		print msg
 		lat=msg.lat
 		lat=pynmea2.dm_to_sd(lat)
 		#print lat
