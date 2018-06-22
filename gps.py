@@ -15,24 +15,22 @@ while a:
 	#print rcv[0:6]
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
-		print msg
+		#print msg
 		lat=msg.lat
 		lat=pynmea2.dm_to_sd(lat)
 		#print lat
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
 		#print lon
-		
-	
 	if rcv[0:6] == '$GPRMC':
 		msg=pynmea2.parse(rcv)
-		print msg
+		#print msg
 		speed=msg.spd_over_grnd
-		print speed
+		#print speed
 		a=0
 data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
 print data
-#cur.execute("INSERT INTO gps_log(BOAT,LAT,LON) VALUES (%(BOAT)s,%(lat)s,%(lon)s);",data)
+cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s);",data)
 conn.commit()
 print "GPS Committed"
 conn.close()
