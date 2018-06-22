@@ -31,7 +31,7 @@ while a:
 	if rcv[0:6] == '$GPRMC':
 		msg=pynmea2.parse(rcv)
 		print msg
-		speed=msg.spd_over_grnd_kmph
+		speed=msg.spd_over_grnd
 		print speed
 		
 		a=0
