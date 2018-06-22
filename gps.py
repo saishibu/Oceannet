@@ -13,7 +13,8 @@ a=1
 while a:
 	rcv = port.readline()
 	#print rcv[0:6]
-	if rcv[0:6] == '$GPGGA':
+	#if rcv[0:6] == '$GPGGA':
+	if rcv[0:6] == '$GPRMC':
 		msg=pynmea2.parse(rcv)
 		lat=msg.lat
 		lat=pynmea2.dm_to_sd(lat)
