@@ -31,7 +31,7 @@ while a:
 		a=0
 temp=subprocess.check_output(["vcgencmd","measure_temp"])
 temp=temp.replace("temp=","").replace("'C\n","")
-print temp
+#print temp
 data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
 print data
 cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed,temp) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s,%(temp)s);",data)
