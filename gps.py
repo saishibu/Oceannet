@@ -3,7 +3,6 @@
 import serial,pynmea2,time,pymysql,datetime
 import nanostation as ns
 import subprocess,os
-from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
@@ -30,9 +29,8 @@ while a:
 		speed=msg.spd_over_grnd
 		#print speed
 		a=0
-#vcgencmd=RaspberryPiVcgencmd()
-#temp=vcgencmd.get_cpu_temp
 temp=subprocess.check_output(["vcgencmd","measure_temp"])
+temp=temp.replace("temp=","").replace("'C\n","")
 print temp
 data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
 print data
