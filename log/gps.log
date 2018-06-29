@@ -946,3 +946,10 @@ $GPRMC
 GPS Committed
 GPS Updated
 Sun  6 Jan 05:35:03 IST 1980
+$GPGGA
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 17, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 4F != 46', ['001706.790', '', '', 'M', '', 'M', '', ''])
