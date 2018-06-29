@@ -3,6 +3,8 @@
 import serial,pynmea2,time,pymysql,datetime
 import nanostation as ns
 import subprocess,os
+from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd
+
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
@@ -12,7 +14,7 @@ boat=ssid+'_'+date
 a=1
 while a:
 	rcv = port.readline()
-	print rcv[0:6]
+#	print rcv[0:6]
 	if rcv[0:6] == '$GPGGA':
 		msg=pynmea2.parse(rcv)
 		#print msg
@@ -28,9 +30,13 @@ while a:
 		speed=msg.spd_over_grnd
 		#print speed
 		a=0
-data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+#vcgencmd=RaspberryPiVcgencmd()
+#temp=vcgencmd.get_cpu_temp
+temp=subprocess.check_output(["vcgencmd","measure_temp"])
+print temp
+data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
 print data
-cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s);",data)
+cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed,temp) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s,%(temp)s);",data)
 conn.commit()
 print "GPS Committed"
 conn.close()
