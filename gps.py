@@ -3,11 +3,16 @@
 import serial,pynmea2,time,pymysql,datetime
 import nanostation as ns
 import subprocess,os
+from time import mktime
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
-date=datetime.date.today().strftime("%d_%b_%y")
+
+t = datetime.now()
+unix_secs = mktime(t.timetuple())
+
+
 ssid=ns.extssid()
 B_ID,CPE_IP=ns.mapip(ssid)
 boat=B_ID
@@ -34,9 +39,9 @@ while a:
 temp=subprocess.check_output(["vcgencmd","measure_temp"])
 temp=temp.replace("temp=","").replace("'C\n","")
 #print temp
-data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
+data={'time':unix_secs,'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
 print data
-cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed,temp) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s,%(temp)s);",data)
+cur.execute("INSERT INTO gps_log(TIMESTAMP,BOAT,LAT,LON,Speed,temp) VALUES (%(time)s,%(BOAT)s,%(lat)s,%(lon)s,%(speed)s,%(temp)s);",data)
 conn.commit()
 print "GPS Committed"
 conn.close()
