@@ -26,19 +26,21 @@ def mapip(essid):
 	print type(essid)
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
-	cur.execute("SELECT ssid,CPE FROM boat_data;")
+	cur.execute("SELECT ID,ssid,CPE FROM boat_data;")
 	data=cur.fetchall()
 	for row in data:
-		if row[0]==essid:
-			ip=row[1]
-	return ip
+		if row[1]==essid:
+			ID=row[0]
+			ip=row[2]
+	return ID,ip
 #sleep function 
 def breathe(t):
 	t1=0
 	for t1 in range(t):
 		GPIO.output(26,GPIO.HIGH)
-		time.sleep(1)
+		time.sleep(0.5)
 		GPIO.output(26,GPIO.LOW)
+		time.sleep(0.5)
 #write to database
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
