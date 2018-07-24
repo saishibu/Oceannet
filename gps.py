@@ -8,8 +8,8 @@ port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
 date=datetime.date.today().strftime("%d_%b_%y")
-ssid=ns.extssid()
-boat=ssid+'_'+date
+B_ID,ssid=ns.extssid()
+boat=B_ID
 a=1
 while a:
 	rcv = port.readline()
