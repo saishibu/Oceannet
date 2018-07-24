@@ -13,10 +13,11 @@ ssid=ns.extssid()
 B_ID,CPE_IP=ns.mapip(ssid)
 boat=B_ID
 ID,cpe_ip=ns.mapip(ssid)
-print ssid,cpe_ip
+
 data=dict()
 diri=""
 cj,opener=ns.login(cpe_ip)
+print "Connection Successful: Boat Name" + str (ssid)+"IP Address"+str(cpe_ip)
 print "login success"
 ns.statusled(1)
 pos=ns.fromdb()
