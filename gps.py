@@ -26,7 +26,7 @@ while a:
 		#print msg
 		lat=msg.lat
 		lat=pynmea2.dm_to_sd(lat)
-		print type (lat)
+		#print type (lat)
 		lon=msg.lon
 		lon=pynmea2.dm_to_sd(lon)
 		#print lon
