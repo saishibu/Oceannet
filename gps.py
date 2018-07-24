@@ -11,6 +11,7 @@ date=datetime.date.today().strftime("%d_%b_%y")
 ssid=ns.extssid()
 B_ID,CPE_IP=ns.mapip(ssid)
 boat=B_ID
+print CPE_IP
 a=1
 while a:
 	rcv = port.readline()
