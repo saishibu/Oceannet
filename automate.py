@@ -4,10 +4,15 @@ import time
 import datetime
 import RPi.GPIO as GPIO
 date=datetime.date.today().strftime("%d_%b_%y")
+
+from time import mktime
+t =datetime.datetime.now()
+unix_secs = mktime(t.timetuple())
+
 ssid=ns.extssid()
 B_ID,CPE_IP=ns.mapip(ssid)
 boat=B_ID
-cpe_ip=ns.mapip(ssid)
+ID,cpe_ip=ns.mapip(ssid)
 print ssid,cpe_ip
 data=dict()
 diri=""
@@ -36,7 +41,7 @@ while 1:
 		if pos >72:
 			pos=0
 	#Data storage
-	data={'dir':diri,'boat':boat,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance}
+	data={'TIME':unix_secs,'dir':diri,'boat':boat,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance}
 	print data
 	ns.todb(data)
 	ns.breathe(5)
