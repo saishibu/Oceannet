@@ -4,8 +4,8 @@ import time
 import datetime
 import RPi.GPIO as GPIO
 date=datetime.date.today().strftime("%d_%b_%y")
-ssid=ns.extssid()
-boat=ssid+'_'+date
+B_ID,ssid=ns.extssid()
+boat=B_ID
 cpe_ip=ns.mapip(ssid)
 print ssid,cpe_ip
 data=dict()
