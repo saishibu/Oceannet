@@ -32,6 +32,9 @@ def mapip(essid):
 		if row[1]==essid:
 			ID=row[0]
 			ip=row[2]
+		else:
+			ID=0
+			ip="Invalid SSID"
 	return ID,ip
 #sleep function 
 def breathe(t):
