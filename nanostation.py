@@ -55,7 +55,7 @@ def todb(data):
 def fromdb():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
-	cur.execute("SELECT pos FROM proto1  limit 1;")
+	cur.execute("SELECT pos FROM proto1  ORDER BY id DESC LIMIT 1;")
 	pos=cur.fetchall()
 	pos=pos[0]
 	pos=pos[0]
