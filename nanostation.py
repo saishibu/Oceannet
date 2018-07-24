@@ -23,7 +23,7 @@ def extssid():
     	return ssid
 #Map SSID to CPE IP
 def mapip(essid):
-	print type(essid)
+	#print type(essid)
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	cur.execute("SELECT ID,ssid,CPE FROM boat_data;")
