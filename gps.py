@@ -9,7 +9,7 @@ port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 conn=pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
 
-t = datetime.now()
+t = datetime.datetime.now()
 unix_secs = mktime(t.timetuple())
 
 
