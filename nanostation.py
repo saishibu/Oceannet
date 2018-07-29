@@ -48,7 +48,7 @@ def breathe(t):
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
-	cur.execute("INSERT INTO proto1(TIMESTAMP,BOAT, SS, NF, CCQ, D, RSSI, POS, DIR) VALUES(%(TIME)s,%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s);",data)
+	cur.execute("INSERT INTO proto1(TIMESTAMP,BOAT, SS, NF, CCQ, D, RSSI, POS, DIR,frequency,channel,txrate,rxrate) VALUES(%(TIME)s,%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s,%(freq)s,%(channel)s,%(txrate)s,%(rxrate)s);",data)
 	conn.commit()
 	conn.close()
 #read last position from database
@@ -121,7 +121,12 @@ def fetchstatus(cj,opener,ip):
 	noise=json_status['wireless']['noisef']
 	ccq=json_status['wireless']['ccq']
 	distance=json_status['wireless']['distance']
-	return signal,rssi,noise,ccq,distance
+	txrate=json_status['wireless']['txrate']
+	rxrate=json_status['wireless']['rxrate']
+	freq=json_status['wireless']['frequency']
+	channel=json_status['wireless']['channel']
+	
+	return signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel
 #Threshold mapping based on distance
 def thmap(distance):
 	if distance<=1000:
