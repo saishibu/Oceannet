@@ -25,7 +25,7 @@ pos=ns.fromdb()
 while 1:
 	ns.stop()
 	ns.statusled(0)
-	signal,rssi,noise,ccq,distance = ns.fetchstatus(cj,opener,cpe_ip)
+	signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel = ns.fetchstatus(cj,opener,cpe_ip)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
 	ns.rssiled(rssi)
@@ -42,7 +42,7 @@ while 1:
 		if pos >72:
 			pos=0
 	#Data storage
-	data={'TIME':unix_secs,'dir':diri,'boat':boat,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance}
+	data={'TIME':unix_secs,'dir':diri,'boat':boat,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel}
 	print data
 	ns.todb(data)
 	ns.breathe(5)
