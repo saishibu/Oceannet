@@ -28,7 +28,7 @@ while 1:
 	signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel = ns.fetchstatus(cj,opener,cpe_ip)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
-	ns.rssiled(rssi)
+	ns.rssiled(signalinv)
 
 	#automation:
 	if signalinv > th:
