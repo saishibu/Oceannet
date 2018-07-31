@@ -130,7 +130,7 @@ def fetchstatus(cj,opener,ip):
 #Threshold mapping based on distance
 def thmap(distance):
 	if distance<=1000:
-		th=50
+		th=60
 	if 1001<distance<=15000:
 		th=75
 	if 15001<distance<=30000:
