@@ -10,7 +10,8 @@ url_status_bs2='https://192.168.179.66/status.cgi'
 cj1,opener1=ns.login(url_login_bs1)
 cj2,opener2=ns.login(url_login_bs2)
 print 'Login Success'
-while 1:
+a=1
+while a:
 	
 	signal1,rssi1,noise1,ccq1,distance1,devices1 = ns.fetchstatus(cj1,opener1,url_status_bs1)
 	signal2,rssi2,noise2,ccq2,distance2,devices2 = ns.fetchstatus(cj2,opener2,url_status_bs2)
@@ -23,4 +24,5 @@ while 1:
 	print data2	
 	ns.todb(data1)
 	ns.todb(data2)
-	time.sleep(300)
+	#time.sleep(300)
+	a=0
