@@ -1,8 +1,90 @@
 Traceback (most recent call last):
-  File "/home/pi/Oceannet/gps.py", line 5, in <module>
-    port = serial.Serial("/dev/ttyUSB0", baudrate=9600)
-  File "/usr/local/lib/python2.7/dist-packages/serial/serialutil.py", line 240, in __init__
-    self.open()
-  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 268, in open
-    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
-serial.serialutil.SerialException: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 22:51:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 22:52:02 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 20] Not a directory
+Sat 26 May 22:53:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 20] Not a directory
+Sat 26 May 22:54:02 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 20] Not a directory
+Sat 26 May 22:55:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 20] Not a directory
+Sat 26 May 22:56:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 20] Not a directory

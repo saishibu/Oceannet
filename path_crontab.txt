@@ -1,0 +1,3 @@
+PATH= /usr:/usr/bin:/sbin:/usr/bin/python:/usr/lib/python2.7:/home/pi/Oceannet
+*/1 * * * * (/bin/date && /usr/bin/python /home/pi/Oceannet/gps.py) >> /home/pi/Oceannet/log/gps.log 2>&1
+

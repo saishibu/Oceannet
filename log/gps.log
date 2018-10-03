@@ -1,0 +1,1022 @@
+Sat 26 May 22:58:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 22:59:02 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:00:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:01:02 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:02:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:03:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:04:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:05:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:06:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:07:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:08:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:09:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:10:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:11:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:12:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:13:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:14:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:15:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:16:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:17:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 10, in <module>
+    ssid=ns.extssid()
+  File "/home/pi/Oceannet/nanostation.py", line 19, in extssid
+    scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
+  File "/usr/lib/python2.7/subprocess.py", line 212, in check_output
+    process = Popen(stdout=PIPE, *popenargs, **kwargs)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Sat 26 May 23:18:01 IST 2018
+ 
+
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_May_18'}
+GPS Committed
+GPS Updated
+Sat 26 May 23:19:01 IST 2018
+ 
+
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_May_18'}
+GPS Committed
+GPS Updated
+Sat 26 May 23:20:01 IST 2018
+ 
+
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_May_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 15:40:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 15:45:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 15:50:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 15:55:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:00:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:05:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:10:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:15:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:20:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:25:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:30:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:35:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:40:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:45:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:50:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 16:55:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 17:00:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 17:05:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 17:10:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Mon 25 Jun 17:15:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_25_Jun_18'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:20:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:25:01 IST 1980
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 14, in <module>
+    rcv = port.readline()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Tue 26 Jun 10:10:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_Jun_18'}
+GPS Committed
+GPS Updated
+Tue 26 Jun 10:15:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_Jun_18'}
+GPS Committed
+GPS Updated
+Tue 26 Jun 10:20:01 IST 2018
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_26_Jun_18'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:20:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:25:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:30:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:35:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:40:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:45:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:50:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:55:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:00:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:05:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:10:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:15:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:20:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:25:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:30:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:35:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:40:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:45:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:50:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:55:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 07:00:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 07:05:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:20:01 IST 1980
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:25:01 IST 1980
+.800,,
+$N*32
+$GPGGA
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 17, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 1E != 7F', ['05.800', '', '', '', '', '0', '0', '$GPGSA', 'A', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
+Sun  6 Jan 05:30:01 IST 1980
+.799,,
+$GPRM,
+$GPGG,
+$GPGGA
+$GPGSA
+$GPGSV
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:35:01 IST 1980
+,,,,,0
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 05:40:01 IST 1980
+99,,,,
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 05:45:01 IST 1980
+,M,,M,
+$GP,,,
+$GPR06
+M,0.00
+$GPVTG
+$GPGSA
+$GPGSV
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 05:50:01 IST 1980
+799,,,
+$G0.00
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 48 != 3D', ['003205', '0.00', '060180', '', '', 'VTG', '0.00', 'T', '', 'M', '0.00', 'N', '0$GPGGA', '003M', '', 'M', '', ''])
+Sun  6 Jan 05:55:01 IST 1980
+,M,,M,
+$GGSA,
+M,0.00
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 4B != 1B', ['', '', '', '', '', '0.', '', 'N'])
+Sun  6 Jan 06:00:01 IST 1980
+,0,,,M
+$GPGSA
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 14, in <module>
+    rcv = port.readline()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Sun  6 Jan 06:05:01 IST 1980
+800,,,
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 06:10:01 IST 1980
+0,,,,,
+$GPV00
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 06:15:01 IST 1980
+800,,,
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 32 != 53', ['', '', '0.00', '0.00', '06GPVTG', '0.00', 'T', '', 'M', '0.00', 'N', '0.00', 'K', 'N'])
+Sun  6 Jan 06:20:01 IST 1980
+,,M,,M
+$G,A,1
+$GPVTG
+$GPGGA
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 17, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 1E != 5D', ['01', '', '', '', '0', '$GPGSA', 'A', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
+Sun  6 Jan 06:25:01 IST 1980
+
+
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 06:30:01 IST 1980
+00,,,,
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 14, in <module>
+    rcv = port.readline()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Sun  6 Jan 06:35:01 IST 1980
+,M,,M,
+$GP,,,
+$GP,,,
+$GP,,,
+$GPGSA
+$GPVTG
+$GPGGA
+$GPGSA
+$GPGSV
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 06:40:01 IST 1980
+0,,,M,
+,,,,,,
+$0,V,,
+$GPT,,
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 06:45:01 IST 1980
+,0,,,M
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 06:50:01 IST 1980
+800,,,
+A,0132
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 46 != 61', ['013200', '0.00', '060180', '', '00', 'T', '', 'M', '0.00', 'N', '$GPGGA', '01320', '0', '', '', 'M', '', 'M', '', ''])
+Sun  6 Jan 06:55:01 IST 1980
+00,,,,
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 07:00:01 IST 1980
+0,,,M,
+$,,,,,
+$0,V,,
+$GPVTG
+0,,,,,
+$0,N,0
+$GPGSA
+$GPGSV
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 07:05:01 IST 1980
+0,,,M,
+00,V,,
+$GPVTG
+GPGGA,
+A,,*1E
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 32 != 08', ['0', '0.00', '0.00', '0601TG', '0.00', 'T', '', 'M', '0.0', 'N'])
+Sun  6 Jan 07:10:01 IST 1980
+,,,0,0
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 07:15:01 IST 1980
+,,0,0,
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 07:20:01 IST 1980
+,M,,M,
+$GP,,,
+$GP,V,
+$GP,,,
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 46 != 0A', ['020200', '0.00', '060180', 'PVTG', '0.00', 'T', '', 'M', '0.00', '$GPGGA', '020', '0', '', '', 'M', '', 'M', '', ''])
+Sun  6 Jan 07:25:01 IST 1980
+0,,,,,
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 07:30:01 IST 1980
+,,M,,M
+$GP,,,
+$GPV,,
+$GPVTG
+$GP,,,
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 26, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 47 != 2E', ['021.00', '0.00', '060180', '', '0.00', 'T', '', 'M', '0.00', '$GPGGA', '02', '', '', 'M', '', 'M', '', ''])
+Sun  6 Jan 07:35:01 IST 1980
+799,,,
+$G0.00
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 07:40:01 IST 1980
+,,,,,0
+$GPVTG
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 07:45:01 IST 1980
+,1,,,,
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 05:20:01 IST 1980
+,,0,0,
+$GPVTG
+$GPGSA
+$GPRMC
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed}
+NameError: name 'lat' is not defined
+Sun  6 Jan 05:25:01 IST 1980
+0,0,,,
+$GPVTG
+A,0007
+$GPGSA
+$GPRM0
+$GPVTG
+$GPGGA
+$GPGSA
+$GPGSV
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'amit_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:30:01 IST 1980
+0,,,M,
+,,,,,,
+9,V,,,
+$GPVT,
+$GPVTG
+$GPGGA
+$GPGSA
+$GPGSV
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'jio_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:35:03 IST 1980
+$GPGGA
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 17, in <module>
+    msg=pynmea2.parse(rcv)
+  File "/usr/local/lib/python2.7/dist-packages/pynmea2/nmea.py", line 116, in parse
+    'checksum does not match: %02X != %02X' % (cs1, cs2), data)
+pynmea2.nmea.ChecksumError: ('checksum does not match: 4F != 46', ['001706.790', '', '', 'M', '', 'M', '', ''])
+Sun  6 Jan 05:40:01 IST 1980
+ 
+
+$GPGGA
+$GPGSA
+$GPRMC
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'BOAT': 'jio_06_Jan_80'}
+GPS Committed
+GPS Updated
+Sun  6 Jan 05:45:01 IST 1980
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 32, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
+NameError: name 'temp' is not defined
+Sun  6 Jan 05:50:02 IST 1980
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 32, in <module>
+    data={'BOAT':boat,'lat':lat,'lon':lon,'speed':speed,'temp':temp}
+NameError: name 'temp' is not defined
+Sun  6 Jan 05:55:02 IST 1980
+  File "/home/pi/Oceannet/gps.py", line 31
+    temp=subprocess.call(['sudo', 'vcgencmd ', 'measure_temp')
+                                                             ^
+SyntaxError: invalid syntax
+Sun  6 Jan 06:00:01 IST 1980
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    temp=subprocess.Popen(['sudo''/opt/vc/bin/vcgencmd ', 'measure_temp'],stdout=subprocess.PIPE)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Fri 29 Jun 11:05:01 IST 2018
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 31, in <module>
+    temp=subprocess.Popen(['vcgencmd ', 'measure_temp'],stdout=subprocess.PIPE)
+  File "/usr/lib/python2.7/subprocess.py", line 390, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1024, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+Fri 29 Jun 11:10:01 IST 2018
+<bound method RaspberryPiVcgencmd.get_cpu_temp of <RaspberryPiVcgencmd.RaspberryPiVcgencmd.RaspberryPiVcgencmd instance at 0xb6590ee0>>
+{'lat': 0.0, 'speed': 0.0, 'lon': 0.0, 'temp': <bound method RaspberryPiVcgencmd.get_cpu_temp of <RaspberryPiVcgencmd.RaspberryPiVcgencmd.RaspberryPiVcgencmd instance at 0xb6590ee0>>, 'BOAT': 'jio_29_Jun_18'}
+Traceback (most recent call last):
+  File "/home/pi/Oceannet/gps.py", line 38, in <module>
+    cur.execute("INSERT INTO gps_log(BOAT,LAT,LON,Speed,temp) VALUES (%(BOAT)s,%(lat)s,%(lon)s,%(speed)s,%(temp)s);",data)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 163, in execute
+    query = self.mogrify(query, args)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 142, in mogrify
+    query = query % self._escape_args(args, conn)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 122, in _escape_args
+    return dict((key, conn.literal(val)) for (key, val) in args.items())
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 122, in <genexpr>
+    return dict((key, conn.literal(val)) for (key, val) in args.items())
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 819, in literal
+    return self.escape(obj, self.encoders)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 812, in escape
+    return converters.escape_item(obj, self.charset, mapping=mapping)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/converters.py", line 27, in escape_item
+    val = encoder(val, mapping)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/converters.py", line 118, in escape_unicode
+    return u"'%s'" % _escape_unicode(value)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/converters.py", line 73, in _escape_unicode
+    return value.translate(_escape_table)
+AttributeError: 'function' object has no attribute 'translate'

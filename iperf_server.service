@@ -1,0 +1,13 @@
+[Unit]
+Description= iPerf3 startup Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/Oceannet/iperf-server.py
+
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
