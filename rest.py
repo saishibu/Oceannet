@@ -17,14 +17,22 @@ def bs1():
 	cur = mysql.connect().cursor()
 	cur.execute('select * from basestation where bs=100  ORDER BY id DESC LIMIT 1 ')
 	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-	return jsonify({'Recent data' : r})
+	return jsonify({'Recent data from Base station 1' : r})
 
 @app.route('/bs2')
 def bs2():
         cur = mysql.connect().cursor()
         cur.execute('select * from basestation where bs=66  ORDER BY id DESC LIMIT 1 ')
         r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-        return jsonify({'Recent data' : r})
+        return jsonify({'Recent data from Base Station 2' : r})
+
+@app.route('/dev')
+def dev():
+        cur = mysql.connect().cursor()
+        cur.execute('select * from basestation where devices>0')
+        r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+        return jsonify({'Last connected device' : r})
+
 
 
 if __name__ == '__main__':
