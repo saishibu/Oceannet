@@ -38,6 +38,6 @@ def fetchstatus(cj,opener,url,ip_bs):
 	devices=json_status['wireless']['count']
 	deviceIp=ip_bs
 	
-	data= {"rcvdsgnl":rcvdsgnl,"ccq":ccq,"distance":distance,"frequency":frequency,"channel":channel,"noisefloor":noisefloor,"quality":quality,"txrate":txrate,"rxrate":rxrate,"devices":devices,"deviceIp":deviceIp} 
+	data= {"rcvdsgnl":rcvdsgnl,"ccq":ccq,"distance":distance,"capacity":capacity,"frequency":frequency,"channel":channel,"noisefloor":noisefloor,"quality":quality,"txrate":txrate,"rxrate":rxrate,"devices":devices,"deviceIp":deviceIp} 
 	todb(data)
 	return data
