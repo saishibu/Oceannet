@@ -16,7 +16,7 @@ a=1
 while a:
 	
 	data1 = ns.fetchstatus(cj1,opener1,url_status_bs1,ip_bs1)
-	data2 = ns.fetchstatus(cj2,opener2,url_status_bs2,ip_bs1)
+	data2 = ns.fetchstatus(cj2,opener2,url_status_bs2,ip_bs2)
 	print ('Data Fetch completed')
 	
 	print (data1)
