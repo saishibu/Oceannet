@@ -3,7 +3,7 @@ import ssl,json,time
 import pymysql
 
 def todb(data):
-	conn =pymysql.connect(database="micronet",user="root",password="amma",host="localhost")
+	conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	#cur.execute("INSERT INTO basestation(bs_ID, ss, nf, ccq, d, rssi, devices) VALUES(%(bs_ID)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s),%(devices)s);",data)
 	cur.execute("INSERT INTO bsparam(rcvdsgnl,ccq,distance,frequency,channel,noisefloor,txrate,rxrate,quality,capacity,deviceIp) VALUES(%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(bs_ID)s,%(rssi)s,%(devices)s);",data)
