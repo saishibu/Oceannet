@@ -3,10 +3,10 @@ import ssl,json,time
 import pymysql
 
 def todb(data):
-	conn =pymysql.connect(database="Oceannet",user="root",password="amma",host="localhost")
+	conn =pymysql.connect(database="micronet",user="root",password="amma",host="localhost")
 	cur=conn.cursor()
 	#cur.execute("INSERT INTO basestation(bs_ID, ss, nf, ccq, d, rssi, devices) VALUES(%(bs_ID)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s),%(devices)s);",data)
-	cur.execute("INSERT INTO basestation(ss,nf,ccq,d,bs,rssi,devices) VALUES(%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(bs_ID)s,%(rssi)s,%(devices)s);",data)
+	cur.execute("INSERT INTO bsparam(rcvdsgnl,ccq,distance,frequency,channel,noisefloor,txrate,rxrate,quality,capacity,deviceIp) VALUES(%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(bs_ID)s,%(rssi)s,%(devices)s);",data)
 	conn.commit()
 	conn.close()
 
@@ -19,14 +19,25 @@ def login(url):
 	r=opener.open(url,login_data)
 	return cj,opener
 #Fetch Status from Nanostation
-def fetchstatus(cj,opener,url):
+def fetchstatus(cj,opener,url,ip_bs):
 	status_page=opener.open(url)
 	status=status_page.read()
 	json_status=json.loads(status)
-	signal=json_status['wireless']['signal']
-	rssi=json_status['wireless']['rssi']
-	noise=json_status['wireless']['noisef']
+	
+	rcvdsgnl=json_status['wireless']['signal']
+	#rssi=json_status['wireless']['rssi']
 	ccq=json_status['wireless']['ccq']
 	distance=json_status['wireless']['distance']
+	frequency=json_status['wireless']['frequency'].replace("MHz","")
+	channel=json_status['wireless']['channel']
+	noisefloor=json_status['wireless']['noisef']
+	quality=json_status['wireless']['polling']['quality']
+	capacity=json_status['wireless']['polling']['capacity']
+	txrate=json_status['wireless']['txrate']
+	rxrate=json_status['wireless']['rxrate']
 	devices=json_status['wireless']['count']
-	return signal,rssi,noise,ccq,distance,devices
+	deviceIp=ip_bs
+	
+	data= {"rcvdsgnl":rcvdsgnl,"ccq":ccq,"distance":distance,"frequency":frequency,"channel":channel,"noisefloor":noisefloor,"quality":quality,"txrate":txrate,"rxrate":rxrate,"devices":devices,"deviceIp":deviceIp} 
+	todb(data)
+	return data
