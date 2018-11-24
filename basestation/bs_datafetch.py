@@ -2,8 +2,8 @@
 import basestation as ns
 import time
 
-ip_bs1=192.168.179.100
-ip_bs1=192.168.179.66
+ip_bs1="192.168.179.100"
+ip_bs1="192.168.179.66"
 url_login_bs1='https://192.168.179.100/login.cgi'
 url_status_bs1='https://192.168.179.100/status.cgi'
 url_login_bs2='https://192.168.179.66/login.cgi'
