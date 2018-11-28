@@ -23,7 +23,7 @@ result = client.run()
 if result.error:
 	print(result.error)
 else:
-	data= {"protocol":client.protocol,"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"kBps":result.Mbps,"mbps":result.MB_s"deviceIp":client.server_hostname} 
+	data= {"protocol":client.protocol,"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"kBps":result.Mbps,"mbps":result.MB_s,"deviceIp":client.server_hostname} 
 	#cur.execute("INSERT INTO bsparam(protocol,txBytes,jitter,avgCpuLoad,kBps,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(jitter)s,%(avgCpuLoad)s,%(kBps)s,%(mbps)s,%(deviceIp)s);",data)
 	#conn.commit()
 	#conn.close()
