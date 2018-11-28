@@ -1,102 +1,75 @@
-#!/usr/bin/python           # This is server.py file
+#!/usr/bin/env python3
 
 import iperf3
-from time import sleep, strftime, time   #log the date and time while getting the CPU iperf3
-with open("/home/dhaneshraj/Oceannet/basestation/iPerf3/temp.csv", "a") as log: #creates a new file called cpu_temp.csv and opens it with the name log.
-	client = iperf3.Client()
-	client.duration = 5
-	client.server_hostname = '127.0.0.1' #Change the IP address of the Boat Device
-	client.port = 5001
-	client.blksize =  1000
-	client.reverse =  True
-	client.num_streams = 2
-	client.protocol = 'udp'
-	client.json_output = False
-	print('Connecting to {0}:{1}'.format(client.server_hostname, client.port))
-	result = client.run()
-		#print(type(result.decode()))
-	if result.error:
-	   print(result.error)
-	else:
-		print('STARTING THE IPERF UDP TEST ')
-		print('Test completed:')
-		print('  started at         {0}'.format(result.time))
-		print('  bytes transmitted  {0}'.format(result.bytes))
-		print('  jitter (ms)        {0}'.format(result.jitter_ms))
-		print('  avg cpu load       {0}%\n'.format(result.local_cpu_total))
-		print('  lost packets       {0} PACKETS\n'.format(result.lost_packets))
-		print('  lost percent      {0} PERCENTAGE\n'.format(result.lost_percent))
-		print(' Average transmitted data in all sorts of network formats: \n')
-		print('  Megabits per second  (Mbps)  {0}\n'.format(result.Mbps))
-		print('  MegaBytes per second (MB/s)  {0}\n'.format(result.MB_s))
-		print('==========================================================')
-					# client.blksize =  1000
-					# client.reverse =  True
-					# client.num_streams = 2
-			# client.protocol = 'tcp'
-					# # client.json_output = False
-					# # print('Connecting to {0}:{1}'.format(client.server_hostname, client.port))
-			# result = client.run()
-					# #if result.error:
-					# #	print(result.error)
-					# #else:
-			# print('STARTING THE IPERF TCP TEST ')
-			# print('Test completed:')
-			# print('  Sent Bytes        {0}'.format(result.sent_bytes))
-			# print('  Sent MB/s  {0}'.format(result.sent_Mbps))
-			# print('  Sent Mb/s        {0}'.format(result.sent_MB_s))
-			# print('  Sent Bytes      {0}%\n'.format(result.received_bytes))
-			# print('  Received Packets Mbps      {0} PACKETS\n'.format(result.received_Mbps ))
-			# print('  Received Packets in MB/s {0} \n'.format(result.received_MB_s))
-					
-					
-			
+import urllib, urllib2, cookielib
+import ssl,json,time
+import pymysql
 
+def todb(data):
+	conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("INSERT INTO bsparam(rcvdsgnl,ccq,distance,frequency,channel,noisefloor,txrate,rxrate,quality,capacity,deviceIp,devices) VALUES(%(rcvdsgnl)s,%(ccq)s,%(distance)s,%(frequency)s,%(channel)s,%(noisefloor)s,%(txrate)s,%(rxrate)s,%(quality)s,%(capacity)s,%(deviceIp)s,%(devices)s);",data)
+	conn.commit()
+	conn.close()
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		# client.json_output = False
-		# if result.error:
-			# print(result.error)
-		# else:
-			# print('')
-			# print('Test completed:')
-			# with open("/home/dhaneshraj/Oceannet/basestation/iPerf3/temp.csv", "a") as log:
-				# while True:
-					# time1 = result.time
-					# byte_tx = result.bytes.decode()
-					# log.write("{0},{1}\n".format(strftime("%Y-%m-%d %H:%M:%S"),str(time),str(bytes)))
-					# sleep(1)	
-					
-					# print('  started at         {0}'.format(result.time))
-					# print('  bytes transmitted  {0}'.format(result.bytes))
-					# print('  jitter (ms)        {0}'.format(result.jitter_ms))
-					# print('  avg cpu load       {0}%\n'.format(result.local_cpu_total))
-					# print('  lost packets       {0} PACKETS\n'.format(result.lost_packets))
+def login(url):
+	ssl._create_default_https_context = ssl._create_unverified_context
+	cj=cookielib.CookieJar()
+	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+	r=opener.open(url)
+	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
+	r=opener.open(url,login_data)
+	return cj,openers
 
-					# print('Average transmitted data in all sorts of networky formats:')
-					# # print('  Kilobits per second  (kbps)  {0}'.format(result.kbps))
-					# print('  Megabits per second  (Mbps)  {0}'.format(result.Mbps))
-					# # print('  KiloBytes per second (kB/s)  {0}'.format(result.kB_s))
-					# # print('  MegaBytes per second (MB/s)  {0}'.format(result.MB_s))
+client = iperf3.Client()
+client.duration = 1
+client.server_hostname = '127.0.0.1'
+client.port = 5001
+client.protocol = 'udp'
+client.blksize = 2000
+client.num_streams = 10
+client.reverse = True
+
+print('Connecting to {0}:{1}'.format(client.server_hostname, client.port))
+result = client.run()
+
+if result.error:
+    print(result.error)
+else:
+    print('')
+    print('Test completed:')
+    print('  started at         {0}'.format(result.time))
+    print('  bytes transmitted  {0}'.format(result.bytes))
+    print('  jitter (ms)        {0}'.format(result.jitter_ms))
+    print('  avg cpu load       {0}%\n'.format(result.local_cpu_total))
+
+    print('Average transmitted data in all sorts of networky formats:')
+    print('  bits per second      (bps)   {0}'.format(result.bps))
+    print('  Kilobits per second  (kbps)  {0}'.format(result.kbps))
+    print('  Megabits per second  (Mbps)  {0}'.format(result.Mbps))
+    print('  KiloBytes per second (kB/s)  {0}'.format(result.kB_s))
+    print('  MegaBytes per second (MB/s)  {0}'.format(result.MB_s))
+#Fetch Status from Nanostation
+def fetchstatus(cj,opener,url,ip_bs):
+	status_page=opener.open(url)
+	status=status_page.read()
+	json_status=json.loads(status)
+	
+	rcvdsgnl=json_status['wireless']['signal']
+	#rssi=json_status['wireless']['rssi']
+	ccq=json_status['wireless']['ccq']
+	distance=json_status['wireless']['distance']
+	frequency=json_status['wireless']['frequency'].replace("MHz","")
+	channel=json_status['wireless']['channel']
+	noisefloor=json_status['wireless']['noisef']
+	quality=json_status['wireless']['polling']['quality']
+	capacity=json_status['wireless']['polling']['capacity']
+	txrate=json_status['wireless']['txrate']
+	rxrate=json_status['wireless']['rxrate']
+	devices=json_status['wireless']['count']
+	deviceIp=ip_bs
+
+	data= {"timestamp":time,"Bytes Transmitted":bytes,"Jitter(ms)":jitter_ms,"Avg CPU Load":local_cpu_total,"Megabits per second  (Mbps)  (kbps)":kbps,"KiloBytes per second (kB/s)":MB_s,"deviceIp":deviceIp} 
+	todb(data)
+	return data   
+print('Success Fetch Status')
