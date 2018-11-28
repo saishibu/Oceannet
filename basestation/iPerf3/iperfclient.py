@@ -69,7 +69,7 @@ def fetchstatus(cj,opener,url,ip_bs):
 	devices=json_status['wireless']['count']
 	deviceIp=ip_bs
 
-	data= {"timestamp":time,"Bytes Transmitted":bytes,"Jitter(ms)":jitter_ms,"Avg CPU Load":local_cpu_total,"Megabits per second  (Mbps)  (kbps)":kbps,"KiloBytes per second (kB/s)":MB_s,"deviceIp":deviceIp} 
+	data= {"timestamp":time,"BytesTransmitted":bytes,"Jitter":jitter_ms,"AvgCPULoad":local_cpu_total,"Kilobitspersecond(kbps):kbps,"KiloBytes per second (kB/s)":MB_s,"deviceIp":deviceIp} 
 	todb(data)
 	return data   
 print('Success Fetch Status')
