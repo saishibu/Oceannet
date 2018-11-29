@@ -1,4 +1,4 @@
-#!/usr/bin/python           # This is server.py file
+#!/usr/bin/python3           # This is server.py file
 
 import iperf3
 print("Starting IPERF SERVER ")
