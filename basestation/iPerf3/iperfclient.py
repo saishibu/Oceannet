@@ -5,8 +5,8 @@ import urllib, urllib2, cookielib
 import ssl,json,time
 #import pymysql
 
-#conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
-#cur=conn.cursor()
+conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
+cur=conn.cursor()
 
 client = iperf3.Client()
 client.duration = 1
@@ -23,10 +23,10 @@ result = client.run()
 if result.error:
 	print(result.error)
 else:
-	data= {"protocol":client.protocol.decode(),"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"MBps":result.Mbps,"mbps":result.MB_s,"deviceIp":client.server_hostname} 
-	#cur.execute("INSERT INTO bsparam(protocol,txBytes,jitter,avgCpuLoad,kBps,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(jitter)s,%(avgCpuLoad)s,%(kBps)s,%(mbps)s,%(deviceIp)s);",data)
-	#conn.commit()
-	#conn.close()
+	data= {"protocol":client.protocol.decode(),"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"MB_s":result.MB_ps,"mbps":result.Mbps,"deviceIp":client.server_hostname} 
+	cur.execute("INSERT INTO bsparam(protocol,txBytes,jitter,avgCpuLoad,MB_s,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(jitter)s,%(avgCpuLoad)s,%(MB_s)s,%(mbps)s,%(deviceIp)s);",data)
+	conn.commit()
+	conn.close()
 
 print('Success Fetch Status')
 print(data)
