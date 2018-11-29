@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import iperf3
 import urllib, urllib2, cookielib
