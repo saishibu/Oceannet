@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import iperf3
-
 import json,time
-#import pymysql
+import pymysql
 
 conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
 cur=conn.cursor()
