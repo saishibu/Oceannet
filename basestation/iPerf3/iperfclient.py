@@ -22,10 +22,10 @@ result = client.run()
 if result.error:
 	print(result.error)
 else:
+	
 	data= {"protocol":str(client.protocol),"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"MB_s":result.MB_s,"mbps":result.Mbps,"deviceIp":client.server_hostname} 
+	print('Success Fetch Status')
+	print(data)
 	cur.execute("INSERT INTO bsparam(protocol,txBytes,jitter,avgCpuLoad,MB_s,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(jitter)s,%(avgCpuLoad)s,%(MB_s)s,%(mbps)s,%(deviceIp)s);",data)
 	conn.commit()
 	conn.close()
-
-print('Success Fetch Status')
-print(data)
