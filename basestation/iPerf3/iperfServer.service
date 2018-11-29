@@ -1,0 +1,13 @@
+[Unit]
+Description= iPerf3 Server startup Service
+After=mysql.service network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=Oceannet/basestation/iPerf3/iperfserver.py
+
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
