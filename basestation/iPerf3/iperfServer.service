@@ -5,7 +5,7 @@ After=mysql.service network.target
 [Service]
 Type=simple
 User=root
-ExecStart=Oceannet/basestation/iPerf3/iperfserver.py
+ExecStart=/usr/bin/python3 Oceannet/basestation/iPerf3/iperfserver.py
 
 Restart=on-abort
 
