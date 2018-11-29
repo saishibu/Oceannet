@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 import iperf3
-import urllib, urllib2, cookielib
-import ssl,json,time
+
+import json,time
 #import pymysql
 
 conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
