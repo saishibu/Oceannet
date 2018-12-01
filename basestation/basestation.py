@@ -50,4 +50,4 @@ def clientlist(cj,opener,url,ip_bs):
 	if(json_status[0]==null):
 		print("ill")
 	else:
-		print(json_status[0]
+		print(json_status[0])
