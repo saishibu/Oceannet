@@ -47,5 +47,5 @@ def clientlist(cj,opener,url,ip_bs):
 	clientlist=opener.open(url)
 	client=clientlist.read()
 	json_status=json.loads(client)
-	return json_status
+	return json_status[]
 	
