@@ -47,9 +47,9 @@ def clientlist(cj,opener,url,ip_bs):
 	clientlist=opener.open(url)
 	client=clientlist.read()
 	json_client=json.loads(client)
-	json_client=json_client[0]
 	if(json_client==[]):
 		print("null")
 	else:
-		data={"mac":json_client['mac']}
+		json_client=json_client[0]
+		data={"mac":json_client['mac'],"ip":json_client['lastip'],"ip":json_client['lastip'],"signal":json_client['signal']}
 		print(data)
