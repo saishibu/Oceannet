@@ -47,6 +47,7 @@ def clientlist(cj,opener,url,ip_bs):
 	clientlist=opener.open(url)
 	client=clientlist.read()
 	json_status=json.loads(client)
-	print (json_status)
-	return "Test"
-	
+	if(json_status[0]==null):
+		print("ill")
+	else:
+		print(json_status[0]
