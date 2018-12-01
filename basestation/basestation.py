@@ -41,3 +41,11 @@ def fetchstatus(cj,opener,url,ip_bs):
 	data= {"rcvdsgnl":rcvdsgnl,"ccq":ccq,"distance":distance,"capacity":capacity,"frequency":frequency,"channel":channel,"noisefloor":noisefloor,"quality":quality,"txrate":txrate,"rxrate":rxrate,"devices":devices,"deviceIp":deviceIp} 
 	todb(data)
 	return data
+
+
+def clientlist(cj,opener,url,ip_bs):
+	clientlist=opener.open(url)
+	client=clientlist.read()
+	json_status=json.loads(client)
+	return json_status
+	
