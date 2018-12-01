@@ -54,7 +54,7 @@ def clientlist(cj,opener,url,ip_bs):
 		print("null")
 	else:
 		json_client=json_client[0]
-		data={"mac":json_client['mac'],"ip":json_client['lastip'],"ip":json_client['lastip'],"signal":json_client['signal'],"ccq":json_client['ccq'],"name":json_client['name'],"noisefloor":json_client['noisefloor'],"tx":json_client['tx'],"rx":json_client['rx']}
+		data={"mac":json_client['mac'],"ip":json_client['lastip'],"ip":json_client['lastip'],"signal":json_client['signal'],"ccq":json_client['ccq'],"name":json_client['name'],"noisefloor":json_client['noisefloor'],"tx":json_client['tx'],"rx":json_client['rx'], "distance":json_client['distance']}
 		
 		print(data)
 		todb(data,2)
