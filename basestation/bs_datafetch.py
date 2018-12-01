@@ -25,8 +25,8 @@ client2= ns.clientlist(cj2,opener2,url_status_bs2,ip_bs2)
 
 
 print ('Data Fetch completed')
-print (data1)
-print (data2)
+#print (data1)
+#print (data2)
 
-print (client1)
-print (client2)
+#print (client1)
+#print (client2)
