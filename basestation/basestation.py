@@ -9,7 +9,7 @@ def todb(data,dev):
 	if dev==1:
 		cur.execute("INSERT INTO bsparam(rcvdsgnl,ccq,distance,frequency,channel,noisefloor,txrate,rxrate,quality,capacity,deviceIp,devices) VALUES(%(rcvdsgnl)s,%(ccq)s,%(distance)s,%(frequency)s,%(channel)s,%(noisefloor)s,%(txrate)s,%(rxrate)s,%(quality)s,%(capacity)s,%(deviceIp)s,%(devices)s);",data)
 	elif dev==2:
-		cur.execute("INSERT INTO clientparam(ip,name,mac,rx,tx,signalst,ccq,noisefloor) VALUES (%(ip)s,%(name)s,%(mac)s,%(rx)s,%(tx)s,%(signal)s,%(ccq)s,%(noisefloor)s);",data)
+		cur.execute("INSERT INTO clientparam(ip,name,mac,rx,tx,signalst,ccq,noisefloor,distance) VALUES (%(ip)s,%(name)s,%(mac)s,%(rx)s,%(tx)s,%(signal)s,%(ccq)s,%(noisefloor)s,%(distance)s);",data)
 	conn.commit()
 	conn.close()
 
