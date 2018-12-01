@@ -46,8 +46,9 @@ def fetchstatus(cj,opener,url,ip_bs):
 def clientlist(cj,opener,url,ip_bs):
 	clientlist=opener.open(url)
 	client=clientlist.read()
-	json_status=json.loads(client)
-	if(json_status==[]):
+	json_client=json.loads(client)
+	if(json_client==[]):
 		print("null")
 	else:
-		print(json_status[0])
+		data={"mac":json_client['mac']}
+		print(data)
