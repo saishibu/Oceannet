@@ -6,9 +6,9 @@ def todb(data,dev):
 	conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	#cur.execute("INSERT INTO basestation(bs_ID, ss, nf, ccq, d, rssi, devices) VALUES(%(bs_ID)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s),%(devices)s);",data)
-	if dev=1:
+	if dev==1:
 		cur.execute("INSERT INTO bsparam(rcvdsgnl,ccq,distance,frequency,channel,noisefloor,txrate,rxrate,quality,capacity,deviceIp,devices) VALUES(%(rcvdsgnl)s,%(ccq)s,%(distance)s,%(frequency)s,%(channel)s,%(noisefloor)s,%(txrate)s,%(rxrate)s,%(quality)s,%(capacity)s,%(deviceIp)s,%(devices)s);",data)
-	elif dev=2:
+	elif dev==2:
 		cur.execute("INSERT INTO clientparam(ip,name,mac,rx,tx,signalst,ccq,noisefloor) VALUES (%(ip)s,%(name)s,%(mac)s,%(rx)s,%(tx)s,%(signal)s,%(ccq)s,%(noisefloor)s;",data)
 	conn.commit()
 	conn.close()
