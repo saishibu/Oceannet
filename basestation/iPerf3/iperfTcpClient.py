@@ -22,16 +22,16 @@ if result.error:
 	print(result.error)
 else:
 
-	print('')
-	print('Test Completed')
-	print('Send Megabits per second {0}'.format(result.sent_Mbps))
-	print('Send Megabits per second {0}'.format(result.sent_MB_s))
-	print('Received Megabits per second- BitRate {0}'.format(result.received_Mbps))
-	print('Received Megabits per second {0}'.format(result.sent_MB_s))
-	data= {"protocol":str(client.protocol),"sentMbps":result.sent_Mbps,"sentMB_S":result.sent_MB_s,"receivedMbps":result.received_Mbps,"receivedMB_s":result.received_MB_s,"deviceIp":client.server_hostname} 
+	# print('')
+	# print('Test Completed')
+	# print('Send Megabits per second {0}'.format(result.sent_Mbps))
+	# print('Send Megabits per second {0}'.format(result.sent_MB_s))
+	# print('Received Megabits per second- BitRate {0}'.format(result.received_Mbps))
+	# print('Received Megabits per second {0}'.format(result.sent_MB_s))
+	data1 = {"protocol":str(client.protocol),"sentMbps":result.sent_Mbps,"sentMbs":result.sent_MB_s,"receivedMbps":result.received_Mbps,"receivedMbs":result.received_MB_s,"deviceIp":client.server_hostname} 
 	print('Success Fetch Status')
-	print(data)
-	cur.execute("INSERT INTO iperftcp(protocol,sentMbps,sentMB_S,receivedMbps,receivedMB_s,deviceIp) VALUES(%(protocol)s,%(sentMbps)s,%(sentMB_S)s,%(receivedMbps)s,%(receivedMB_s)s,%(deviceIp)s);",data)
+	print(data1)
+	cur.execute("INSERT INTO iperftcp(protocol,sentMbps,sentMbs,receivedMbps,receivedMbs,deviceIp) VALUES(%(protocol)s,%(sentMbps)s,%(sentMbs)s,%(receivedMbps)s,%(receivedMbs)s,%(deviceIp)s);",data1)
 	conn.commit()
 	conn.close()
 
