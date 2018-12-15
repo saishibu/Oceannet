@@ -1,3 +1,6 @@
 [submodule "RaspberryPiVcgencmd"]
 	path = RaspberryPiVcgencmd
 	url = https://github.com/chewett/RaspberryPiVcgencmd
+[submodule "OceanNetBoat"]
+	path = OceanNetBoat
+	url = https://gitlab.com/rguntha/OceanNetBoat.git
