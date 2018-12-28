@@ -1,0 +1,5 @@
+Commands to interact with service OceanNetBoatTracking
+Start   - "sudo service OceanNetBoatTracking start"
+Stop    - "sudo service OceanNetBoatTracking stop"
+Status  - "sudo service OceanNetBoatTracking status"
+Restart - "sudo service OceanNetBoatTracking restart"

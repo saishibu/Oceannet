@@ -1,0 +1,20 @@
+{
+  "env":"production",
+  "development": {
+    "server":"http://172.20.5.100:3030"
+  },
+  "production": {
+    "server":"http://oceannet.amrita.edu"
+  },
+  "connectionLimit" : 10,
+  "username": "on",
+  "password": "amma",
+  "database": "autosys",
+  "host": "127.0.0.1",
+  "dialect": "mysql",
+  "timezone":"+05:30",
+  "baudRate":9600,
+  "serialPortName": "/dev/ttyUSB0",
+  "userName":"rameshg",
+  "boatName":"OceanNet"
+}
