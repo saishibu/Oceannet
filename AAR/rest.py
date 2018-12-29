@@ -9,7 +9,7 @@ urls=("/favicon.ico","dummy")
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'on'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'amma'
-app.config['MYSQL_DATABASE_DB'] = 'Oceannet'
+app.config['MYSQL_DATABASE_DB'] = 'autosys'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 mysql.init_app(app)
