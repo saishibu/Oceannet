@@ -7,12 +7,22 @@ app = Flask(__name__)
 mysql = MySQL()
 urls=("/favicon.ico","dummy")
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_USER'] = 'on'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'amma'
 app.config['MYSQL_DATABASE_DB'] = 'Oceannet'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 mysql.init_app(app)
+
+
+@app.route('/aar')
+def aar():
+	cur = mysql.connect().cursor()
+	cur.execute('select * from proto1 ORDER BY id DESC LIMIT 1 ')
+	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+	return jsonify({'Recent data' : r})
+
+
 
 @app.route('/bs1')
 def bs1():
