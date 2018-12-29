@@ -31,7 +31,7 @@ else:
 	data1 = {"protocol":str(client.protocol),"sentMbps":result.sent_Mbps,"sentMbs":result.sent_MB_s,"receivedMbps":result.received_Mbps,"receivedMbs":result.received_MB_s,"deviceIp":client.server_hostname} 
 	print('Success Fetch Status')
 	print(data1)
-	cur.execute("INSERT INTO iperftcp(protocol,sentMbps,sentMbs,receivedMbps,receivedMbs,deviceIp) VALUES(%(protocol)s,%(sentMbps)s,%(sentMbs)s,%(receivedMbps)s,%(receivedMbs)s,%(deviceIp)s);",data1)
+	cur.execute("INSERT INTO iperf(protocol,sentMbps,sentMbs,receivedMbps,receivedMbs,deviceIp) VALUES(%(protocol)s,%(sentMbps)s,%(sentMbs)s,%(receivedMbps)s,%(receivedMbs)s,%(deviceIp)s);",data1)
 	conn.commit()
 	conn.close()
 
