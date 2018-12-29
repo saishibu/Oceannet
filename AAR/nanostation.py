@@ -28,6 +28,7 @@ def mapip(essid):
 	cur=conn.cursor()
 	cur.execute("SELECT ID,ssid,CPE FROM boat_data;")
 	data=cur.fetchall()
+	ID=0
 	for row in data:
 		if row[1]==essid:
 			ID=row[0]
