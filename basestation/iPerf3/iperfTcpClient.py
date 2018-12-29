@@ -4,7 +4,7 @@ import iperf3
 import json,time
 import pymysql
 
-conn =pymysql.connect(database="micronet",user="on",password="amma@123",host="localhost")
+conn =pymysql.connect(database="micronet",user="on",password="amma",host="localhost")
 cur=conn.cursor()
 
 client = iperf3.Client()
