@@ -28,10 +28,10 @@ else:
 	# print('Send Megabits per second {0}'.format(result.sent_MB_s))
 	# print('Received Megabits per second- BitRate {0}'.format(result.received_Mbps))
 	# print('Received Megabits per second {0}'.format(result.sent_MB_s))
-	data1 = {"protocol":str(client.protocol),"sentMbps":result.sent_Mbps,"sentMbs":result.sent_MB_s,"receivedMbps":result.received_Mbps,"receivedMbs":result.received_MB_s,"deviceIp":client.server_hostname} 
+	data1 = {"protocol":str(client.protocol),"txBytes":result.sent_Mbps,"MB_s":result.received_Mbps,"mbps":result.received_MB_s,"deviceIp":client.server_hostname} 
 	print('Success Fetch Status')
 	print(data1)
-	cur.execute("INSERT INTO iperf(protocol,sentMbps,sentMbs,receivedMbps,receivedMbs,deviceIp) VALUES(%(protocol)s,%(sentMbps)s,%(sentMbs)s,%(receivedMbps)s,%(receivedMbs)s,%(deviceIp)s);",data1)
+	cur.execute("INSERT INTO iperf(protocol,txBytes,MB_s,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(MB_s)s,%(mbps)s,%(deviceIp)s);",data1)
 	conn.commit()
 	conn.close()
 
