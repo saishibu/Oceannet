@@ -9,7 +9,7 @@ cur=conn.cursor()
 
 client = iperf3.Client()
 client.duration = 1
-client.server_hostname = '127.0.0.1'
+client.server_hostname = '192.168.179.80'
 client.port = 5001
 client.protocol = 'tcp'
 client.blksize = 2000
