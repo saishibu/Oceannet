@@ -24,13 +24,10 @@ if result.error:
    print(result.error)
 else:
 
- 	data = {"protocol":str(client.protocol),"txBytes":result.bytes,"jitter":result.jitter_ms,"avgCpuLoad":result.local_cpu_total,"MB_s":result.MB_s,"mbps":result.Mbps,"deviceIp":client.server_hostname,"packets":result.packets,"lostPackets":result.lost_packets,"lostPercent":result.lost_percent,"seconds":result.seconds} 
- 	#print('')
- 	#print('Test completed:')
- 	#print('lostPercent {0}'.format(result.lost_percent))
- 	print('Success Fetch Status')
- 	print(data)
- 	cur.execute("INSERT INTO iperfudp(protocol,txBytes,jitter,avgCpuLoad,MB_s,mbps,deviceIp,packets,lostPackets,lostPercent,seconds) VALUES(%(protocol)s,%(txBytes)s,%(jitter)s,%(avgCpuLoad)s,%(MB_s)s,%(mbps)s,%(deviceIp)s,%(packets)s,%(lostPackets)s,%(lostPercent)s,%(seconds)s);",data)
- 	conn.commit()
- 	conn.close()
+ 	data1 = {"protocol":str(client.protocol),"txBytes":result.sent_Mbps,"MB_s":result.received_Mbps,"mbps":result.received_MB_s,"deviceIp":client.server_hostname} 
+	print('Success Fetch Status')
+	print(data1)
+	cur.execute("INSERT INTO iperf(protocol,txBytes,MB_s,mbps,deviceIp) VALUES(%(protocol)s,%(txBytes)s,%(MB_s)s,%(mbps)s,%(deviceIp)s);",data1)
+	conn.commit()
+	conn.close()
 
