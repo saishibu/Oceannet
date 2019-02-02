@@ -24,12 +24,12 @@ for i in range(100):
   for halfstep in range(8):
     for pin in range(4):
       print(i)
-      if i<=30:
+      if i<=50:
         GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
-        time.sleep(0.01)
+        time.sleep(0.001)
       else:
         GPIO.output(control_pins2[pin], halfstep_seq[halfstep][pin])
-        time.sleep(0.01)
+        time.sleep(0.001)
             
 GPIO.cleanup()
 print("test completed")
