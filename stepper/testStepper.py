@@ -24,6 +24,6 @@ for i in range(512):
     for pin in range(4):
       GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
       print(control_pins[pin])
-    time.sleep(0.001)
+    time.sleep(0.01)
 GPIO.cleanup()
 print("test completed")
