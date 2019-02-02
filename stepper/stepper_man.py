@@ -6,6 +6,10 @@ import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
 control_pins = [6,13,19,26]
+for pin in control_pins:
+  GPIO.setup(pin, GPIO.OUT)
+  GPIO.output(pin, 0)
+  
 StepCounter = 0
 WaitTime = 0.01
 
