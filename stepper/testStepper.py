@@ -23,7 +23,7 @@ for i in range(256):
   for halfstep in range(8):
     for pin in range(4):
       GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
-      print(halfstep_seq[halfstep][pin])
+      print(control_pins[pin])
     time.sleep(0.1)
 GPIO.cleanup()
 print("test completed")
