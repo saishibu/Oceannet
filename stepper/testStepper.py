@@ -11,19 +11,19 @@ for pin in control_pins:
   GPIO.output(pin, 0)
 halfstep_seq = [
   [1,0,0,1],
+  [1,0,0,0],
   [1,1,0,0],
+  [0,1,0,0],
   [0,1,1,0],
+  [0,0,1,0],
   [0,0,1,1],
-  [0,1,1,1],
-  [0,1,1,0],
-  [1,1,0,0],
-  [1,0,0,1]
+  [0,0,0,1]
 ]
-for i in range(256):
+for i in range(512):
   for halfstep in range(8):
     for pin in range(4):
       GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
       print(control_pins[pin])
-    time.sleep(0.1)
+    time.sleep(0.001)
 GPIO.cleanup()
 print("test completed")
