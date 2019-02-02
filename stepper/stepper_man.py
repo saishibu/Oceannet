@@ -12,9 +12,10 @@ for pin in control_pins:
 for i in range(360):
   for pin in control_pins:
     GPIO.setup(pin, GPIO.OUT)
+    print(pin)
     GPIO.output(pin, 1)
     time.sleep(0.01)
-    GPIO.output(pin, 1)
+    GPIO.output(pin, 0)
     time.sleep(0.01)
 GPIO.cleanup()
 print("test completed")
