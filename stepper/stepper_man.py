@@ -14,7 +14,7 @@ for i in range(360):
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 1)
     time.sleep(0.01)
-    GPIO.output(pin, 1
+    GPIO.output(pin, 1)
     time.sleep(0.01)
 GPIO.cleanup()
 print("test completed")
