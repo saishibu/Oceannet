@@ -9,7 +9,7 @@ control_pins = [6,13,19,26]
 for pin in control_pins:
   GPIO.setup(pin, GPIO.OUT)
   GPIO.output(pin, 0)
-for i in range(360)
+for i in range(360):
   for pin in control_pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 1)
