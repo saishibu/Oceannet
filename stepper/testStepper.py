@@ -20,7 +20,7 @@ halfstep_seq = [
   [0,0,1,1],
   [0,0,0,1]
 ]
-for i in range(100):
+for i in range(120):
   for halfstep in range(8):
     for pin in range(4):
       print(i)
@@ -30,6 +30,8 @@ for i in range(100):
       else:
         GPIO.output(control_pins2[pin], halfstep_seq[halfstep][pin])
         time.sleep(0.001)
+      if i==118:
+        i=0
             
 GPIO.cleanup()
 print("test completed")
