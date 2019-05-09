@@ -129,6 +129,7 @@ def fetchstatus(cj,opener,ip):
 	channel=json_status['wireless']['channel']
 	
 	return signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel
+#To get ping status and IP address of BS
 def fetchip(cj,opener,ip):
 	url='https://'+ip+'/sta.cgi'
 	sta_page=opener.open(url)
@@ -136,7 +137,7 @@ def fetchip(cj,opener,ip):
 	json_sta=json.loads(sta)
 	print(json_sta)
 	bs_ip=json_sta[1]['lastip']
-	ping_ms=json_sta['0']['tx_latency']
+	ping_ms=json_sta[0]['tx_latency']
 	return bs_ip,ping_ms
 
 
