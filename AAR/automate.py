@@ -13,7 +13,6 @@ ssid=ns.extssid()
 B_ID,CPE_IP=ns.mapip(ssid)
 boat=B_ID
 ID,cpe_ip=ns.mapip(ssid)
-cpe_ip='192.168.179.100'
 data=dict()
 diri=""
 cj,opener=ns.login(cpe_ip)
