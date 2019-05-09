@@ -50,7 +50,7 @@ def breathe(t):
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
-	cur.execute("INSERT INTO proto1(TIMESTAMP,BOAT, SS, NF, CCQ, D, RSSI, POS, DIR,frequency,channel,txrate,rxrate) VALUES(%(TIME)s,%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s,%(freq)s,%(channel)s,%(txrate)s,%(rxrate)s);",data)
+	cur.execute("INSERT INTO proto1(TIMESTAMP,BOAT, SS, NF, CCQ, D, RSSI, POS, DIR,frequency,channel,txrate,rxrate,bsip,ping) VALUES(%(TIME)s,%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s,%(freq)s,%(channel)s,%(txrate)s,%(rxrate)s,%(bs_ip)s,%(ping_ms)s);",data)
 	conn.commit()
 	conn.close()
 #read last position from database
