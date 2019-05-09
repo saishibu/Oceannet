@@ -26,6 +26,8 @@ while 1:
 	ns.stop()
 	ns.statusled(0)
 	signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel = ns.fetchstatus(cj,opener,cpe_ip)
+	bs_ip,ping_ms=ns.fetchip(cj,opener,cpe_ip)
+	print(bs_ip,ping_ms)
 	th=ns.thmap(distance)
 	signalinv=signal*-1
 	ns.rssiled(signalinv)
