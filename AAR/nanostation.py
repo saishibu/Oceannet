@@ -134,6 +134,7 @@ def fetchip(cj,opener,ip):
 	sta_page=opener.open(url)
 	sta=sta_page.read()
 	json_sta=json.loads(sta)
+	print(json_sta)
 	bs_ip=json_sta[0]['lastip']
 	ping_ms=json_sta['0']['tx_latency']
 	return bs_ip,ping_ms
