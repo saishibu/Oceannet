@@ -129,6 +129,16 @@ def fetchstatus(cj,opener,ip):
 	channel=json_status['wireless']['channel']
 	
 	return signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel
+def fetchip(cj,opener,ip):
+	url='https://'+ip+'/sta.cgi'
+	sta_page=opener.open(url)
+	sta=status_page.read()
+	json_sta=json.loads(status)
+	bs_ip=json_status[0]['lastip']
+	ping_ms=json_status['0']['tx_latency']
+	return bs_ip,ping_ms
+
+
 #Threshold mapping based on distance
 def thmap(distance):
 	if distance<=1000:
