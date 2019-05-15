@@ -12,12 +12,12 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.5.3",
     "node-nmea": "^1.0.4",
-    "sequelize": "^4.42.0",
+    "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0",
     "serialport": "^6.2.2",
     "socket.io": "^2.1.1",
     "socket.io-client": "^1.7.4",
     "winston": "^3.0.0",
-    "winston-daily-rotate-file": "^3.5.1"
+    "winston-daily-rotate-file": "^3.3.0"
   }
 }

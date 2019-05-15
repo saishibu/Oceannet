@@ -19,6 +19,8 @@ CREATE TABLE `GPSData` (
   `rxrate` float DEFAULT NULL,
 	`POS` INT(11) NOT NULL,
 	`DIR` TEXT NOT NULL,
+  `bsip` varchar(50) NULL,
+  `ping` INT NULL
   PRIMARY KEY (`gpsDataId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -35,5 +37,9 @@ ADD COLUMN `DIR` text NOT NULL;
 ALTER TABLE GPSData 
 ADD COLUMN `POS` int(11) NOT NULL,
 ADD COLUMN `DIR` text NOT NULL;
+
+ALTER TABLE GPSData 
+ADD COLUMN `bsip` varchar(50) NULL,
+ADD COLUMN `ping` INT NULL;
 
   

@@ -99,6 +99,8 @@ var GPSReceiver = {
                     gpsData.rxrate = cpeData.rxrate;
                     gpsData.POS = cpeData.POS;
                     gpsData.DIR = cpeData.DIR;
+                    gpsData.bsip = cpeData.bsip;
+                    gpsData.ping = cpeData.ping;
                 }
                 await gpsDataHelper.create(gpsData);
                 socketHelper.sendData(gpsData);

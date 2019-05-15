@@ -45,6 +45,12 @@ module.exports = function(sequelize, DataTypes) {
             },
             DIR: {
                 type: DataTypes.STRING
+            },
+            bsip: {
+                type: DataTypes.STRING
+            },
+            ping: {
+                type: DataTypes.STRING
             }
         },
         {
