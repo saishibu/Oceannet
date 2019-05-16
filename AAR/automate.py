@@ -15,7 +15,7 @@ boat=B_ID
 ID,cpe_ip=ns.mapip(ssid)
 data=dict()
 diri=""
-cpe_ip="192.168.179.123"
+#cpe_ip="192.168.179.123"
 
 cj,opener=ns.login(cpe_ip)
 print "Connection Successful\n Boat Name: " + str (ssid)+ "\n" + "IP Address: "+str(cpe_ip)
