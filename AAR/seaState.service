@@ -1,0 +1,14 @@
+[Unit]
+Description= Automatic rotator Sea State Monitor startup Service
+After=mariadb.service network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/Oceannet/seaState.py
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
