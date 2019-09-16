@@ -53,7 +53,8 @@ try:
 	#print(dir)
 	data={'magAngle':magAngle,'Ax':accel['x'],'Ay':accel['y'],'Az':accel['z'],'Gx':gyro['x'],'Gy':gyro['y'],'Gz':gyro['z'],'Mx':mag['x'],'My':mag['y'],'Mz':mag['z'],"Dir":dir}
 	print(data)
-	cur.execute("INSERT INTO seastate (Ax, Ay, Az, Gx, Gy, Gz, Mx, My, Mz, Dir, magAngle) VALUES ((%Ax), (%Ay), (%Az), (%Gx), (%Gy), (%Gz), (%Mx), (%My), (%Mz), (%Dir), (%magAngle));",data)	time.sleep(0.1)	
+	cur.execute("INSERT INTO seastate (Ax, Ay, Az, Gx, Gy, Gz, Mx, My, Mz, Dir, magAngle) VALUES ((%Ax), (%Ay), (%Az), (%Gx), (%Gy), (%Gz), (%Mx), (%My), (%Mz), (%Dir), (%magAngle));",data)	
+	time.sleep(0.1)	
 
 except KeyboardInterrupt:
     sys.exit()
