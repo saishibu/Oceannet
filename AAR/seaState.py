@@ -7,7 +7,7 @@ mpu9250 = FaBo9Axis_MPU9250.MPU9250()
 
 try:
     while True:
-        #accel = mpu9250.readAccel()
+        accel = mpu9250.readAccel()
         #print(" ax = " , ( accel['x'] ))
         #print(" ay = " , ( accel['y'] ))
         #print(" az = " , ( accel['z'] ))
