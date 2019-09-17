@@ -6,14 +6,14 @@ import sys,math,pymysql,datetime
 mpu9250 = FaBo9Axis_MPU9250.MPU9250()
 conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
-
 from time import mktime
-t =datetime.datetime.now()
-unix_secs = mktime(t.timetuple())
-
 
 try:
     while True:
+	t =datetime.datetime.now()
+	unix_secs = int(mktime(t.timetuple()))
+#	print(type(unix_secs))
+
         accel = mpu9250.readAccel()
         #print(" ax = " , ( accel['x'] ))
         #print(" ay = " , ( accel['y'] ))
@@ -62,6 +62,7 @@ try:
 	conn.commit()
 	time.sleep(0.1)	
 	print("committed")
+
 except KeyboardInterrupt:
 	conn.close()
 	sys.exit()
