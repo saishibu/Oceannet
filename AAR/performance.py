@@ -1,6 +1,7 @@
 #!/usr/bin/python
-import subprocess,datetime,pymysql,sys,time
+import subprocess,datetime,pymysql,sys,time,psutil
 from time import mktime
+
 conn = pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
 
@@ -20,12 +21,15 @@ try:
     print(temp)
 
     print("Available-RAM")
-    RAM=int(subprocess.check_output("free | awk 'NR==2 {print $7}'",shell=True))
-    RAM=RAM/1024
+#    RAM=int(subprocess.check_output("free | awk 'NR==2 {print $7}'",shell=True))
+    RAM=psutil.swap_memory()
+#    RAM=RAM/1024
+    print(type(RAM))
     print(RAM)
 
     print("CPU usage in %")
-    CPU=(subprocess.check_output("top -n1 | awk '/Cpu\(s\):/ {print $2}'",shell=True))
+#    CPU=(subprocess.check_output("top -n1 | awk '/Cpu\(s\):/ {print $2}'",shell=True))
+    CPU=psutil.cpu_times_percent(interval=None, percpu=False)
     print(CPU)
     CPU=float(CPU)
 
