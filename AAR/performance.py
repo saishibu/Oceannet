@@ -1,6 +1,6 @@
 #!/usr/bin/python
-import subprocess,datetime,pymysql,sys
-
+import subprocess,datetime,pymysql,sys,time
+from time import mktime
 conn = pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
 
