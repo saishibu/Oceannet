@@ -80,7 +80,7 @@ var PerformanceHelper = {
                 logger.error("Error while acquiring connection:");
                 return;
             }
-            let hourTime = new Date().getTime() - 3600000;
+            let hourTime = Math.round((new Date().getTime() - 3600000)/1000);
             var cleanupQuery = "delete from performance where transferDate is NOT NULL and timestamp < "+hourTime+";";
             logger.info('cleanupQuery:'+cleanupQuery);
             myCon.query(cleanupQuery
