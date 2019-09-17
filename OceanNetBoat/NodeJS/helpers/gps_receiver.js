@@ -88,6 +88,7 @@ var GPSReceiver = {
                     let boatData = boatDataHelper[cpeData.BOAT];
                     if(boatData){
                         gpsData.ssId = boatData.ssid;
+                        boatDataHelper.thisBoatSSID = boatData.ssid;
                     }
                     gpsData.signal = cpeData.SS;
                     gpsData.noisef = cpeData.NF;

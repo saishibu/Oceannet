@@ -19,6 +19,8 @@ var ServerSocketHelper = {
             socketHelper.isConnected = true;
             var gpsDataHelper = require('./gps-data-helper');
             gpsDataHelper.retryPendingRecords();
+            var seaStateHelper = require('./seastate_helper');
+            seaStateHelper.retryPendingRecords();
         });
         socketHelper.socket.on('disconnect',function(){
             socketHelper.isConnected = false;
@@ -40,6 +42,16 @@ var ServerSocketHelper = {
             var gpsDataHelper = require('./gps-data-helper');
             gpsDataHelper.bulkUpdate(gpsDataIds);
         });
+        socketHelper.socket.on('seastateBulkDataConf',function(ids){
+            // logger.info("bulk_data_conf %s",JSON.stringify(gpsDataIds));
+            var seastateHelper = require('./seastate_helper');
+            seastateHelper.bulkUpdate(ids);
+        });
+        socketHelper.socket.on('performanceBulkDataConf',function(ids){
+            // logger.info("bulk_data_conf %s",JSON.stringify(gpsDataIds));
+            var performanceHelper = require('./performance_helper');
+            performanceHelper.bulkUpdate(ids);
+        });
     },
     sendData:function (data) {
         let payLoad = {};
@@ -55,6 +67,24 @@ var ServerSocketHelper = {
         payLoad.batchSize = pendingGPSDataValues.length;
         payLoad.data = pendingGPSDataValues;
         this.socket.emit('autosysBulkData',payLoad);
+    },
+    sendSeastateBulkData:function (pendingSeastateValues) {
+        var payLoad = {};
+        payLoad.userName = config.userName;
+        payLoad.boatName = config.boatName;
+        payLoad.boatSSID = require('./boat_data_helper').thisBoatSSID;
+        payLoad.batchSize = pendingSeastateValues.length;
+        payLoad.data = pendingSeastateValues;
+        this.socket.emit('seastateBulkData',payLoad);
+    },
+    sendPerformanceBulkData:function (pendingPerformanceValues) {
+        var payLoad = {};
+        payLoad.userName = config.userName;
+        payLoad.boatName = config.boatName;
+        payLoad.boatSSID = require('./boat_data_helper').thisBoatSSID;
+        payLoad.batchSize = pendingPerformanceValues.length;
+        payLoad.data = pendingPerformanceValues;
+        this.socket.emit('performanceBulkData',payLoad);
     }
 };
 var socketHelper = ServerSocketHelper;

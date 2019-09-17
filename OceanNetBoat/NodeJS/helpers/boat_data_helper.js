@@ -7,6 +7,7 @@ var logger = require('./logger_helper').logger;
 
 var BoatDataHelper = {
     cacheLoaded:false,
+    thisBoatSSID:null,
     updateCache:function(){
         logger.info("BoatData helper: Cache start");
         var boatDataHelper = this;

@@ -42,4 +42,9 @@ ALTER TABLE GPSData
 ADD COLUMN `bsip` varchar(50) NULL,
 ADD COLUMN `ping` INT NULL;
 
+ALTER TABLE performance
+ADD COLUMN `transferDate` datetime NULL DEFAULT NULL;
   
+ALTER TABLE seastate
+ADD COLUMN `transferDate` datetime NULL DEFAULT NULL;
+    
