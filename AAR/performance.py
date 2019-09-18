@@ -21,29 +21,23 @@ try:
     print(temp)
 
     print("Available-RAM")
-    RAM=int(subprocess.check_output("free | awk 'NR==2 {print $7}'",shell=True))
-#    RAM=psutil.swap_memory()
-    RAM=RAM/1024
-#    print(type(RAM))
+    RAM = psutil.virtual_memory()
+    RAM=RAM[1]/(1024*1024)
     print(RAM)
 
     print("CPU usage in %")
-#    CPU=(subprocess.check_output("top -n1 | awk '/Cpu\(s\):/ {print $2}'",shell=True))
-    CPU=psutil.cpu_times_percent(interval=None, percpu=False)
-    print(CPU)
+    CPU=psutil.cpu_percent(interval=None)
     CPU=float(CPU)
-
-  #print("Disk Usage in %")
-#try:
-  #disk=subprocess.check_output("df -h --total | awk 'NR==11 {print $5}'",shell=True)
-#print(disk)
-#	disk=float(disk[:2])
-#	print(disk)
-#except:
-    disk=0
-
-    data={'time':unix_secs,'temp':temp,'CPU':CPU,'RAM':RAM,'disk':disk}
-    cur.execute("INSERT INTO performance (timestamp,temp,RAM,CPU,disk) VALUES (%(time)s,%(temp)s,%(RAM)s,%(CPU)s,%(disk)s);",data)
+    CPUFreq=psutil.cpu_freq()
+    CPUCurrent=CPUFreq[0]
+    CPUMin=CPUFreq[1]
+    CPUMax=CPUFreq[2]
+    
+    disk=psutil.disk_usage('/')
+    disk=disk[2]/(1024*1024)
+  
+    data={'time':unix_secs,'temp':temp,'CPU':CPU,'RAM':RAM,'disk':disk,'CPUCurrent':CPUCurrent,'CPUMin':CPUMin,'CPUMax':CPUMax}
+    cur.execute("INSERT INTO performance (timestamp,temp,RAM,CPU,disk,CPUCurrent,CPUMax,CPUMin) VALUES (%(time)s,%(temp)s,%(RAM)s,%(CPU)s,%(disk)s,%(CPUCurrent)s,%(CPUMin)s,%(CPUMax)s);",data)
     conn.commit()
     print("Committed")
     time.sleep(120)
