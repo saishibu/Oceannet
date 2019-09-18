@@ -19,7 +19,7 @@ try:
       temp=temp/1000  
 
     RAM = psutil.virtual_memory()
-    RAM=RAM[1]/(1024*1024)
+    RAM=float(RAM[1]/(1024*1024))
 
     CPU=psutil.cpu_percent(interval=None)
     CPU=float(CPU)
@@ -29,10 +29,10 @@ try:
     CPUMax=CPUFreq[2]
     
     disk=psutil.disk_usage('/')
-    disk=disk[2]/(1024*1024*1024)
+    disk=float(disk[2]/(1024*1024*1024))
   
     data={'time':unix_secs,'temp':temp,'CPU':CPU,'RAM':RAM,'disk':disk,'CPUCurrent':CPUCurrent,'CPUMin':CPUMin,'CPUMax':CPUMax}
-    cur.execute("INSERT INTO performance (timestamp,temp,RAM,CPU,disk,CPUCurrent,CPUMax,CPUMin) VALUES (%(time)s,%(temp)s,%(RAM)s,%(CPU)s,%(disk)s,%(CPUCurrent)s,%(CPUMin)s,%(CPUMax)s);",data)
+    cur.execute("INSERT INTO performance (timestamp,temp,RAM,CPU,disk,CPUFreqCurrent,CPUFreqMax,CPUFreqMin) VALUES (%(time)s,%(temp)s,%(RAM)s,%(CPU)s,%(disk)s,%(CPUCurrent)s,%(CPUMin)s,%(CPUMax)s);",data)
     conn.commit()
     print(data)
     print("Committed")
