@@ -9,15 +9,15 @@
     "debug": "^3.1.0",
     "dequeue": "^1.0.5",
     "json": "^9.0.6",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.5.3",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
     "node-nmea": "^1.0.4",
-    "sequelize": "^4.38.0",
+    "sequelize": "^4.44.3",
     "sequelize-cli": "^4.0.0",
     "serialport": "^6.2.2",
     "socket.io": "^2.1.1",
     "socket.io-client": "^1.7.4",
-    "winston": "^3.0.0",
-    "winston-daily-rotate-file": "^3.3.0"
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.5.1"
   }
 }

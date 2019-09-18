@@ -1,14 +1,19 @@
 #!/usr/bin/python
 import FaBo9Axis_MPU9250
 import time
-import sys,math,pymysql
+import sys,math,pymysql,datetime
 
 mpu9250 = FaBo9Axis_MPU9250.MPU9250()
 conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 cur=conn.cursor()
+from time import mktime
 
 try:
     while True:
+	t =datetime.datetime.now()
+	unix_secs = int(mktime(t.timetuple()))
+#	print(type(unix_secs))
+
         accel = mpu9250.readAccel()
         #print(" ax = " , ( accel['x'] ))
         #print(" ay = " , ( accel['y'] ))
@@ -51,11 +56,12 @@ try:
 	if(magAngle >=338 and magAngle <=360):
                 dir='N'
 	#print(dir)
-	data={'magAngle':magAngle,'Ax':accel['x'],'Ay':accel['y'],'Az':accel['z'],'Gx':gyro['x'],'Gy':gyro['y'],'Gz':gyro['z'],'Mx':mag['x'],'My':mag['y'],'Mz':mag['z'],"Dir":dir}
+	data={'time':unix_secs,'magAngle':magAngle,'Ax':accel['x'],'Ay':accel['y'],'Az':accel['z'],'Gx':gyro['x'],'Gy':gyro['y'],'Gz':gyro['z'],'Mx':mag['x'],'My':mag['y'],'Mz':mag['z'],"Dir":dir}
 	print(data)
-	cur.execute("INSERT INTO seastate (Ax, Ay, Az, Gx, Gy, Gz, Mx, My, Mz, Dir, magAngle) VALUES (%(Ax)s, %(Ay)s, %(Az)s, %(Gx)s, %(Gy)s, %(Gz)s, %(Mx)s, %(My)s, %(Mz)s, %(Dir)s, %(magAngle)s);",data)
+	cur.execute("INSERT INTO seastate (timestamp,Ax, Ay, Az, Gx, Gy, Gz, Mx, My, Mz, Dir, magAngle) VALUES (%(time)s,%(Ax)s, %(Ay)s, %(Az)s, %(Gx)s, %(Gy)s, %(Gz)s, %(Mx)s, %(My)s, %(Mz)s, %(Dir)s, %(magAngle)s);",data)
 	conn.commit()
 	time.sleep(0.1)	
+	print("committed")
 
 except KeyboardInterrupt:
 	conn.close()
