@@ -31,7 +31,7 @@ try:
     loadAvg1=loadAvg[0]
     loadAvg5=loadAvg[1]
     loadAvg15=loadAvg[2]
-    print(loadAvg1)
+    
     disk=psutil.disk_usage('/')
     disk=float(disk[2]/(1024*1024*1024))
     netIO=psutil.net_io_counters()
