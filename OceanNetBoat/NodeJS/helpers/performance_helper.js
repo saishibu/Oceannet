@@ -21,19 +21,19 @@ var PerformanceHelper = {
         if(!serverSocketHelper.isConnected){
             return;
         }
-        helper.findAllPendingForRetry(helper.limit,offset).then(function (pendingPerformanceValues) {
+        helper.findAllPendingForRetry(helper.limit,offset).then( (pendingPerformanceValues) =>{
             if(pendingPerformanceValues.length > 0){
                 logger.info("Number of pending records for retry %d",pendingPerformanceValues.length);
                 var serverSocketHelper = require('./server-socket-helper');
                 serverSocketHelper.sendPerformanceBulkData(pendingPerformanceValues);
                 if(pendingPerformanceValues.length < helper.limit){
-                    helper.retryPendingRecords(0,sendFrequency);
+                    helper.retryPendingRecords(0,this.sendFrequency);
                 }else{
                     offset += pendingPerformanceValues.length;
                     helper.retryPendingRecords(offset);
                 }
             }else{
-                helper.retryPendingRecords(0,sendFrequency);
+                helper.retryPendingRecords(0,this.sendFrequency);
             }
         });
     },
@@ -80,9 +80,8 @@ var PerformanceHelper = {
                 logger.error("Error while acquiring connection:");
                 return;
             }
-            let date = new Date();
-            let hourStr = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()+" "+(date.getHours()-1);
-            var cleanupQuery = "delete from performance where transferDate is NOT NULL and timestamp < str_to_date('"+hourStr+"','%d-%m-%Y %H');";
+            let hourTime = new Date().getTime() - 3600000;
+            var cleanupQuery = "delete from performance where transferDate is NOT NULL and timestamp < "+hourTime+";";
             logger.info('cleanupQuery:'+cleanupQuery);
             myCon.query(cleanupQuery
                 , function(err, results) {

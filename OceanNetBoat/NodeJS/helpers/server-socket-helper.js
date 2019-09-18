@@ -19,8 +19,10 @@ var ServerSocketHelper = {
             socketHelper.isConnected = true;
             var gpsDataHelper = require('./gps-data-helper');
             gpsDataHelper.retryPendingRecords();
-            var seaStateHelper = require('./seastate_helper');
-            seaStateHelper.retryPendingRecords();
+            var seastateHelper = require('./seastate_helper');
+            seastateHelper.retryPendingRecords();
+            var performanceHelper = require('./performance_helper');
+            performanceHelper.retryPendingRecords();
         });
         socketHelper.socket.on('disconnect',function(){
             socketHelper.isConnected = false;
@@ -43,12 +45,12 @@ var ServerSocketHelper = {
             gpsDataHelper.bulkUpdate(gpsDataIds);
         });
         socketHelper.socket.on('seastateBulkDataConf',function(ids){
-            // logger.info("bulk_data_conf %s",JSON.stringify(gpsDataIds));
+            // logger.info("bulk_data_conf %s",JSON.stringify(ids));
             var seastateHelper = require('./seastate_helper');
             seastateHelper.bulkUpdate(ids);
         });
         socketHelper.socket.on('performanceBulkDataConf',function(ids){
-            // logger.info("bulk_data_conf %s",JSON.stringify(gpsDataIds));
+            // logger.info("bulk_data_conf %s",JSON.stringify(ids));
             var performanceHelper = require('./performance_helper');
             performanceHelper.bulkUpdate(ids);
         });

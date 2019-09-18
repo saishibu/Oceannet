@@ -21,19 +21,19 @@ var SeastateHelper = {
         if(!serverSocketHelper.isConnected){
             return;
         }
-        helper.findAllPendingForRetry(helper.limit,offset).then(function (pendingSeastateValues) {
+        helper.findAllPendingForRetry(helper.limit,offset).then( (pendingSeastateValues) =>{
             if(pendingSeastateValues.length > 0){
                 logger.info("Number of pending records for retry %d",pendingSeastateValues.length);
                 var serverSocketHelper = require('./server-socket-helper');
                 serverSocketHelper.sendSeastateBulkData(pendingSeastateValues);
                 if(pendingSeastateValues.length < helper.limit){
-                    helper.retryPendingRecords(0,sendFrequency);
+                    helper.retryPendingRecords(0,this.sendFrequency);
                 }else{
                     offset += pendingSeastateValues.length;
                     helper.retryPendingRecords(offset);
                 }
             }else{
-                helper.retryPendingRecords(0,sendFrequency);
+                helper.retryPendingRecords(0,this.sendFrequency);
             }
         });
     },
@@ -80,9 +80,8 @@ var SeastateHelper = {
                 logger.error("Error while acquiring connection:");
                 return;
             }
-            let date = new Date();
-            let hourStr = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()+" "+(date.getHours()-1);
-            var cleanupQuery = "delete from seastate where transferDate is NOT NULL and timestamp < str_to_date('"+hourStr+"','%d-%m-%Y %H');";
+            let hourTime = new Date().getTime() - 3600000;
+            var cleanupQuery = "delete from seastate where transferDate is NOT NULL and timestamp < "+hourTime+";";
             logger.info('cleanupQuery:'+cleanupQuery);
             myCon.query(cleanupQuery
                 , function(err, results) {
