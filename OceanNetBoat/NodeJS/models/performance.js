@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
                 primaryKey : true
             },
             timestamp: {
-                type: 'TIMESTAMP',
+                type: DataTypes.INTEGER,
                 allowNull : false
             },
             temp: {
