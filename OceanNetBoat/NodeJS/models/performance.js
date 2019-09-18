@@ -30,6 +30,62 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.FLOAT,
                 allowNull : false
             },
+            CPUFreqCurrent: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            CPUFreqMin: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            CPUFreqMax: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            loadAvg1: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            loadAvg5: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            loadAvg15: {
+                type: DataTypes.FLOAT,
+                allowNull : false
+            },
+            bytes_sent: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            bytes_recv: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            packets_sent: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            packets_recv: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            errin: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            errout: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            dropin: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
+            dropout: {
+                type: DataTypes.INTEGER,
+                allowNull : false
+            },
             transferDate: {
                 type: DataTypes.DATE
             },

@@ -80,8 +80,8 @@ var SeastateHelper = {
                 logger.error("Error while acquiring connection:");
                 return;
             }
-            let hourTime = Math.round((new Date().getTime() - 3600000)/1000);
-            var cleanupQuery = "delete from seastate where transferDate is NOT NULL and timestamp < "+hourTime+";";
+            let threshold = Math.round((new Date().getTime() - 300000)/1000);
+            var cleanupQuery = "delete from seastate where transferDate is NOT NULL and timestamp < "+threshold+";";
             logger.info('cleanupQuery:'+cleanupQuery);
             myCon.query(cleanupQuery
                 , function(err, results) {
