@@ -27,7 +27,11 @@ try:
     CPUCurrent=CPUFreq[0]
     CPUMin=CPUFreq[1]
     CPUMax=CPUFreq[2]
-    
+    loadAvg=psutil.getloadavg()
+    loadAvg1=loadAvg[0]
+    loadAvg5=loadAvg[1]
+    loadAvg15=loadAvg[2]
+    print(loadAvg1)
     disk=psutil.disk_usage('/')
     disk=float(disk[2]/(1024*1024*1024))
   
