@@ -47,7 +47,7 @@ var ServerSocketHelper = {
         socketHelper.socket.on('seastateBulkDataConf',function(ids){
             // logger.info("bulk_data_conf %s",JSON.stringify(ids));
             var seastateHelper = require('./seastate_helper');
-            seastateHelper.bulkUpdate(ids);
+            seastateHelper.bulkDelete(ids);
         });
         socketHelper.socket.on('performanceBulkDataConf',function(ids){
             // logger.info("bulk_data_conf %s",JSON.stringify(ids));

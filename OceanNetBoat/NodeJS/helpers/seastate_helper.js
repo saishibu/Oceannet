@@ -43,6 +43,31 @@ var SeastateHelper = {
         var helper = this;
         setTimeout(helper.sendPendingRecords,timeout,0,helper);
     },
+    bulkDelete:function (ids) {
+        db.pool.getConnection(function(err, myCon) {
+            if (err) {
+                logger.error("Error while acquiring connection:" + err);
+                return;
+            }
+            if (!myCon) {
+                logger.error("Error while acquiring connection:");
+                return;
+            }
+            var updateQuery = "delete from seastate ";
+            updateQuery += " Where id in (";
+            updateQuery += ids.join(",");
+            updateQuery += " )";
+            // logger.info('updateQuery:'+updateQuery);
+            myCon.query(updateQuery
+                , function(err, results) {
+                    error.handleConnectionError(err,myCon);
+                    logger.info('Successfully deleted data');
+                    myCon.release(function(err) {
+                        if(err)logger.error("Error while closing connection:"+err);
+                    });
+                });
+        })
+    },
     bulkUpdate:function (ids) {
         db.pool.getConnection(function(err, myCon) {
             if (err) {
@@ -97,5 +122,5 @@ var SeastateHelper = {
         })
     }
 };
-SeastateHelper.cleanup();
+// SeastateHelper.cleanup();
 module.exports = SeastateHelper;
