@@ -57,8 +57,7 @@ def configIP():
 
 @app.route('/AARTest', methods=['POST'])
 def AARTest():
-    cmd=os.getcwd()
-    cmd=str(cmd)+"/Rotatetest.py"
+    cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
     os.system(cmd)
     print(cmd)
 
@@ -67,7 +66,8 @@ def AARTest():
 
 @app.route('/update', methods=['POST'])
 def update():
-    
+    path='/home/pi/Oceannet/AAR/ConfigPage/'
+    os.chdir(path)
     cmd="git pull"
     os.system(cmd)
     
@@ -85,9 +85,7 @@ def reboot():
 @app.route('/LEDTest', methods=['POST'])
 def LEDTest():
     
-    cmd=os.getcwd()
-    cmd=str(cmd)+"/LEDtest.py"
-    print(cmd)
+    cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
     os.system(cmd)
     
     flash ('LED Test Initiated')
