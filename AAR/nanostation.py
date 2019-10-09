@@ -18,10 +18,13 @@ def getBoatData():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	cur.execute("SELECT boatName,cpeIP FROM boat_data;")
-	data=cur.fetchall()
-	boatName=data[0]
-	cpeIP=data[1]
-
+	try:
+		data=cur.fetchall()
+		boatName=data[0]
+		cpeIP=data[1]
+	except:
+		print("System not configured")
+		exit()
 #Extract SSID
 def extssid():
 	scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
