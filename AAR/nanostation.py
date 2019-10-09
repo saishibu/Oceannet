@@ -21,6 +21,7 @@ def extssid():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
     	return ssid
+
 #Map SSID to CPE IP
 def mapip(essid):
 	#print type(essid)
@@ -38,6 +39,7 @@ def mapip(essid):
 			#ID=0
 			#ip="Invalid SSID"
 	return ID,ip
+
 #sleep function 
 def breathe(t):
 	t1=0
@@ -46,6 +48,7 @@ def breathe(t):
 		time.sleep(0.5)
 		GPIO.output(26,GPIO.LOW)
 		time.sleep(0.5)
+
 #write to database
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
