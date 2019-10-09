@@ -20,6 +20,7 @@ def getBoatData():
 	cur.execute("SELECT boatName,cpeIP FROM boat_data;")
 	#try:
 	data=cur.fetchall()
+	print(data)
 	boatName=data[0]
 	cpeIP=data[1]
 	#except:
