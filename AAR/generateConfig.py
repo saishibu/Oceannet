@@ -13,6 +13,8 @@ if ans == "Y":
 	cur=conn.cursor()
 	cur.execute("TRUNCATE TABLE boat_data;")
 	cur.execute("INSERT INTO boat_data (boatName, cpeIP) VALUES (%(boatName)s, %(cpeIP)s);",data)
+	conn.commit()
+	conn.close()
 	print("Success")
 elif ans == "N":
   print("Config Ignored")
