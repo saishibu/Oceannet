@@ -9,7 +9,7 @@ from time import mktime
 t =datetime.datetime.now()
 unix_secs = mktime(t.timetuple())
 
-boat,cpe_ip=getBoatData()
+boat,cpe_ip=ns.getBoatData()
 
 data=dict()
 diri=""
