@@ -9,10 +9,8 @@ from time import mktime
 t =datetime.datetime.now()
 unix_secs = mktime(t.timetuple())
 
-ssid=ns.extssid()
-B_ID,CPE_IP=ns.mapip(ssid)
-boat=B_ID
-ID,cpe_ip=ns.mapip(ssid)
+boat,cpe_ip=getBoatData()
+
 data=dict()
 diri=""
 #cpe_ip="192.168.179.123"
