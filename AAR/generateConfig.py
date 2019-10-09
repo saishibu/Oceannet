@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 boatName=raw_input("Enter Boat Name: ")
-cpiIP=raw_input("Enter CPE IP: ")
+cpeIP=raw_input("Enter CPE IP: ")
 
-data={"boatName":boatName,"cpiIP":cpeIP}
+data={"boatName":boatName,"cpeIP":cpeIP}
 print("Validate the configurations")
 print(data)
 ans=raw_input("Store Data (Y/N): ")
