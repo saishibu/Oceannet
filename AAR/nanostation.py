@@ -19,7 +19,7 @@ def getBoatData():
 	cur=conn.cursor()
 	cur.execute("SELECT boatName,cpeIP FROM boat_data;")
 	#try:
-	data=cur.fetchall()
+	data=cur.fetchone()
 	print(data)
 	boatName=data[0]
 	cpeIP=data[1]
