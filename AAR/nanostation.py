@@ -24,6 +24,7 @@ def getBoatData():
 		cpeIP=data[1]
 	except:
 		print("System not configured")
+		print("Run Configuration first")
 		exit()
 #Extract SSID
 def extssid():
