@@ -1,5 +1,5 @@
 {
-  "env":"development",
+  "env":"production",
   "development": {
     "server":"http://172.20.5.100:3030"
   },

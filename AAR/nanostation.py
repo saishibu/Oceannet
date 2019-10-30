@@ -14,6 +14,20 @@ GPIO.setup(13,GPIO.OUT)	#RSSI 1
 GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
 
+def getBoatData():
+	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("SELECT boatName,cpeIP FROM boat_data;")
+	try:
+		data=cur.fetchone()
+		print(data)
+		boatName=data[0]
+		cpeIP=data[1]
+	except:
+		print("System not configured")
+		print("Run Configuration first")
+		exit()
+	return(boatName,cpeIP)
 #Extract SSID
 def extssid():
 	scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
@@ -21,6 +35,7 @@ def extssid():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
     	return ssid
+
 #Map SSID to CPE IP
 def mapip(essid):
 	#print type(essid)
@@ -38,6 +53,7 @@ def mapip(essid):
 			#ID=0
 			#ip="Invalid SSID"
 	return ID,ip
+
 #sleep function 
 def breathe(t):
 	t1=0
@@ -46,6 +62,7 @@ def breathe(t):
 		time.sleep(0.5)
 		GPIO.output(26,GPIO.LOW)
 		time.sleep(0.5)
+
 #write to database
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")

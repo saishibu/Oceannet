@@ -9,16 +9,14 @@ from time import mktime
 t =datetime.datetime.now()
 unix_secs = mktime(t.timetuple())
 
-ssid=ns.extssid()
-B_ID,CPE_IP=ns.mapip(ssid)
-boat=B_ID
-ID,cpe_ip=ns.mapip(ssid)
+boat,cpe_ip=ns.getBoatData()
+
 data=dict()
 diri=""
 #cpe_ip="192.168.179.123"
 
 cj,opener=ns.login(cpe_ip)
-print "Connection Successful\n Boat Name: " + str (ssid)+ "\n" + "IP Address: "+str(cpe_ip)
+print "Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip)
 print "login success"
 ns.statusled(1)
 pos=ns.fromdb()
