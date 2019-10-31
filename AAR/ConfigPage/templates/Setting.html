@@ -1,5 +1,17 @@
 <html>
-<body>
+<title>OceanNet Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background: #222;}
+#main {margin-left: 120px}
+</style>
+<body class="w3-black">
 
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
@@ -12,17 +24,17 @@
 {% endwith %}
 
 	<form action="/configIP" method="POST">
-	CPE IP: <input type="text" name="CPEIP" value="0.0.0.0"><br>
-	Boat Name: <input type="text" name="boatName" value="OceanNet"><br>
+	<input type="text" name="CPEIP" value="CPE IP Address"><br>
+	<input type="text" name="boatName" value="Boat Name"><br>
 	<input type="submit" value="Save">
 	</form>
 
 <form action="/LEDTest" method="POST">
-   	<input type="submit" name="LEDTest" value="Proceed">
+   	<input type="submit" name="LEDTest" value="LEDTest">
 </form>
 
 <form action="/AARTest" method="POST">
-   	<input type="submit" name="AARTest" value="Proceed">
+   	<input type="submit" name="AARTest" value="AARTest">
 </form>
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
-import os
+import os,pymysql
 pwd=str(os.getcwd())
 print(pwd)
 app = Flask(__name__)
@@ -12,11 +12,11 @@ def home():
     if not session.get('logged_in'):
         return render_template('newLogin.html')
     else:
-        return render_template('index2.html')
+        return render_template('index.html')
 
 @app.route('/mainPage')
 def mainPage():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
@@ -39,11 +39,20 @@ if __name__ == "__main__":
 
 @app.route('/configIP', methods=['POST'])
 def configIP():
-    CPEIP = request.form['CPEIP'] 
+    cpeIP = request.form['CPEIP'] 
     boatName = request.form['boatName']
-    data={'CPEIP':CPEIP,'boatName':boatName}    
+    data={'cpeIP':cpeIP,'boatName':boatName}    
     print(data)
-    flash('Saved Successfully')
+    try:
+        conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+        cur=conn.cursor()
+        cur.execute("TRUNCATE TABLE boat_data;")
+        cur.execute("INSERT INTO boat_data (boatName, cpeIP) VALUES (%(boatName)s, %(cpeIP)s);",data)
+        conn.commit()
+        conn.close()
+        flash('Saved Successfully')
+    except:
+        flash('Error Saving Configurations')
     return redirect(url_for('mainPage'))
 
 @app.route('/AARTest', methods=['POST'])
@@ -65,4 +74,4 @@ def LEDTest():
     flash ('LED Test Initiated')
     return redirect(url_for('mainPage'))
 
-app.run(debug=True)
+app.run(debug=True,host="0.0.0.0")
