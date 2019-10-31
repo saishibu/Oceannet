@@ -1,0 +1,28 @@
+<!DOCTYPE html><html class="menu">
+<html>
+
+<head>
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
+<meta name="google" value="notranslate"/>
+<title>OceanNet Login</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+<body style="background-color:#000000d9;" align="center">
+<img src="static/images/logo2.png" alt="OceanNet logo" class="w3-image" width="25%" height="25%" align="center">
+<h2><font face="Roboto" color='white'>Device Settings </h2>
+<p> Login to access device settings </font> </p>
+<div class="login">
+  <form action="/login" method="POST">
+  <input type="text" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">  
+  <!-- <a href="#" class="forgot">forgot password?</a> -->
+  <input type="submit" value="Log in">
+</div>
+<div class="shadow"></div>
+
+</body>
+</html>

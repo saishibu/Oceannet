@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>OceanNet Device Settings - Login Page</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+/*@media only screen and (max-width: 600px) {#main {margin-left: 0}}*/
+    /*<link href="static/bootstrap.min.css" rel="stylesheet" media="screen">*/
+  </style>
+  </head>
+  <body>
+    <img src="images/logo.png" alt="logo" class="w3-image" width="25%" height="25%">
+    <div class="container">
+      <h1>Please login to continue to Device Settings</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{% error %}}
+      {% endif %}
+    </div>
+
+  </body>
+</html>
