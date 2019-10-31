@@ -13,13 +13,27 @@
 </head>
 <body style="background-color:#000000d9;" align="center">
 <img src="static/images/logo2.png" alt="OceanNet logo" class="w3-image" width="25%" height="25%" align="center">
-<h2><font face="Roboto" color='white'>Device Settings </h2>
+<font face="Roboto" color='white'>
 <p> Login to access device settings </font> </p>
 <div class="login">
   <form action="/login" method="POST">
   <input type="text" name="username" placeholder="Username">
 <input type="password" name="password" placeholder="Password">  
   <!-- <a href="#" class="forgot">forgot password?</a> -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <!-- <ul class=flashes> -->
+    {% for category, message in messages %}
+      <!-- <li class="{{ category }}">{{ message }}</li> -->
+      <br><br>
+      <font color="red">
+      {{ message }} </font>
+    {% endfor %}
+    <!-- </ul> -->
+  {% endif %}
+{% endwith %}
+
   <input type="submit" value="Log in">
 </div>
 <div class="shadow"></div>

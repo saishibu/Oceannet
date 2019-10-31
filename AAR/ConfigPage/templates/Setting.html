@@ -1,0 +1,30 @@
+<html>
+<body>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    
+    {% for category, message in messages %}
+    {{ message }}</li>
+    {% endfor %}
+
+  {% endif %}
+{% endwith %}
+
+	<form action="/configIP" method="POST">
+	CPE IP: <input type="text" name="CPEIP" value="0.0.0.0"><br>
+	Boat Name: <input type="text" name="boatName" value="OceanNet"><br>
+	<input type="submit" value="Save">
+	</form>
+
+<form action="/LEDTest" method="POST">
+   	<input type="submit" name="LEDTest" value="Proceed">
+</form>
+
+<form action="/AARTest" method="POST">
+   	<input type="submit" name="AARTest" value="Proceed">
+</form>
+
+
+</body>
+</html>

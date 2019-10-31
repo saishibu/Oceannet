@@ -20,16 +20,49 @@ def mainPage():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
+    if request.form['password'] == 'amma' and request.form['username'] == 'on':
         session['logged_in'] = True
         return redirect(url_for('mainPage'))
     else:
         flash('wrong password!')
+        #return redirect(url_for('home'))
         return home()
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return home()
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
     print(pwd)
 
+@app.route('/configIP', methods=['POST'])
+def configIP():
+    CPEIP = request.form['CPEIP'] 
+    boatName = request.form['boatName']
+    data={'CPEIP':CPEIP,'boatName':boatName}    
+    print(data)
+    flash('Saved Successfully')
+    return redirect(url_for('mainPage'))
+
+@app.route('/AARTest', methods=['POST'])
+def AARTest():
+    cmd=os.getcwd()
+    cmd=str(cmd)+"/Rotatetest.py"
+    os.system(cmd)
+    
+    flash ('AAR Test Initiated')
+    return redirect(url_for('mainPage'))
+
+@app.route('/LEDTest', methods=['POST'])
+def LEDTest():
+    
+    cmd=os.getcwd()
+    cmd=str(cmd)+"/LEDtest.py"
+    os.system(cmd)
+    
+    flash ('LED Test Initiated')
+    return redirect(url_for('mainPage'))
 
 app.run(debug=True)

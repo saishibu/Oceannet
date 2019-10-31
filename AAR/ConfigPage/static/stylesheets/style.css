@@ -1,11 +1,11 @@
 html { height: 100% }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
-body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%), url('http://i.minus.com/io97fW9I0NqJq.png') }
+body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%) }
 .login {
   background: #eceeee;
   border: 1px solid #42464b;
-  border-radius: 6px;
+  border-radius: 10px;
   height: 257px;
   margin: 20px auto 0;
   width: 298px;
@@ -25,17 +25,17 @@ body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,3
   text-shadow: 0 -1px 0 rgba(0,0,0,0.2), 0 1px 0 #fff;
 }
 input[type="password"], input[type="text"] {
-  background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  /*background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);*/
   border: 1px solid #a1a3a3;
   border-radius: 4px;
   box-shadow: 0 1px #fff;
   box-sizing: border-box;
   color: #696969;
   height: 39px;
-  margin: 31px 0 0 29px;
-  padding-left: 37px;
+  margin: 35px 0 0 0px;
+  padding-left: 10px;
   transition: box-shadow 0.3s;
-  width: 240px;
+  width: 200px;
 }
 input[type="password"]:focus, input[type="text"]:focus {
   box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
@@ -44,8 +44,8 @@ input[type="password"]:focus, input[type="text"]:focus {
 .show-password {
   display: block;
   height: 16px;
-  margin: 26px 0 0 28px;
-  width: 87px;
+  margin: 20px -10px 0 28px;
+  width: 80px;
 }
 input[type="checkbox"] {
   cursor: pointer;
