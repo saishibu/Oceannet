@@ -70,7 +70,6 @@ def update():
     os.chdir(path)
     cmd="git pull"
     os.system(cmd)
-    
     flash ('Update Requested')
     return redirect(url_for('mainPage'))
 
