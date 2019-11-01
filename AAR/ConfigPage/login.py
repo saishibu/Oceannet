@@ -24,13 +24,14 @@ def do_admin_login():
         session['logged_in'] = True
         return redirect(url_for('mainPage'))
     else:
-        flash('wrong password!')
+        flash('Wrong Password!')
         #return redirect(url_for('home'))
         return home()
 
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
+    flash('Logged Out Successfully')
     return home()
 
 if __name__ == "__main__":
