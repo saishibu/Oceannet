@@ -61,6 +61,7 @@ def AARTest():
     cmd=os.getcwd()
     cmd=str(cmd)+"/Rotatetest.py"
     os.system(cmd)
+    print(cmd)
     
     flash ('AAR Test Initiated')
     return redirect(url_for('mainPage'))
@@ -80,7 +81,6 @@ def reboot():
     cmd="reboot"
     os.system(cmd)
     
-    flash ('Update Requested')
     return redirect(url_for('mainPage'))
 
 @app.route('/LEDTest', methods=['POST'])
@@ -88,6 +88,7 @@ def LEDTest():
     
     cmd=os.getcwd()
     cmd=str(cmd)+"/LEDtest.py"
+    print(cmd)
     os.system(cmd)
     
     flash ('LED Test Initiated')
