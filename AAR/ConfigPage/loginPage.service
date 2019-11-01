@@ -1,0 +1,13 @@
+[Unit]
+Description= OceanNet Device Settings Login Page startup Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/Oceannet/AAR/ConfigPage/login.py
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
