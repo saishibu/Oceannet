@@ -2,8 +2,7 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os,pymysql
-pwd=str(os.getcwd())
-print(pwd)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -36,14 +35,14 @@ def logout():
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    print(pwd)
+    
 
 @app.route('/configIP', methods=['POST'])
 def configIP():
     cpeIP = request.form['CPEIP'] 
     boatName = request.form['boatName']
     data={'cpeIP':cpeIP,'boatName':boatName}    
-    print(data)
+    
     try:
         conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
         cur=conn.cursor()
@@ -62,7 +61,7 @@ def AARTest():
     cmd=str(cmd)+"/Rotatetest.py"
     os.system(cmd)
     print(cmd)
-    
+
     flash ('AAR Test Initiated')
     return redirect(url_for('mainPage'))
 
