@@ -57,21 +57,25 @@ def configIP():
 
 @app.route('/AARTest', methods=['POST'])
 def AARTest():
-    flash ('AAR Test Initiated')
-    cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
-    os.system(cmd)
-    print(cmd)
-    flash ('AAR Test Completed')
-    return redirect(url_for('mainPage'))
+	try:
+		cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
+		os.system(cmd)
+		flash ('AAR Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
 
 @app.route('/update', methods=['POST'])
 def update():
-    path='/home/pi/Oceannet/AAR/ConfigPage/'
-    os.chdir(path)
-    cmd="git pull"
-    os.system(cmd)
-    flash ('Update Requested')
-    return redirect(url_for('mainPage'))
+	try:
+		path='/home/pi/Oceannet/AAR/ConfigPage/'
+		os.chdir(path)
+		cmd="git pull"
+		os.system(cmd)
+		flash ('Update Requested')
+	except:
+		flash("Error Software Updation")
+	return redirect(url_for('mainPage'))
 
 @app.route('/reboot', methods=['POST'])
 def reboot():
@@ -83,11 +87,12 @@ def reboot():
 
 @app.route('/LEDTest', methods=['POST'])
 def LEDTest():
-    flash ('LED Test Initiated')
-    cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
-    os.system(cmd)
-    flash ('LED Test Completed')
-    
-    return redirect(url_for('mainPage'))
+	try:
+		cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
+		os.system(cmd)
+		flash ('LED Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
 
 app.run(debug=True,host="0.0.0.0")
