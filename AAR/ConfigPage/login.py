@@ -57,11 +57,11 @@ def configIP():
 
 @app.route('/AARTest', methods=['POST'])
 def AARTest():
+    flash ('AAR Test Initiated')
     cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
     os.system(cmd)
     print(cmd)
-
-    flash ('AAR Test Initiated')
+    flash ('AAR Test Completed')
     return redirect(url_for('mainPage'))
 
 @app.route('/update', methods=['POST'])
@@ -83,11 +83,11 @@ def reboot():
 
 @app.route('/LEDTest', methods=['POST'])
 def LEDTest():
-    
+    flash ('LED Test Initiated')
     cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
     os.system(cmd)
+    flash ('LED Test Completed')
     
-    flash ('LED Test Initiated')
     return redirect(url_for('mainPage'))
 
 app.run(debug=True,host="0.0.0.0")
