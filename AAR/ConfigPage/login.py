@@ -65,6 +65,24 @@ def AARTest():
     flash ('AAR Test Initiated')
     return redirect(url_for('mainPage'))
 
+@app.route('/update', methods=['POST'])
+def update():
+    
+    cmd="git pull"
+    os.system(cmd)
+    
+    flash ('Update Requested')
+    return redirect(url_for('mainPage'))
+
+@app.route('/reboot', methods=['POST'])
+def reboot():
+    
+    cmd="reboot"
+    os.system(cmd)
+    
+    flash ('Update Requested')
+    return redirect(url_for('mainPage'))
+
 @app.route('/LEDTest', methods=['POST'])
 def LEDTest():
     
