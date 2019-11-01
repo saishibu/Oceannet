@@ -72,7 +72,7 @@ def update():
 		os.chdir(path)
 		cmd="git pull"
 		os.system(cmd)
-		flash ('Update Requested')
+		flash ('Update Completed')
 	except:
 		flash("Error Software Updation")
 	return redirect(url_for('mainPage'))
