@@ -47,7 +47,7 @@ def configIP():
         conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
         cur=conn.cursor()
         cur.execute("TRUNCATE TABLE boat_data;")
-        cur.execute("INSERT INTO boat_data (boatName, cpeIP) VALUES (%(boatName)s, %(cpeIP)s);",data)
+        cur.execute("INSERT INTO boat_data (ssid, CPE) VALUES (%(boatName)s, %(cpeIP)s);",data)
         conn.commit()
         conn.close()
         flash('Saved Successfully')
