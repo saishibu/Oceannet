@@ -17,7 +17,7 @@ GPIO.setup(5,GPIO.OUT)  #RSSI 3
 def getBoatData():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
-	cur.execute("SELECT boatName,cpeIP FROM boat_data;")
+	cur.execute("SELECT ssid,CPE FROM boat_data;")
 	try:
 		data=cur.fetchone()
 		print(data)
