@@ -30,7 +30,6 @@ while 1:
 	except:
 		bs_ip="0.0.0.0"
 		ping_ms=0
-		pass()
 	th=ns.thmap(distance)
 	signalinv=signal*-1
 	ns.rssiled(signalinv)
