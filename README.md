@@ -1,4 +1,4 @@
-# Oceannet
+# Oceannet AAR
 
 ### Disclaimer: DO NOT COPY WITHOUT PERMISSION
 #### Deployment code for Oceannet Automatic Antenna orientation system
