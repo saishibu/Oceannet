@@ -73,6 +73,7 @@ while 1:
 	print data
 	#pb.helper(data)
 	ns.todb(data)
+	print(hide)
 	ns.breathe(5,hide)
 GPIO.cleanup()
 
