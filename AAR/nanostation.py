@@ -161,13 +161,20 @@ def fetchip(cj,opener,ip):
 def thmap(distance):
 	if distance<=1000:
 		th=60
-	if 1001<distance<=15000:
+		hide= 300 
+	if 1001<distance<=10000:
+		th=65
+		hide=120
+	if 10001<distance<=15000:
 		th=75
+		hide=240
 	if 15001<distance<=30000:
 		th=85
+		hide=900
 	if 30001<distance<=45000:
 		th=95
-	return th
+		hide=1800
+	return th,hide
 #Direction control for Channel Master
 def fwd():
 	GPIO.output(27,GPIO.HIGH)
