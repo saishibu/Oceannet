@@ -23,6 +23,7 @@ ns.statusled(1)
 pos=ns.fromdb()
 #pos=0
 while 1:
+	hide,hides=0
 	ns.stop()
 	ns.statusled(0)
 	signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel = ns.fetchstatus(cj,opener,cpe_ip)
@@ -31,10 +32,10 @@ while 1:
 	except:
 		bs_ip="0.0.0.0"
 		ping_ms=0
-	th=ns.thmap(distance)
+	th,hide=ns.thmap(distance)
 	signalinv=signal*-1
 	ns.rssiled(signalinv)
-
+	
 	#automation:
 	if signalinv > th:
 		ns.fwd()
@@ -46,10 +47,21 @@ while 1:
 			diri='rev'
 		if pos >72:
 			pos=0
+	elif signalinv ==0:
+		for hides in range(h):
+			ns.fwd()
+			diri='fwd'
+			pos=pos+1
+			if pos >36:
+				ns.rev()
+				pos=pos+1
+				diri='rev'
+			if pos >72:
+				pos=0
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
 	print data
-	pb.helper(data)
+	#pb.helper(data)
 	ns.todb(data)
 	ns.breathe(5)
 GPIO.cleanup()
