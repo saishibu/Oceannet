@@ -65,6 +65,7 @@ while 1:
 			diri='Rescan & Forward'
 			pos=pos+1
 	else:
+		hide=10
 		ns.stop()
 		diri='Stop'
 		
