@@ -63,6 +63,9 @@ while 1:
 			diri='fwd_Rescan'
 			pos=pos+1
 		time.sleep(hide)
+	else:
+		ns.stop()
+		diri='stop'
 		
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
