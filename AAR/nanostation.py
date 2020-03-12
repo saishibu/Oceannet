@@ -163,7 +163,7 @@ def thmap(distance):
 		th=60
 		hide= 30 
 	if 1001<distance<=10000:
-		th=65
+		th=75
 		hide=120
 	if 10001<distance<=15000:
 		th=75
