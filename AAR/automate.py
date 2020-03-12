@@ -42,26 +42,27 @@ while 1:
 	if signalinv > th:
 		if pos>72:
 			pos=0
-		elif pos >36 and pos <72:
+			diri='Calibration'
+		elif pos =>36 and pos <=72:
 			ns.rev()
 			pos=pos+1
-			diri='rev'
+			diri='Reverse'
 		else:
 			ns.fwd()
-			diri='fwd'
+			diri='Forward'
 			pos=pos+1
 	elif signalinv ==0:
-		if pos >36:
+		if pos >72:
+			pos=0
+			diri='Calibration'
+		elif pos =>36 and pos<=72:
 			ns.rev()
 			pos=pos+1
-			diri='rev_Rescan'
-		elif pos >72:
-			pos=0
+			diri='Rescan & Reverse'
 		else:
 			ns.fwd()
-			diri='fwd_Rescan'
+			diri='Rescan $ Forward'
 			pos=pos+1
-		time.sleep(hide)
 	else:
 		ns.stop()
 		diri='stop'
@@ -71,7 +72,7 @@ while 1:
 	print data
 	#pb.helper(data)
 	ns.todb(data)
-	ns.breathe(5)
+	ns.breathe(hide)
 GPIO.cleanup()
 
 
