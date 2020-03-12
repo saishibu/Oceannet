@@ -39,15 +39,16 @@ while 1:
 	
 	#automation:
 	if signalinv > th:
-		ns.fwd()
-		diri='fwd'
-		pos=pos+1
 		if pos >36:
 			ns.rev()
 			pos=pos+1
 			diri='rev'
-		if pos >72:
+		elif pos >72:
 			pos=0
+		else:
+			ns.fwd()
+			diri='fwd'
+			pos=pos+1
 	elif signalinv ==0:
 		for hides in range(h):
 			ns.fwd()
