@@ -40,10 +40,11 @@ while 1:
 	print data
 	#automation:
 	if signalinv > th:
-		if pos>72:
+		hide=0
+		if pos>73:
 			pos=0
 			diri='Calibration'
-		elif pos =>36 and pos <=72:
+		elif pos =>35 and pos <=73:
 			ns.rev()
 			pos=pos+1
 			diri='Reverse'
@@ -52,27 +53,27 @@ while 1:
 			diri='Forward'
 			pos=pos+1
 	elif signalinv ==0:
-		if pos >72:
+		if pos >73:
 			pos=0
 			diri='Calibration'
-		elif pos =>36 and pos<=72:
+		elif pos >35 and pos<73:
 			ns.rev()
 			pos=pos+1
 			diri='Rescan & Reverse'
 		else:
 			ns.fwd()
-			diri='Rescan $ Forward'
+			diri='Rescan & Forward'
 			pos=pos+1
 	else:
 		ns.stop()
-		diri='stop'
+		diri='Stop'
 		
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
 	print data
 	#pb.helper(data)
 	ns.todb(data)
-	ns.breathe(hide)
+	ns.breathe(5,hide)
 GPIO.cleanup()
 
 
