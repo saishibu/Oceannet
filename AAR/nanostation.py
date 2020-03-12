@@ -55,13 +55,14 @@ def mapip(essid):
 	return ID,ip
 
 #sleep function 
-def breathe(t):
+def breathe(t,hide):
 	t1=0
 	for t1 in range(t):
 		GPIO.output(26,GPIO.HIGH)
 		time.sleep(0.5)
 		GPIO.output(26,GPIO.LOW)
 		time.sleep(0.5)
+	time.sleep(hide)
 
 #write to database
 def todb(data):
