@@ -44,7 +44,7 @@ while 1:
 		if pos>73:
 			pos=0
 			diri='Calibration'
-		elif pos =>35 and pos <=73:
+		elif pos >35 and pos <73:
 			ns.rev()
 			pos=pos+1
 			diri='Reverse'
