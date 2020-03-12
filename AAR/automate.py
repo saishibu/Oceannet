@@ -50,7 +50,7 @@ while 1:
 			diri='fwd'
 			pos=pos+1
 	elif signalinv ==0:
-		for hides in range(h):
+		for hides in range(hide):
 			ns.fwd()
 			diri='fwd'
 			pos=pos+1
