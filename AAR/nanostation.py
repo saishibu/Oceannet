@@ -114,10 +114,10 @@ def rssiled(rssi):
 		GPIO.output(19,GPIO.HIGH) #1
 		print "Signal Strength: Poor "
 	if 0 <= rssi <= 20: #(no coverage/Very Poor)
-		GPIO.output(5,GPIO.HIGH) #4
+		GPIO.output(5,GPIO.LOW) #4
 		GPIO.output(6,GPIO.LOW) #3
 		GPIO.output(13,GPIO.LOW) #2
-		GPIO.output(19,GPIO.HIGH) #1
+		GPIO.output(19,GPIO.LOW) #1
 		print "No Signal " + str(rssi)
 #Login to Nanostation
 def login(ip):
