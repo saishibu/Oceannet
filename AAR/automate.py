@@ -35,7 +35,7 @@ while 1:
 		ping_ms=0
 	th,hide=ns.thmap(distance)
 	signalinv=signal*-1
-	ns.rssiled(signalinv)
+	ns.rssiled(rssi)
 	
 	#automation:
 	if signalinv > th:
