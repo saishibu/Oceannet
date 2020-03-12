@@ -50,16 +50,7 @@ while 1:
 			diri='fwd'
 			pos=pos+1
 	elif signalinv ==0:
-		for hides in range(hide):
-			ns.fwd()
-			diri='fwd'
-			pos=pos+1
-			if pos >36:
-				ns.rev()
-				pos=pos+1
-				diri='rev'
-			if pos >72:
-				pos=0
+		time.sleep(hide)
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
 	print data
