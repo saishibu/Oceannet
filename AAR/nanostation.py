@@ -161,7 +161,7 @@ def fetchip(cj,opener,ip):
 def thmap(distance):
 	if distance<=1000:
 		th=60
-		hide= 300 
+		hide= 30 
 	if 1001<distance<=10000:
 		th=65
 		hide=120
