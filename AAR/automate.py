@@ -40,12 +40,12 @@ while 1:
 	print data
 	#automation:
 	if signalinv > th:
-		if pos >36:
+		if pos>72:
+			pos=0
+		elif pos >36 and pos <72:
 			ns.rev()
 			pos=pos+1
 			diri='rev'
-		elif pos >72:
-			pos=0
 		else:
 			ns.fwd()
 			diri='fwd'
