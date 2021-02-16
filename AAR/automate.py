@@ -12,6 +12,7 @@ unix_secs = mktime(t.timetuple())
 
 ip,log,piggyback=ns.getConfig()
 boat,cpe_ip=ns.getBoatData()
+ssid=ns.extssid()
 
 data=dict()
 diri=""
@@ -20,7 +21,7 @@ diri=""
 cj,opener=ns.login(cpe_ip)
 
 if log==1:
-	print "Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip)
+	print "Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + "Controller Connnected to "+str(ssid)
 	print "login success"
 
 ns.statusled(1)
