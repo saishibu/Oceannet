@@ -44,7 +44,7 @@ while 1:
 # 	if log==1:
 # 		print data
 	#automation:
-	if signalinv > th:
+	if signalinv < th:
 		hide=0
 		if pos>73:
 			pos=0
