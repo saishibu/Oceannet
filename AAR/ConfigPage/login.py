@@ -41,13 +41,17 @@ if __name__ == "__main__":
 def configIP():
     cpeIP = request.form['CPEIP'] 
     boatName = request.form['boatName']
-    data={'cpeIP':cpeIP,'boatName':boatName}    
+    log = request.form['log']
+    Piggyback = request.form['Piggyback']
+    data={'cpeIP':cpeIP,'boatName':boatName,'Piggyback':Piggyback,'log':log}    
     
     try:
         conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
         cur=conn.cursor()
         cur.execute("TRUNCATE TABLE boat_data;")
         cur.execute("INSERT INTO boat_data (ssid, CPE) VALUES (%(boatName)s, %(cpeIP)s);",data)
+        conn.commit()
+        cur.execute("INSERT INTO config (ip, log, piggyback) VALUES (%(cpeIP)s,%(log)s, %(Piggyback)s);",data)
         conn.commit()
         conn.close()
         flash('Saved Successfully')
@@ -62,7 +66,7 @@ def AARTest():
 		os.system(cmd)
 		flash ('AAR Test Completed')
 	except:
-		flash("Error Testing Notification LED")
+		flash("Error Testing")
 	return redirect(url_for('mainPage'))
 
 @app.route('/update', methods=['POST'])
