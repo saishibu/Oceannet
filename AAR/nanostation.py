@@ -14,6 +14,23 @@ GPIO.setup(13,GPIO.OUT)	#RSSI 1
 GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
 
+def getConfig():
+	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+	cur=conn.cursor()
+	cur.execute("SELECT ip,log,piggyback FROM config;")
+	try:
+		data=cur.fetchone()
+		print(data)
+		ip=data[0]
+		log=data[1]
+		piggyback=data[2]
+	except:
+		print("System not configured")
+		print("Run Configuration first")
+		exit()
+	return(ip,log,piggyback)
+
+
 def getBoatData():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
