@@ -178,7 +178,7 @@ def fetchip(cj,opener,ip):
 #Threshold mapping based on distance
 def thmap(distance):
 	if distance<=1000:
-		th=50
+		th=45
 		hide= 30 
 	if 1001<distance<=10000:
 		th=68
