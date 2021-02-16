@@ -99,4 +99,4 @@ def LEDTest():
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
 
-app.run(debug=True,host="0.0.0.0")
+app.run(debug=True,host="0.0.0.0",port="1000")
