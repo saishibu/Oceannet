@@ -10,6 +10,7 @@ from time import mktime
 t =datetime.datetime.now()
 unix_secs = mktime(t.timetuple())
 
+ip,log,piggyback=ns.getConfig()
 boat,cpe_ip=ns.getBoatData()
 
 data=dict()
@@ -17,8 +18,11 @@ diri=""
 #cpe_ip="192.168.179.123"
 
 cj,opener=ns.login(cpe_ip)
-print "Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip)
-print "login success"
+
+if log==1:
+	print "Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip)
+	print "login success"
+
 ns.statusled(1)
 pos=ns.fromdb()
 #pos=0
@@ -36,8 +40,8 @@ while 1:
 	signalinv=signal*-1
 	ns.rssiled(rssi)
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
-	print("RAW")
-	print data
+	if log==1:
+		print data
 	#automation:
 	if signalinv > th:
 		hide=0
@@ -71,10 +75,11 @@ while 1:
 		
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
-	print data
-	#pb.helper(data)
+	if log==1:
+		print data
+	if piggyback ==1:
+		pb.helper(data)
 	ns.todb(data)
-	print(hide)
 	ns.breathe(5,hide)
 GPIO.cleanup()
 
