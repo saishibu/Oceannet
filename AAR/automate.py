@@ -40,8 +40,8 @@ while 1:
 	signalinv=signal*-1
 	ns.rssiled(rssi)
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
-	if log==1:
-		print data
+# 	if log==1:
+# 		print data
 	#automation:
 	if signalinv > th:
 		hide=0
