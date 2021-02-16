@@ -20,7 +20,7 @@ def getConfig():
 	cur.execute("SELECT ip,log,piggyback FROM config;")
 	try:
 		data=cur.fetchone()
-		print(data)
+# 		print(data)
 		ip=data[0]
 		log=data[1]
 		piggyback=data[2]
@@ -37,7 +37,7 @@ def getBoatData():
 	cur.execute("SELECT ssid,CPE FROM boat_data;")
 	try:
 		data=cur.fetchone()
-		print(data)
+# 		print(data)
 		boatName=data[0]
 		cpeIP=data[1]
 	except:
