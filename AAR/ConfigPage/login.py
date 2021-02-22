@@ -28,7 +28,8 @@ def mainPage():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    
+    username=""
+    password=""
     conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
     cur=conn.cursor()
     cur.execute("SELECT username,password FROM register;")
