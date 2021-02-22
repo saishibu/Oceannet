@@ -18,9 +18,10 @@
 <font face="Roboto" color='white'>
 <p> Register now to access device settings </font> </p>
 <div class="login">
-  <form action="/login" method="POST">
+  <form action="/postRegister" method="POST">
   <input type="text" name="username" placeholder="Username">
-<input type="password" name="password" placeholder="Password">  
+<input type="text" name="password" placeholder="Password">
+<input type="password" name="confirmpassword" placeholder="Confirm Password">  
   <!-- <a href="#" class="forgot">forgot password?</a> -->
 
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -36,9 +37,10 @@
   {% endif %}
 {% endwith %}
 
-  <input type="submit" value="Login">
+  <input type="submit" value="Register">
+</form>
 </div>
-<div class="shadow"></div>
+<!-- <div class="shadow"></div> -->
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
 <meta name="google" value="notranslate"/>
-<title>OceanNet Login</title>
+<title>OceanNet Configuration</title>
 <link rel="shortcut icon" href="static/images//favicon.ico" type="image/x-icon">
 <link rel="icon" href="static/images//favicon.ico" type="image/x-icon">
 
@@ -20,7 +20,11 @@
 <div class="login">
   <form action="/login" method="POST">
   <input type="text" name="username" placeholder="Username">
-<input type="password" name="password" placeholder="Password">  
+  <input type="password" name="password" placeholder="Password"> 
+  <font face="Roboto">
+  <p> Enter OTP shown below </p> </font>
+  <img src="\static\images\captcha.jpg">
+  <input type="text" name="otp" placeholder="otp"> 
   <!-- <a href="#" class="forgot">forgot password?</a> -->
 
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -37,6 +41,16 @@
 {% endwith %}
 
   <input type="submit" value="Login">
+</form>
+<form action="/register" method="POST">
+  <input type="submit" value="register">
+</form>
+<br>
+
+<hr>
+<a href="https://www.amrita.edu" target="_blank"><img src="\static\images\icons\call.png" width="50" height="50"></a>
+<a href="https://www.facebook.com/amritawna" target="_blank"><img src="\static\images\icons\fb.png" width="50" height="50"></a>
+<a href="https://www.youtube.com/amritawna" target="_blank"><img src="\static\images\icons\yT.png" width="50" height="50"></a>
 </div>
 <div class="shadow"></div>
 

@@ -6,7 +6,7 @@ body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,3
   background: #eceeee;
   border: 1px solid #42464b;
   border-radius: 10px;
-  height: 257px;
+  /*height: 457px;*/
   margin: 20px auto 0;
   width: 298px;
 }
