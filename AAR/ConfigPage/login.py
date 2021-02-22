@@ -79,8 +79,10 @@ def save_register():
         conn.commit()
         conn.close()
         flash('Saved Successfully')
+        return home()
     except:
         flash('Error Saving Configurations')
+        return home()
 
 
 @app.route("/logout")
