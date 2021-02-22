@@ -38,23 +38,22 @@ def do_admin_login():
         data=cur.fetchone()
         username=data[0]
         password=data[1]
+         
+        if request.form['otp'] != captchadata.captcha:
+            flash('Incorrect OTP')
+            return home()
+
+        if request.form['password'] == password and request.form['username'] == username:
+            session['logged_in'] = True
+            return redirect(url_for('mainPage'))
+        else:
+            flash('The username and password that you entered did not match our records. Please double-check and try again.')
+        #return redirect(url_for('home'))
+            return home()
     except:
         flash("User not registered")
         username=""
         password=""
-        
-    if request.form['otp'] != captchadata.captcha:
-        flash('Incorrect OTP')
-        return home()
-
-    if request.form['password'] == password and request.form['username'] == username:
-        session['logged_in'] = True
-        return redirect(url_for('mainPage'))
-    else:
-        flash('The username and password that you entered did not match our records. Please double-check and try again.')
-        #return redirect(url_for('home'))
-        return home()
-
 @app.route('/register',methods=['POST'])
 def do_register():
     return render_template('register.html')
