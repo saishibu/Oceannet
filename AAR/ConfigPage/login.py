@@ -30,10 +30,11 @@ def mainPage():
 def do_admin_login():
     username=""
     password=""
-    conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
-    cur=conn.cursor()
-    cur.execute("SELECT username,password FROM register;")
+    
     try:
+        conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+        cur=conn.cursor()
+        cur.execute("SELECT username,password FROM register;")
         data=cur.fetchone()
         username=data[0]
         password=data[1]
