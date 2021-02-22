@@ -39,6 +39,8 @@ def do_admin_login():
         password=data[1]
     except:
         flash("User not registered")
+        username=""
+        password=""
         
     if request.form['otp'] != captchadata.captcha:
         flash('Incorrect OTP')
