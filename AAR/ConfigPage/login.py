@@ -3,57 +3,59 @@ from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os,pymysql, getOTP
 
-captcha = getOTP.generate_captcha()
-print(captcha)
+class Captchastore():
+    captcha = None
 
-# def get_random_color():
-# #  random color rgb
-#     return random.randint(120, 200), random.randint(120, 200), random.randint(120, 200)
-
-# def genOTP():
-#     digits = "0123456789"
-#     otp = ""
-
-#     for x in range(4):
-#         otp += digits[math.floor(random.random()*10)]
-
-#     return otp
+captchadata = Captchastore()
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route('/')
 def home():
+    captcha = getOTP.generate_captcha()
+    print(captcha)
+    captchadata.captcha=captcha
 
     if not session.get('logged_in'):
-        # activeotp=getOTP.generate_captcha()
-        # flash(activeotp)
-        # render_template('newLogin.html')
-        return render_template('newLogin.html')
+        return render_template('newLogin.html',captcha=captcha)
     else:
         return render_template('index.html')
 
 @app.route('/mainPage')
 def mainPage():
-
     return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     
-    if request.form['otp'] != captcha:
+    conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+    cur=conn.cursor()
+    cur.execute("SELECT username,password FROM register;")
+    try:
+        data=cur.fetchone()
+        username=data[0]
+        password=data[1]
+    except:
+        flash("User not registered")
+        exit()
+
+    if request.form['otp'] != captchadata.captcha:
         flash('Incorrect OTP')
         return home()
 
-    if request.form['password'] == 'admin' and request.form['username'] == 'admin':
+    if request.form['password'] == password and request.form['username'] == username:
         session['logged_in'] = True
         return redirect(url_for('mainPage'))
     else:
         flash('The username and password that you entered did not match our records. Please double-check and try again.')
         #return redirect(url_for('home'))
         return home()
+
 @app.route('/register',methods=['POST'])
 def do_register():
     return render_template('register.html')
+
 @app.route('/postRegister',methods=['POST'])
 def save_register():
     username = request.form['username'] 
@@ -64,6 +66,18 @@ def save_register():
         flash('Password not matched')
     
     data={'username': username,'password': confirmpassword}
+
+    try:
+        conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+        cur=conn.cursor()
+        cur.execute("TRUNCATE TABLE register;")
+        cur.execute("INSERT INTO register (username, password) VALUES (%(username)s, %(password)s);",data)
+        conn.commit()
+        conn.close()
+        flash('Saved Successfully')
+    except:
+        flash('Error Saving Configurations')
+
 
 @app.route("/logout")
 def logout():
@@ -87,6 +101,7 @@ def configIP():
         conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
         cur=conn.cursor()
         cur.execute("TRUNCATE TABLE boat_data;")
+        cur.execute("TRUNCATE TABLE config;")
         cur.execute("INSERT INTO boat_data (ssid, CPE) VALUES (%(boatName)s, %(cpeIP)s);",data)
         conn.commit()
         cur.execute("INSERT INTO config (ip, log, piggyback) VALUES (%(cpeIP)s,%(log)s, %(Piggyback)s);",data)
@@ -137,4 +152,4 @@ def LEDTest():
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
 
-app.run(debug=True,host="0.0.0.0",port="1000")
+app.run(production,debug=False,host="0.0.0.0",port="1000")
