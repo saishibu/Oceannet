@@ -54,6 +54,8 @@ def do_admin_login():
         flash("User not registered")
         username=""
         password=""
+        return home()
+
 @app.route('/register',methods=['POST'])
 def do_register():
     return render_template('register.html')
