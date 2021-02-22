@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from random import randint
 import math, random
 from PIL import Image, ImageDraw, ImageFont

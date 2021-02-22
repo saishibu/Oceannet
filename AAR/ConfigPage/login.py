@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os,pymysql, getOTP
