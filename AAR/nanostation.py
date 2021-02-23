@@ -1,7 +1,6 @@
 import urllib, urllib2, cookielib
 import ssl,json,time
 import pymysql
-import subprocess
 from subprocess import check_output
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM) 
@@ -47,13 +46,12 @@ def getBoatData():
 	return(boatName,cpeIP)
 #Extract SSID
 def extssid():
-
+	ssid = "No connection"
 	scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
 	for line in scanoutput.split():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
-		else:
-			ssid = "No connection"
+		
 	return ssid
 
 
