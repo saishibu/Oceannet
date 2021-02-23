@@ -148,7 +148,7 @@ def login(ip):
 	cj=cookielib.CookieJar()
 	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 	r=opener.open(url)
-	login_data=urllib2.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
+	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
 	r=opener.open(url,login_data)
 	return cj,opener
 #Fetch Status from Nanostation
