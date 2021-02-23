@@ -51,7 +51,7 @@ def extssid():
 	for line in scanoutput.split():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
-    	return ssid
+		return ssid
 
 #Map SSID to CPE IP
 def mapip(essid):
