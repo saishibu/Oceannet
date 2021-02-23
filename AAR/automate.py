@@ -20,7 +20,7 @@ diri=""
 
 cj,opener=ns.login(cpe_ip)
 
-if log==1:
+if log=='on':
 	print ("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
 	print ("login success")
 
@@ -76,7 +76,7 @@ while 1:
 		
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
-	if log==1:
+	if log=='on':
 		print(data)
 	if piggyback ==1:
 		pb.helper(data)
