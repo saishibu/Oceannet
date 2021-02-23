@@ -47,11 +47,15 @@ def getBoatData():
 	return(boatName,cpeIP)
 #Extract SSID
 def extssid():
+
 	scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
 	for line in scanoutput.split():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
-		return ssid
+		else
+			ssid = "No connection"
+	return ssid
+
 
 #Map SSID to CPE IP
 def mapip(essid):
