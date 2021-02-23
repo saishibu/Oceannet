@@ -102,7 +102,7 @@ def configIP():
     log = request.form['log']
     Piggyback = request.form['Piggyback']
     data={'cpeIP':cpeIP,'boatName':boatName,'Piggyback':Piggyback,'log':log}    
-    
+    print(data)
     #try:
     conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
     cur=conn.cursor()
