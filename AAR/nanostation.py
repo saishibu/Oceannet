@@ -1,4 +1,4 @@
-import urllib, urllib2, cookielib
+import urllib, cookielib
 import ssl,json,time
 import pymysql
 import subprocess
@@ -142,7 +142,7 @@ def login(ip):
 	url='https://'+ip+'/login.cgi'
 	ssl._create_default_https_context = ssl._create_unverified_context
 	cj=cookielib.CookieJar()
-	opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+	opener=urllib.build_opener(urllib2.HTTPCookieProcessor(cj))
 	r=opener.open(url)
 	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
 	r=opener.open(url,login_data)
