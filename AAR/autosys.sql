@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb4
+-- version 4.6.6deb4+deb9u2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 29, 2018 at 11:19 AM
--- Server version: 10.1.23-MariaDB-9+deb9u1
--- PHP Version: 7.0.27-0+deb9u1
+-- Generation Time: Feb 18, 2021 at 07:12 AM
+-- Server version: 10.1.48-MariaDB-0+deb9u1
+-- PHP Version: 7.0.33-0+deb9u10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,23 +28,65 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `boat_data` (
   `ID` int(11) NOT NULL,
-  `ssid` text NOT NULL,
-  `CPE` text NOT NULL
+  `CPE` text NOT NULL,
+  `ssid` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boat_data`
 --
 
-INSERT INTO `boat_data` (`ID`, `ssid`, `CPE`) VALUES
-(1, 'sudhavarsham', '192.168.179.69'),
-(2, 'amrithadev', '192.168.179.81'),
-(3, 'amritakrishna', '192.168.179.73'),
-(4, 'vedhika', '192.168.179.67'),
-(5, 'aparna', '192.168.179.76'),
-(6, 'amit', '192.179.168.107'),
-(7, 'sarveshwarah', '192.179.168.116'),
-(8, 'Oceannet_Test', '192.168.179.118');
+INSERT INTO `boat_data` (`ID`, `CPE`, `ssid`) VALUES
+(1, '192.168.1.21', 'amit');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `config`
+--
+
+CREATE TABLE `config` (
+  `ip` varchar(20) NOT NULL,
+  `log` tinyint(1) DEFAULT NULL,
+  `piggyback` tinyint(1) DEFAULT NULL,
+  `configtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`ip`, `log`, `piggyback`, `configtime`) VALUES
+('192.168.0.21', 1, 0, '2021-02-16 09:55:27'),
+('192.168.1.21', 0, 0, '2021-02-16 11:04:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GPSData`
+--
+
+CREATE TABLE `GPSData` (
+  `gpsDataId` bigint(20) NOT NULL,
+  `longitude` double NOT NULL,
+  `latitude` double NOT NULL,
+  `speed` float DEFAULT NULL,
+  `gpsDate` datetime NOT NULL,
+  `transferDate` datetime DEFAULT NULL,
+  `ssId` varchar(50) DEFAULT NULL,
+  `signal` int(11) DEFAULT NULL,
+  `ccq` float DEFAULT NULL,
+  `noisef` int(11) DEFAULT NULL,
+  `distance` int(11) DEFAULT NULL,
+  `frequency` varchar(20) DEFAULT NULL,
+  `channel` smallint(6) DEFAULT NULL,
+  `txrate` float DEFAULT NULL,
+  `rxrate` float DEFAULT NULL,
+  `POS` int(11) NOT NULL,
+  `DIR` text NOT NULL,
+  `bsip` varchar(50) DEFAULT NULL,
+  `ping` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -54,89 +96,51 @@ INSERT INTO `boat_data` (`ID`, `ssid`, `CPE`) VALUES
 
 CREATE TABLE `gps_log` (
   `ID` int(11) NOT NULL,
-  `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `BOAT` text NOT NULL,
-  `LAT` text NOT NULL,
-  `LON` text NOT NULL,
+  `TIMESTAMP` int(11) NOT NULL,
+  `BOAT` int(11) DEFAULT NULL,
+  `LAT` double NOT NULL,
+  `LON` double NOT NULL,
   `Speed` float NOT NULL,
-  `temp` float NOT NULL
+  `temp` float NOT NULL,
+  `transfer_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `performance`
+--
+
+CREATE TABLE `performance` (
+  `id` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `temp` float NOT NULL,
+  `RAM` float NOT NULL,
+  `CPU` float NOT NULL,
+  `disk` float NOT NULL,
+  `CPUFreqCurrent` float NOT NULL,
+  `CPUFreqMin` float NOT NULL,
+  `CPUFreqMax` float NOT NULL,
+  `loadAvg1` float NOT NULL,
+  `loadAvg5` float NOT NULL,
+  `loadAvg15` float NOT NULL,
+  `bytes_sent` int(11) NOT NULL,
+  `bytes_recv` int(11) NOT NULL,
+  `packets_sent` int(11) NOT NULL,
+  `packets_recv` int(11) NOT NULL,
+  `errin` int(11) NOT NULL,
+  `errout` int(11) NOT NULL,
+  `dropin` int(11) NOT NULL,
+  `dropout` int(11) NOT NULL,
+  `transferDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `gps_log`
+-- Dumping data for table `performance`
 --
 
-INSERT INTO `gps_log` (`ID`, `TIMESTAMP`, `BOAT`, `LAT`, `LON`, `Speed`, `temp`) VALUES
-(1, '2018-05-23 17:52:12', 'Grid_23_May_18', '0', '0', 0, 0),
-(2, '2018-05-23 18:24:59', 'Grid_23_May_18', '0', '0', 0, 0),
-(3, '2018-05-23 18:25:57', 'Grid_23_May_18', '0', '0', 0, 0),
-(4, '2018-05-23 18:30:38', 'Grid_24_May_18', '0', '0', 0, 0),
-(5, '2018-05-26 12:59:38', 'Grid_26_May_18', '0', '0', 0, 0),
-(6, '2018-05-26 17:48:03', 'amit_26_May_18', '0', '0', 0, 0),
-(7, '2018-05-26 17:49:03', 'amit_26_May_18', '0', '0', 0, 0),
-(8, '2018-05-26 17:50:03', 'amit_26_May_18', '0', '0', 0, 0),
-(9, '2018-06-25 10:10:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(10, '2018-06-25 10:15:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(11, '2018-06-25 10:20:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(12, '2018-06-25 10:25:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(13, '2018-06-25 10:30:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(14, '2018-06-25 10:35:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(15, '2018-06-25 10:40:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(16, '2018-06-25 10:45:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(17, '2018-06-25 10:50:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(18, '2018-06-25 10:55:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(19, '2018-06-25 11:00:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(20, '2018-06-25 11:05:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(21, '2018-06-25 11:10:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(22, '2018-06-25 11:15:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(23, '2018-06-25 11:20:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(24, '2018-06-25 11:25:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(25, '2018-06-25 11:30:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(26, '2018-06-25 11:35:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(27, '2018-06-25 11:40:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(28, '2018-06-25 11:45:03', 'amit_25_Jun_18', '0', '0', 0, 0),
-(29, '1980-01-05 23:50:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(30, '2018-06-26 04:40:03', 'amit_26_Jun_18', '0', '0', 0, 0),
-(31, '2018-06-26 04:45:03', 'amit_26_Jun_18', '0', '0', 0, 0),
-(32, '2018-06-26 04:50:03', 'amit_26_Jun_18', '0', '0', 0, 0),
-(33, '1980-01-05 23:50:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(34, '1980-01-05 23:55:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(35, '1980-01-06 00:00:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(36, '1980-01-06 00:05:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(37, '1980-01-06 00:10:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(38, '1980-01-06 00:15:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(39, '1980-01-06 00:20:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(40, '1980-01-06 00:25:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(41, '1980-01-06 00:30:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(42, '1980-01-06 00:35:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(43, '1980-01-06 00:40:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(44, '1980-01-06 00:45:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(45, '1980-01-06 00:50:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(46, '1980-01-06 00:55:04', 'amit_06_Jan_80', '0', '0', 0, 0),
-(47, '1980-01-06 01:00:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(48, '1980-01-06 01:05:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(49, '1980-01-06 01:10:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(50, '1980-01-06 01:15:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(51, '1980-01-06 01:20:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(52, '1980-01-06 01:25:04', 'amit_06_Jan_80', '0', '0', 0, 0),
-(53, '1980-01-06 01:30:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(54, '1980-01-06 01:35:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(55, '1980-01-05 23:50:03', 'amit_06_Jan_80', '0', '0', 0, 0),
-(56, '1980-01-06 00:00:05', 'amit_06_Jan_80', '0', '0', 0, 0),
-(57, '1980-01-06 01:05:05', 'amit_06_Jan_80', '0', '0', 0, 0),
-(58, '1980-01-06 01:25:04', 'amit_06_Jan_80', '0', '0', 0, 0),
-(59, '1980-01-06 01:45:04', 'amit_06_Jan_80', '0', '0', 0, 0),
-(60, '1980-01-05 23:55:05', 'amit_06_Jan_80', '0', '0', 0, 0),
-(61, '1980-01-06 00:00:05', 'jio_06_Jan_80', '0', '0', 0, 0),
-(62, '1980-01-06 00:08:24', 'jio_06_Jan_80', '0', '0', 0, 0),
-(63, '1980-01-06 00:08:29', 'jio_06_Jan_80', '0', '0', 0, 0),
-(64, '1980-01-06 00:10:02', 'jio_06_Jan_80', '0', '0', 0, 0),
-(65, '1980-01-06 00:25:55', 'jio_06_Jan_80', '0', '0', 0, 1),
-(66, '1980-01-06 00:26:08', 'jio_06_Jan_80', '0', '0', 0, 1),
-(67, '2018-06-29 05:40:26', 'jio_29_Jun_18', '0', '0', 0, 0),
-(68, '2018-06-29 05:43:29', 'jio_29_Jun_18', '0', '0', 0, 37.9),
-(69, '2018-06-29 05:44:27', 'jio_29_Jun_18', '0', '0', 0, 38.5),
-(70, '2018-06-29 05:45:03', 'jio_29_Jun_18', '0', '0', 0, 39);
+INSERT INTO `performance` (`id`, `timestamp`, `temp`, `RAM`, `CPU`, `disk`, `CPUFreqCurrent`, `CPUFreqMin`, `CPUFreqMax`, `loadAvg1`, `loadAvg5`, `loadAvg15`, `bytes_sent`, `bytes_recv`, `packets_sent`, `packets_recv`, `errin`, `errout`, `dropin`, `dropout`, `transferDate`) VALUES
+(1, 1569535487, 60.5, 81, 100, 9, 1000, 1000, 700, 0.34, 0.42, 0.44, 14913848, 10920236, 17578, 16573, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,37 +150,66 @@ INSERT INTO `gps_log` (`ID`, `TIMESTAMP`, `BOAT`, `LAT`, `LON`, `Speed`, `temp`)
 
 CREATE TABLE `proto1` (
   `ID` int(11) NOT NULL,
-  `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `BOAT` text NOT NULL,
+  `gps_ID` int(11) DEFAULT NULL,
+  `TIMESTAMP` int(11) NOT NULL,
+  `BOAT` int(11) NOT NULL,
   `SS` int(11) NOT NULL,
   `NF` int(11) NOT NULL,
   `CCQ` int(11) NOT NULL,
   `D` int(11) NOT NULL,
   `RSSI` int(11) NOT NULL,
   `POS` int(11) NOT NULL,
-  `DIR` text NOT NULL
+  `DIR` text NOT NULL,
+  `frequency` varchar(20) DEFAULT NULL,
+  `channel` smallint(6) DEFAULT NULL,
+  `txrate` float DEFAULT NULL,
+  `rxrate` float DEFAULT NULL,
+  `bsip` text,
+  `ping` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `register`
+--
+
+CREATE TABLE `register` (
+  `id` int(11) NOT NULL,
+  `configTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` text NOT NULL,
+  `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `proto1`
+-- Dumping data for table `register`
 --
 
-INSERT INTO `proto1` (`ID`, `TIMESTAMP`, `BOAT`, `SS`, `NF`, `CCQ`, `D`, `RSSI`, `POS`, `DIR`) VALUES
-(1, '2018-05-23 16:19:54', 'dummy', 0, 0, 0, 0, 0, 0, '0'),
-(2, '2018-05-23 17:49:32', 'test_setup_23_May_18', -41, -92, 966, 450, 55, 0, ''),
-(3, '2018-05-23 17:49:37', 'test_setup_23_May_18', -40, -91, 957, 450, 56, 0, ''),
-(4, '2018-05-23 17:49:43', 'test_setup_23_May_18', -40, -91, 959, 450, 56, 0, ''),
-(5, '2018-05-23 17:49:48', 'test_setup_23_May_18', -47, -91, 939, 450, 49, 0, ''),
-(6, '2018-05-23 17:49:53', 'test_setup_23_May_18', -51, -91, 926, 450, 45, 1, 'fwd'),
-(7, '2018-05-23 17:49:59', 'test_setup_23_May_18', -50, -91, 919, 450, 46, 1, 'fwd'),
-(8, '2018-05-23 17:50:04', 'test_setup_23_May_18', -48, -91, 863, 450, 48, 1, 'fwd'),
-(9, '2018-05-23 17:50:09', 'test_setup_23_May_18', -50, -91, 838, 450, 46, 1, 'fwd'),
-(10, '2018-05-23 17:50:15', 'test_setup_23_May_18', -51, -91, 846, 450, 45, 2, 'fwd'),
-(11, '2018-05-23 17:50:20', 'test_setup_23_May_18', -54, -91, 894, 450, 42, 3, 'fwd'),
-(12, '2018-05-23 17:50:26', 'test_setup_23_May_18', -54, -91, 829, 450, 42, 4, 'fwd'),
-(13, '2018-05-23 17:50:31', 'test_setup_23_May_18', -57, -92, 777, 450, 39, 5, 'fwd'),
-(14, '2018-05-23 17:50:36', 'test_setup_23_May_18', -51, -96, 810, 450, 45, 6, 'fwd'),
-(15, '2018-05-23 17:50:42', 'test_setup_23_May_18', -51, -96, 856, 450, 45, 7, 'fwd');
+INSERT INTO `register` (`id`, `configTime`, `username`, `password`) VALUES
+(1, '2021-02-17 08:49:28', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seastate`
+--
+
+CREATE TABLE `seastate` (
+  `id` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `Ax` float NOT NULL,
+  `Ay` float NOT NULL,
+  `Az` float NOT NULL,
+  `Gx` float NOT NULL,
+  `Gy` float NOT NULL,
+  `Gz` float NOT NULL,
+  `Mx` float NOT NULL,
+  `My` float NOT NULL,
+  `Mz` float NOT NULL,
+  `Dir` varchar(20) NOT NULL,
+  `magAngle` int(11) NOT NULL,
+  `transferDate` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -186,19 +219,53 @@ INSERT INTO `proto1` (`ID`, `TIMESTAMP`, `BOAT`, `SS`, `NF`, `CCQ`, `D`, `RSSI`,
 -- Indexes for table `boat_data`
 --
 ALTER TABLE `boat_data`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID` (`ID`);
+
+--
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD UNIQUE KEY `ip` (`ip`);
+
+--
+-- Indexes for table `GPSData`
+--
+ALTER TABLE `GPSData`
+  ADD PRIMARY KEY (`gpsDataId`);
 
 --
 -- Indexes for table `gps_log`
 --
 ALTER TABLE `gps_log`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID` (`ID`),
+  ADD KEY `BOAT` (`BOAT`);
+
+--
+-- Indexes for table `performance`
+--
+ALTER TABLE `performance`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `proto1`
 --
 ALTER TABLE `proto1`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `gps_ID` (`gps_ID`);
+
+--
+-- Indexes for table `register`
+--
+ALTER TABLE `register`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `seastate`
+--
+ALTER TABLE `seastate`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -208,17 +275,37 @@ ALTER TABLE `proto1`
 -- AUTO_INCREMENT for table `boat_data`
 --
 ALTER TABLE `boat_data`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `GPSData`
+--
+ALTER TABLE `GPSData`
+  MODIFY `gpsDataId` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `gps_log`
 --
 ALTER TABLE `gps_log`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `performance`
+--
+ALTER TABLE `performance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `proto1`
 --
 ALTER TABLE `proto1`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148769;
+--
+-- AUTO_INCREMENT for table `register`
+--
+ALTER TABLE `register`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `seastate`
+--
+ALTER TABLE `seastate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6533312;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
