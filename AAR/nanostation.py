@@ -52,7 +52,7 @@ def extssid():
 	for line in scanoutput.split():
 		if line.startswith("ESSID"):
 			ssid = line.split('"')[1]
-		else
+		else:
 			ssid = "No connection"
 	return ssid
 
