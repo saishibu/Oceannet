@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import FaBo9Axis_MPU9250
 import time
 import sys,math,pymysql,datetime

@@ -112,31 +112,31 @@ def rssiled(rssi):
 		GPIO.output(6,GPIO.HIGH) #3
 		GPIO.output(13,GPIO.HIGH) #2
 		GPIO.output(19,GPIO.HIGH) #1
-		print "Signal Strength: Very Good" + str(rssi)
+		# print "Signal Strength: Very Good" + str(rssi)
 	if 61 <= rssi <= 79: #RSSI3 off
 		GPIO.output(5,GPIO.LOW) #4
 		GPIO.output(6,GPIO.HIGH) #3
 		GPIO.output(13,GPIO.HIGH) #2
 		GPIO.output(19,GPIO.HIGH) #1
-		print "Signal Strength: Good " +str(rssi)
+		# print "Signal Strength: Good " +str(rssi)
 	if 41 <= rssi <= 60: #RSSI3&2 off
 		GPIO.output(5,GPIO.LOW) #4
 		GPIO.output(6,GPIO.LOW) #3
 		GPIO.output(13,GPIO.HIGH) #2
 		GPIO.output(19,GPIO.HIGH) #1
-		print "Signal Strength: Medium " +str(rssi)
+		# print "Signal Strength: Medium " +str(rssi)
 	if 21 <= rssi <= 40: #RSSI 3,2,1 off
 		GPIO.output(5,GPIO.LOW) #4
 		GPIO.output(6,GPIO.LOW) #3
 		GPIO.output(13,GPIO.LOW) #2
 		GPIO.output(19,GPIO.HIGH) #1
-		print "Signal Strength: Poor "
+		# print "Signal Strength: Poor "
 	if 0 <= rssi <= 20: #(no coverage/Very Poor)
 		GPIO.output(5,GPIO.LOW) #4
 		GPIO.output(6,GPIO.LOW) #3
 		GPIO.output(13,GPIO.LOW) #2
 		GPIO.output(19,GPIO.LOW) #1
-		print "No Signal " + str(rssi)
+		# print "No Signal " + str(rssi)
 #Login to Nanostation
 def login(ip):
 	url='https://'+ip+'/login.cgi'
