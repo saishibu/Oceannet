@@ -94,12 +94,15 @@ def todb(data):
 	conn.close()
 #read last position from database
 def fromdb():
-	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
-	cur=conn.cursor()
-	cur.execute("SELECT pos FROM proto1  ORDER BY id DESC LIMIT 1;")
-	pos=cur.fetchall()
-	pos=pos[0]
-	pos=pos[0]
+	try:
+		conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+		cur=conn.cursor()
+		cur.execute("SELECT pos FROM proto1  ORDER BY id DESC LIMIT 1;")
+		pos=cur.fetchall()
+		pos=pos[0]
+		pos=pos[0]
+	except:
+		pos=0
 	return pos
 #Status LED Config
 def statusled(cond):

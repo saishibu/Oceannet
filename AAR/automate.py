@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import nanostation as ns
 import time
 import datetime
