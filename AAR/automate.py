@@ -17,11 +17,12 @@ ssid=ns.extssid()
 data=dict()
 diri=""
 #cpe_ip="192.168.179.123"
-
+if log=='on':
+	print ("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
+	
 cj,opener=ns.login(cpe_ip)
 
 if log=='on':
-	print ("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
 	print ("login success")
 
 ns.statusled(1)
