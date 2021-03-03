@@ -1,3 +1,8 @@
+root@OceanNet:/home/pi/OceanNet/OceanNetBoat# sudo forever-service install OceanNetBoatTracking -s ./NodeJS/app.js -f " -e error.log"
+forever-service version 0.5.11
+
+Platform - Raspbian GNU/Linux 10 (buster)
+
 Commands to interact with service OceanNetBoatTracking
 Start   - "sudo service OceanNetBoatTracking start"
 Stop    - "sudo service OceanNetBoatTracking stop"
