@@ -2,6 +2,16 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os,pymysql, getOTP
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM) 
+GPIO.setwarnings(False) 
+GPIO.setup(17,GPIO.OUT)  #REV
+GPIO.setup(27,GPIO.OUT)  #FWD
+GPIO.setup(26,GPIO.OUT)  #Status LED
+GPIO.setup(19,GPIO.OUT) #RSSI 0
+GPIO.setup(13,GPIO.OUT)	#RSSI 1
+GPIO.setup(6,GPIO.OUT)  #RSSI 2
+GPIO.setup(5,GPIO.OUT)  #RSSI 3
 
 class Captchastore():
     captcha = None
@@ -117,11 +127,23 @@ def configIP():
 		flash('Error Saving Configurations')
 	return redirect(url_for('mainPage'))
 
-@app.route('/AARTest', methods=['POST'])
-def AARTest():
+@app.route('/AARTestfwd', methods=['POST'])
+def AARTestfwd():
 	try:
-		cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
-		os.system(cmd)
+		GPIO.setup(27,GPIO.HIGH)
+		delay(10)#FWD
+		GPIO.setup(27,GPIO.LOW)
+		flash ('AAR Test Completed')
+	except:
+		flash("Error Testing")
+	return redirect(url_for('mainPage'))
+
+@app.route('/AARTestrev', methods=['POST'])
+def AARTestrev():
+	try:
+		GPIO.setup(17,GPIO.HIGH)
+		delay(10)#FWD
+		GPIO.setup(17,GPIO.LOW)
 		flash ('AAR Test Completed')
 	except:
 		flash("Error Testing")
@@ -147,12 +169,53 @@ def reboot():
     
     return redirect(url_for('mainPage'))
 
-@app.route('/LEDTest', methods=['POST'])
-def LEDTest():
+@app.route('/LEDTest1', methods=['POST'])#status
+def LEDTest1():
 	try:
-		cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
-		os.system(cmd)
-		flash ('LED Test Completed')
+		GPIO.setup(26,GPIO.HIGH)
+		delay(2)#FWD
+		GPIO.setup(26,GPIO.LOW)
+		flash ('Status LED Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
+@app.route('/LEDTest2', methods=['POST'])#status
+def LEDTest2():
+	try:
+		GPIO.setup(19,GPIO.HIGH)
+		delay(2)#FWD
+		GPIO.setup(19,GPIO.LOW)
+		flash ('RSSI1 Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
+@app.route('/LEDTest3', methods=['POST'])#status
+def LEDTest3():
+	try:
+		GPIO.setup(13,GPIO.HIGH)
+		delay(2)#FWD
+		GPIO.setup(13,GPIO.LOW)
+		flash ('RSSI2 Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
+@app.route('/LEDTest3', methods=['POST'])#status
+def LEDTest3():
+	try:
+		GPIO.setup(6,GPIO.HIGH)
+		delay(2)#FWD
+		GPIO.setup(6,GPIO.LOW)
+		flash ('RSSI3 Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
+@app.route('/LEDTest4', methods=['POST'])#status
+def LEDTest4():
+	try:
+		GPIO.setup(5,GPIO.HIGH)
+		delay(2)#FWD
+		GPIO.setup(5,GPIO.LOW)
+		flash ('RSSI1 Test Completed')
 	except:
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
