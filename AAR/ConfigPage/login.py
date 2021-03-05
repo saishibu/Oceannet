@@ -211,7 +211,7 @@ def LEDTest4():
 	return redirect(url_for('mainPage'))
 @app.route('/LEDTest5', methods=['POST'])#rssi4
 def LEDTest5():
-	try:
+# 	try:
 	GPIO.setup(5,GPIO.HIGH)
 	delay(2)#FWD
 	GPIO.setup(5,GPIO.LOW)
