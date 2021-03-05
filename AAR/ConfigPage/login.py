@@ -179,7 +179,7 @@ def LEDTest1():
 	except:
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
-@app.route('/LEDTest2', methods=['POST'])#status
+@app.route('/LEDTest2', methods=['POST'])#rssi1
 def LEDTest2():
 	try:
 		GPIO.setup(19,GPIO.HIGH)
@@ -189,7 +189,7 @@ def LEDTest2():
 	except:
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
-@app.route('/LEDTest3', methods=['POST'])#status
+@app.route('/LEDTest3', methods=['POST'])#rssi2
 def LEDTest3():
 	try:
 		GPIO.setup(13,GPIO.HIGH)
@@ -199,8 +199,8 @@ def LEDTest3():
 	except:
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
-@app.route('/LEDTest3', methods=['POST'])#status
-def LEDTest3():
+@app.route('/LEDTest4', methods=['POST'])#rssi3
+def LEDTest4():
 	try:
 		GPIO.setup(6,GPIO.HIGH)
 		delay(2)#FWD
@@ -209,8 +209,8 @@ def LEDTest3():
 	except:
 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
-@app.route('/LEDTest4', methods=['POST'])#status
-def LEDTest4():
+@app.route('/LEDTest5', methods=['POST'])#rssi4
+def LEDTest5():
 	try:
 		GPIO.setup(5,GPIO.HIGH)
 		delay(2)#FWD
