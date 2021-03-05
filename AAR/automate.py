@@ -4,6 +4,10 @@ import time
 import datetime
 import RPi.GPIO as GPIO
 import piggyback as pb
+import logging
+logging.basicConfig(filename='/home/pi/log/arr.log',level=logging.DEBUG)
+
+
 date=datetime.date.today().strftime("%d_%b_%y")
 
 from time import mktime
@@ -18,12 +22,12 @@ data=dict()
 diri=""
 #cpe_ip="192.168.179.123"
 if log=='on':
-	print ("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
+	logging.info("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
 	
 cj,opener=ns.login(cpe_ip)
 
 if log=='on':
-	print ("login success")
+	logging.info("login success")
 
 ns.statusled(1)
 pos=ns.fromdb()
@@ -78,7 +82,7 @@ while 1:
 	#Data storage
 	data={'ping_ms':ping_ms,'TIME':unix_secs,'dir':diri,'boat':1,'ss':signal,'nf':noise,'rssi':rssi,'pos':pos,'ccq':ccq,'d':distance,'txrate':txrate,'rxrate':rxrate,'freq':freq,'channel':channel,'bs_ip':bs_ip}
 	if log=='on':
-		print(data)
+		logging.info(data)
 	if piggyback ==1:
 		pb.helper(data)
 	ns.todb(data)
