@@ -131,7 +131,7 @@ def configIP():
 def AARTestfwd():
 	try:
 		GPIO.setup(27,GPIO.HIGH)
-		delay(10)#FWD
+		time.sleep(10)#FWD
 		GPIO.setup(27,GPIO.LOW)
 		flash ('AAR Test Completed')
 	except:
@@ -142,7 +142,7 @@ def AARTestfwd():
 def AARTestrev():
 	try:
 		GPIO.setup(17,GPIO.HIGH)
-		delay(10)#FWD
+		time.sleep(10)#FWD
 		GPIO.setup(17,GPIO.LOW)
 		flash ('AAR Test Completed')
 	except:
@@ -173,7 +173,7 @@ def reboot():
 def LEDTest1():
 	try:
 		GPIO.setup(26,GPIO.HIGH)
-		delay(2)#FWD
+		time.sleep(2)#FWD
 		GPIO.setup(26,GPIO.LOW)
 		flash ('Status LED Test Completed')
 	except:
@@ -183,7 +183,7 @@ def LEDTest1():
 def LEDTest2():
 	try:
 		GPIO.setup(19,GPIO.HIGH)
-		delay(2)#FWD
+		time.sleep(2)#FWD
 		GPIO.setup(19,GPIO.LOW)
 		flash ('RSSI1 Test Completed')
 	except:
@@ -193,7 +193,7 @@ def LEDTest2():
 def LEDTest3():
 	try:
 		GPIO.setup(13,GPIO.HIGH)
-		delay(2)#FWD
+		time.sleep(2)#FWD
 		GPIO.setup(13,GPIO.LOW)
 		flash ('RSSI2 Test Completed')
 	except:
@@ -203,7 +203,7 @@ def LEDTest3():
 def LEDTest4():
 	try:
 		GPIO.setup(6,GPIO.HIGH)
-		delay(2)#FWD
+		time.sleep(2)#FWD
 		GPIO.setup(6,GPIO.LOW)
 		flash ('RSSI3 Test Completed')
 	except:
@@ -213,7 +213,7 @@ def LEDTest4():
 def LEDTest5():
 # 	try:
 	GPIO.setup(5,GPIO.HIGH)
-	delay(2)#FWD
+	time.sleep(2)#FWD
 	GPIO.setup(5,GPIO.LOW)
 	flash ('RSSI1 Test Completed')
 # 	except:
