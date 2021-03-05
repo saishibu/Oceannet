@@ -212,12 +212,12 @@ def LEDTest4():
 @app.route('/LEDTest5', methods=['POST'])#rssi4
 def LEDTest5():
 	try:
-		GPIO.setup(5,GPIO.HIGH)
-		delay(2)#FWD
-		GPIO.setup(5,GPIO.LOW)
-		flash ('RSSI1 Test Completed')
-	except:
-		flash("Error Testing Notification LED")
+	GPIO.setup(5,GPIO.HIGH)
+	delay(2)#FWD
+	GPIO.setup(5,GPIO.LOW)
+	flash ('RSSI1 Test Completed')
+# 	except:
+# 		flash("Error Testing Notification LED")
 	return redirect(url_for('mainPage'))
 
 app.run(debug=False,host="0.0.0.0",port="1000")
