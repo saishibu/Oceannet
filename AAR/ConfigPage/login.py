@@ -130,14 +130,14 @@ def configIP():
 
 @app.route('/AARTestfwd', methods=['POST'])
 def AARTestfwd():
-	try:
+    try:
         cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
-        os.system(cmd)   
+        os.system(cmd)
+        flash ('AAR Test Completed')
 		
         # GPIO.setup(27,GPIO.HIGH)
 		# time.sleep(10)#FWD
 		# GPIO.setup(27,GPIO.LOW)
-		flash ('AAR Test Completed')
 	except:
 		flash("Error Testing")
 	return redirect(url_for('mainPage'))
@@ -156,7 +156,7 @@ def AARTestfwd():
 @app.route('/update', methods=['POST'])
 def update():
 	try:
-		path='/home/pi/Oceannet/AAR/ConfigPage/'
+        path='/home/pi/Oceannet/AAR/ConfigPage/'
 		os.chdir(path)
 		cmd="git pull"
 		os.system(cmd)
