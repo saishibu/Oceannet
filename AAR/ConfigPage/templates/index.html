@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="static/images//favicon.ico" type="image/x-icon">
 <link rel="icon" href="static/images//favicon.ico" type="image/x-icon">
+<script src="/static/raphael.2.1.0.min.js"></script>
+<script src="/static/justgage.1.0.1.min.js"></script>
+
 <script type="text/javascript">// <![CDATA[
         function loading(){
             $("#loading").show();
@@ -48,13 +51,13 @@ div#loading {
     <i class="fa fa-cog w3-xxlarge"></i>
     <p>Settings</p>
   </a>
+  <a href="#recent" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-wrench w3-xxlarge"></i>
+    <p>Debug</p>
   <a href="#manual" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-book w3-xxlarge"></i>
     <p>User Manual</p>
   </a>
-  <a href="#recent" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-wrench w3-xxlarge"></i>
-    <p>Debug</p>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>Service Contact</p>
@@ -231,33 +234,33 @@ div#loading {
      <div class="w3-padding-64 w3-content" id="recent">
     <h2 class="w3-text-light-grey">Debug</h2>
     <hr style="width:200px" class="w3-opacity">
+    <script>
+    	var g1, g2;
+    	document.addEventListener("DOMContentLoaded", function(event) 
+    	{
+    	g1 = new JustGage({
+		id: "g1",
+		value: {{temp}},
+		valueFontColor: "yellow",
+		min: -10,
+		max: 50,
+		title: "Temperature",
+		label: "Celcius"
+		});
+		
+		g2 = new JustGage({
+		id: "g2",
+		value: {{hum}},
+		valueFontColor: "yellow",
+		min: 0,
+		max: 100,
+		title: "Humidity",
+		label: "%"
+		});
+	});
 
-		<table style="width:100%">
-		  <tr>
-		    <th>Parameters</th>
-		    <th>Last Value</th>
-		  </tr>
-		  <tr>
-		    <td>Signal Strength</td>
-		    <td>0</td>
-		  </tr>
-		  <tr>
-		    <td>Noise Floor</td>
-		    <td>0</td>
-		  </tr>
-		  <tr>
-		    <td>AAR Position</td>
-		    <td>0</td>
-		  </tr>
-		  <tr>
-		    <td>Base Station IP</td>
-		    <td>0</td>
-		  </tr>
-		  <tr>
-		    <td>AAR Direction</td>
-		    <td>0</td>
-		  </tr>
-		</table>
+    </script>
+
 
     <div class="w3-row-padding" style="margin:0 -16px">
     	<a href="{{ url_for('mainPage') }}"><button><i class="fa fa-refresh"></i></button></a>
