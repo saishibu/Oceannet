@@ -293,29 +293,13 @@ div#loading {
 <script src="../static/justgage.1.0.1.min.js"></script>
 
 <script>
-    	var g1, g2;
-    	document.addEventListener("DOMContentLoaded", function(event) 
-    	{
-    	g1 = new JustGage({
-		id: "g1",
-		value: {{temp}},
-		valueFontColor: "yellow",
-		min: -10,
-		max: 50,
-		title: "Temperature",
-		label: "Celcius"
-		});
-		
-		g2 = new JustGage({
-		id: "g2",
-		value: {{hum}},
-		valueFontColor: "yellow",
-		min: 0,
-		max: 100,
-		title: "Humidity",
-		label: "%"
-		});
-	});
+    var g = new JustGage({
+    id: "g1",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Visitors"
+  	});
 
     </script>
 
