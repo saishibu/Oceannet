@@ -128,16 +128,19 @@ def configIP():
 		flash('Error Saving Configurations')
 	return redirect(url_for('mainPage'))
 
-# @app.route('/AARTestfwd', methods=['POST'])
-# def AARTestfwd():
-# 	try:
-# 		GPIO.setup(27,GPIO.HIGH)
-# 		time.sleep(10)#FWD
-# 		GPIO.setup(27,GPIO.LOW)
-# 		flash ('AAR Test Completed')
-# 	except:
-# 		flash("Error Testing")
-# 	return redirect(url_for('mainPage'))
+@app.route('/AARTestfwd', methods=['POST'])
+def AARTestfwd():
+	try:
+        cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
+        os.system(cmd)   
+		
+        # GPIO.setup(27,GPIO.HIGH)
+		# time.sleep(10)#FWD
+		# GPIO.setup(27,GPIO.LOW)
+		flash ('AAR Test Completed')
+	except:
+		flash("Error Testing")
+	return redirect(url_for('mainPage'))
 
 # @app.route('/AARTestrev', methods=['POST'])
 # def AARTestrev():
@@ -150,37 +153,42 @@ def configIP():
 # 		flash("Error Testing")
 # 	return redirect(url_for('mainPage'))
 
-# @app.route('/update', methods=['POST'])
-# def update():
-# 	try:
-# 		path='/home/pi/Oceannet/AAR/ConfigPage/'
-# 		os.chdir(path)
-# 		cmd="git pull"
-# 		os.system(cmd)
-# 		flash ('Update Completed')
-# 	except:
-# 		flash("Error Software Updation")
-# 	return redirect(url_for('mainPage'))
+@app.route('/update', methods=['POST'])
+def update():
+	try:
+		path='/home/pi/Oceannet/AAR/ConfigPage/'
+		os.chdir(path)
+		cmd="git pull"
+		os.system(cmd)
+		flash ('Update Completed')
+	except:
+		flash("Error Software Updation")
+	return redirect(url_for('mainPage'))
 
-# @app.route('/reboot', methods=['POST'])
-# def reboot():
+@app.route('/reboot', methods=['POST'])
+def reboot():
     
-#     cmd="reboot"
-#     os.system(cmd)
+    cmd="reboot"
+    os.system(cmd)
     
-#     return redirect(url_for('mainPage'))
+    return redirect(url_for('mainPage'))
 
-# @app.route('/LEDTest1', methods=['POST'])#status
-# def LEDTest1():
-# 	try:
-# 		GPIO.setup(26,GPIO.HIGH)
-# 		time.sleep(2)#FWD
-# 		GPIO.setup(26,GPIO.LOW)
-# 		flash ('Status LED Test Completed')
-# 	except:
-# 		flash("Error Testing Notification LED")
-# 	return redirect(url_for('mainPage'))
-# @app.route('/LEDTest2', methods=['POST'])#rssi1
+@app.route('/LEDTest1', methods=['POST'])#status
+def LEDTest1():
+	try:
+        cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
+        os.system(cmd)
+
+
+		# GPIO.setup(26,GPIO.HIGH)
+		# time.sleep(2)#FWD
+		# GPIO.setup(26,GPIO.LOW)
+		flash ('LED Test Completed')
+	except:
+		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
+
+# app.route('/LEDTest2', methods=['POST'])#rssi1
 # def LEDTest2():
 # 	try:
 # 		GPIO.setup(19,GPIO.HIGH)
@@ -217,8 +225,8 @@ def configIP():
 # 	time.sleep(2)#FWD
 # 	GPIO.setup(5,GPIO.LOW)
 # 	flash ('RSSI1 Test Completed')
-# # 	except:
-# # 		flash("Error Testing Notification LED")
-# 	return redirect(url_for('mainPage'))
+# 	except:
+# 		flash("Error Testing Notification LED")
+	return redirect(url_for('mainPage'))
 
 app.run(debug=False,host="0.0.0.0",port="1000")
