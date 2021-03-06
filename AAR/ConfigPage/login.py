@@ -218,6 +218,5 @@ def LEDTest1():
 # 	flash ('RSSI1 Test Completed')
 # 	except:
 # 		flash("Error Testing Notification LED")
-	return redirect(url_for('mainPage'))
-
+    return redirect(url_for('mainPage'))
 app.run(debug=False,host="0.0.0.0",port="1000")
