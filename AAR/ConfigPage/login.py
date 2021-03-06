@@ -136,7 +136,7 @@ def AARTestfwd():
         flash ('AAR Test Completed')
     except:
         flash("Error Testing")
-	return redirect(url_for('mainPage'))
+    return redirect(url_for('mainPage'))
 
 # @app.route('/AARTestrev', methods=['POST'])
 # def AARTestrev():
