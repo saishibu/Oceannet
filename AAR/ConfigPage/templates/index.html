@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="static/images//favicon.ico" type="image/x-icon">
 <link rel="icon" href="static/images//favicon.ico" type="image/x-icon">
-<script src="/static/raphael.2.1.0.min.js"></script>
-<script src="/static/justgage.1.0.1.min.js"></script>
+
 
 <script type="text/javascript">// <![CDATA[
         function loading(){
@@ -234,34 +233,8 @@ div#loading {
      <div class="w3-padding-64 w3-content" id="recent">
     <h2 class="w3-text-light-grey">Debug</h2>
     <hr style="width:200px" class="w3-opacity">
-    <script>
-    	var g1, g2;
-    	document.addEventListener("DOMContentLoaded", function(event) 
-    	{
-    	g1 = new JustGage({
-		id: "g1",
-		value: {{temp}},
-		valueFontColor: "yellow",
-		min: -10,
-		max: 50,
-		title: "Temperature",
-		label: "Celcius"
-		});
-		
-		g2 = new JustGage({
-		id: "g2",
-		value: {{hum}},
-		valueFontColor: "yellow",
-		min: 0,
-		max: 100,
-		title: "Humidity",
-		label: "%"
-		});
-	});
-
-    </script>
-
-
+		<div id="g1"></div>
+    	<div id="g2"></div>
     <div class="w3-row-padding" style="margin:0 -16px">
     	<a href="{{ url_for('mainPage') }}"><button><i class="fa fa-refresh"></i></button></a>
     <!-- <iframe src="static/manual.pdf" width="100%" height="500px"> -->
@@ -315,6 +288,38 @@ div#loading {
 <!-- End footer -->
 <!-- END PAGE CONTENT -->
 </div>
+
+<script src="../static/raphael.2.1.0.min.js"></script>
+<script src="../static/justgage.1.0.1.min.js"></script>
+
+<script>
+    	var g1, g2;
+    	document.addEventListener("DOMContentLoaded", function(event) 
+    	{
+    	g1 = new JustGage({
+		id: "g1",
+		value: {{temp}},
+		valueFontColor: "yellow",
+		min: -10,
+		max: 50,
+		title: "Temperature",
+		label: "Celcius"
+		});
+		
+		g2 = new JustGage({
+		id: "g2",
+		value: {{hum}},
+		valueFontColor: "yellow",
+		min: 0,
+		max: 100,
+		title: "Humidity",
+		label: "%"
+		});
+	});
+
+    </script>
+
+
 
 </body>
 </html>
