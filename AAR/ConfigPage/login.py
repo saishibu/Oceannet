@@ -35,7 +35,17 @@ def home():
 
 @app.route('/mainPage')
 def mainPage():
-    return render_template('index.html')
+    try:
+        conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+        cur=conn.cursor()
+        cur.execute("SELECT SS,NF,CCQ,POS,ping,bsip FROM proto1 ORDER BY ID DESC limit 1;")
+        data=cur.fetchone()
+        conn.close()
+        templateData = {'SS':data[0], 'NF':data[1],'CCQ':data[2],'POS':data[3],'ping':data[4],'bsip':data[5]}
+    except:
+        templateData = {'SS':0, 'NF':0,'CCQ':0,'POS':0,'ping':0,'bsip':0}
+    print(templateData)
+    return render_template('index.html', **templateData)
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
@@ -49,7 +59,7 @@ def do_admin_login():
         data=cur.fetchone()
         username=data[0]
         password=data[1]
-         
+        conn.close() 
         if request.form['otp'] != captchadata.captcha:
             flash('Incorrect OTP')
             return home()
