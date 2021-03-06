@@ -52,10 +52,14 @@ div#loading {
     <i class="fa fa-book w3-xxlarge"></i>
     <p>User Manual</p>
   </a>
+  <a href="#recent" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-wrench w3-xxlarge"></i>
+    <p>Debug</p>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>Service Contact</p>
 	</a>
+  </a>
   <a href="/logout" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-sign-out w3-xxlarge"></i>
     <p>Logout</p>
@@ -68,6 +72,7 @@ div#loading {
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">Home</a>
     <a href="#configs" class="w3-bar-item w3-button" style="width:25% !important">Settings</a>
     <a href="#manual" class="w3-bar-item w3-button" style="width:25% !important">Manual</a>
+    <a href="#recent" class="w3-bar-item w3-button" style="width:25% !important">Debug</a>
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">Contact</a>
     <a href="/logout" class="w3-bar-item w3-button" style="width:25% !important">Logout</a>
   </div>
@@ -121,8 +126,8 @@ div#loading {
 	
     <h3 class="w3-padding-16 w3-text-light-grey"> Proceed with caution. Changing this setting may render permanent damage to the device. </h3>
     <h3 class="w3-padding-16 w3-text-light-grey">Device IP Settings</h3>
-    <div class="w3-row-padding" style="margin:0 -10px" align="left">
-    <div class="w3-half w3-margin-bottom">
+    <div class="w3-row-padding" style="margin:0 15px">
+    <!-- <div class="w3-half w3-margin-bottom"> -->
     <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
     <li class="w3-dark-grey w3-xlarge w3-padding-32">Initial Configurations</li>
     <li class="w3-light-grey w3-padding-24">
@@ -143,13 +148,12 @@ div#loading {
     
   </ul>
 </div>
-</div>
-  <!-- End About Section -->
-    </div>
-  
+<!-- </div> -->
+    <!-- </div> -->
+        <h3 class="w3-padding-16 w3-text-light-grey">System Diagnosis</h3>
+
     <div class="w3-row-padding" style="margin:0 15px">
-      <h3 class="w3-padding-16 w3-text-light-grey">System Diagnosis</h3>
-      <div class="w3-half w3-margin-bottom">
+      <!-- <div class="w3-half w3-margin-bottom"> -->
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-dark-grey w3-xlarge w3-padding-32">Automatic Antenna Rotator Test</li>
    
@@ -163,9 +167,9 @@ div#loading {
              <br> <input class="w3-button w3-white w3-padding-large w3-hover-black" type="submit" value="Reverse">
               </form> 
           </li>
-        </ul>
-      </div>
-      <div class="w3-half">
+        </ul> <br>
+      <!-- </div> -->
+      <!-- <div class="w3-half"> -->
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-dark-grey w3-xlarge w3-padding-32">Notification LED Test</li>
           <li class="w3-light-grey w3-padding-24">
@@ -193,8 +197,7 @@ div#loading {
               </form>  
           </li>
         </ul>
-      </div>
-    <!-- End Grid/Pricing tables -->
+      <!-- </div> -->
     </div>
 
     <div class="w3-row-padding" style="margin:0 15px">
@@ -221,8 +224,19 @@ div#loading {
           </li>
         </ul>
       </div>
-    <!-- End Grid/Pricing tables -->
     </div>
+
+     <div class="w3-padding-64 w3-content" id="recent">
+    <h2 class="w3-text-light-grey">Debug</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-row-padding" style="margin:0 -16px">
+    	<a href="{{ url_for('mainPage') }}"><button><i class="fa fa-refresh"></i></button></a>
+    <!-- <iframe src="static/manual.pdf" width="100%" height="500px"> -->
+    </iframe>
+    </div>
+	
+  </div>
 
   <!-- User Manual Section -->
   <div class="w3-padding-64 w3-content" id="manual">
