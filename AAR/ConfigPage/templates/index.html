@@ -304,9 +304,10 @@ div#loading {
 <script src="../static/justgage.1.0.1.min.js"></script>
 
 <script>
+	document.addEventListener("DOMContentLoaded", function(event) {
   var ss = new JustGage({
     id: "g1",
-    value: 20,
+    value: {{SS}},
     min: 0,
     max: 100,
     titleFontColor: "red",
@@ -359,6 +360,7 @@ div#loading {
     valueFontColor: "white",
     title: "CCQ",
     label: "%"
+  });
   });
 </script>
 
