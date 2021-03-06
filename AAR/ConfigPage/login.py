@@ -134,12 +134,8 @@ def AARTestfwd():
         cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
         os.system(cmd)
         flash ('AAR Test Completed')
-		
-        # GPIO.setup(27,GPIO.HIGH)
-		# time.sleep(10)#FWD
-		# GPIO.setup(27,GPIO.LOW)
-	except:
-		flash("Error Testing")
+    except:
+        flash("Error Testing")
 	return redirect(url_for('mainPage'))
 
 # @app.route('/AARTestrev', methods=['POST'])
