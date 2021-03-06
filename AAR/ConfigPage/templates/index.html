@@ -235,6 +235,9 @@ div#loading {
     <hr style="width:200px" class="w3-opacity">
 		<div id="g1"></div>
     	<div id="g2"></div>
+    	<div id="g3"></div>
+    	<div id="g4"></div>
+
     <div class="w3-row-padding" style="margin:0 -16px">
     	<a href="{{ url_for('mainPage') }}"><button><i class="fa fa-refresh"></i></button></a>
     <!-- <iframe src="static/manual.pdf" width="100%" height="500px"> -->
@@ -299,6 +302,39 @@ div#loading {
     min: 0,
     max: 100,
     title: "Signal Strenth"
+    titleFontColor: "red",
+    valueFontColor: "blue",
+
+  	});
+
+  	var g = new JustGage({
+    id: "g2",
+    value: 50,
+    min: 0,
+    max: 100,
+    title: "Noise Floor"
+    titleFontColor: "red",
+    valueFontColor: "blue",
+
+  	});
+
+  	var g = new JustGage({
+    id: "g3",
+    value: 2,
+    min: 0,
+    max: 72,
+    title: "AAR Position"
+    titleFontColor: "red",
+    valueFontColor: "blue",
+
+  	});
+
+  	var g = new JustGage({
+    id: "g4",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Ping"
     titleFontColor: "red",
     valueFontColor: "blue",
 
