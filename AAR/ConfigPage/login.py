@@ -131,7 +131,7 @@ def configIP():
 @app.route('/AARTestfwd', methods=['POST'])
 def AARTestfwd():
     try:
-        cmd="/home/pi/Oceannet/AAR/ConfigPage/Rotatetest.py"
+        cmd="/home/pi/OceanNet/AAR/ConfigPage/Rotatetest.py"
         os.system(cmd)
         flash ('AAR Test Completed')
     except:
@@ -152,7 +152,7 @@ def AARTestfwd():
 @app.route('/update', methods=['POST'])
 def update():
     try:
-        path='/home/pi/Oceannet/AAR/ConfigPage/'
+        path='/home/pi/OceanNet/AAR/ConfigPage/'
         os.chdir(path)
         cmd="git pull"
         os.system(cmd)
@@ -172,7 +172,7 @@ def reboot():
 @app.route('/LEDTest1', methods=['POST'])#status
 def LEDTest1():
     try:
-        cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
+        cmd="/home/pi/OceanNet/AAR/ConfigPage/LEDtest.py"
         os.system(cmd)
         flash ('LED Test Completed')
     except:
