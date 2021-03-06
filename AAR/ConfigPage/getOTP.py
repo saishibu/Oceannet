@@ -21,7 +21,7 @@ def generate_captcha(width=140, height=20, length=4):
 	#  generate verification code 
 	img = Image.new("RGB", (width, height), (250, 250, 250))
 	draw = ImageDraw.Draw(img)
-	font = ImageFont.truetype("static/font/font.ttf", size=16)
+	font = ImageFont.truetype("/home/pi/OceanNet/AAR/ConfigPage/static/font/font.ttf", size=16)
 	text = get_random_code()
 	
 	draw.line((randint(0,140),randint(0,20),randint(0,140),randint(0,20)), fill=get_random_color())
@@ -54,5 +54,5 @@ def generate_captcha(width=140, height=20, length=4):
 	# for i in range(16):
 	# 	draw.point((randint(0, width), randint(0, height)), fill=get_random_color())
 	#save the picture 
-	img.save("static/images/captcha.jpg")
+	img.save("/home/pi/OceanNet/AAR/ConfigPage/static/images/captcha.jpg")
 	return text
