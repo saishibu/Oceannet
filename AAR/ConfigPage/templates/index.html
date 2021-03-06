@@ -11,7 +11,8 @@
 
 <style>
 	
-    #g1, #g2, #g3, #g4 {
+    #g1, #g2, #g3, #g4 #g5{
+    	alig
       width:10em; height:15em;
       display: inline-block;
       margin: 1em;
@@ -344,8 +345,20 @@ div#loading {
     titleFontColor: "red",
     titlePosition: "below",
     valueFontColor: "white",
-    title: "Ping"
-    // label: "ms"
+    title: "Ping",
+    label: "ms"
+  });
+
+    var CCQ = new JustGage({
+    id: "g5",
+    value: 20,
+    min: 0,
+    max: 100,
+    titleFontColor: "red",
+    titlePosition: "below",
+    valueFontColor: "white",
+    title: "CCQ",
+    label: "%"
   });
 </script>
 
