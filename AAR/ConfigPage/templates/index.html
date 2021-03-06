@@ -302,14 +302,9 @@ div#loading {
     min: 0,
     max: 100,
     titleFontColor: "red",
-    // titleFontFamily: "Georgia",
-    // titlePosition: "below",
-    valueFontColor: "blue",
-    // valueFontFamily: "Georgia"
-
+    titlePosition: "below",
+    valueFontColor: "white",
     title: "Signal Strength"
-    // label: "miles traveled"
-
   });
 
   var nf = new JustGage({
@@ -317,9 +312,33 @@ div#loading {
     value: 20,
     min: 0,
     max: 100,
+    titleFontColor: "red",
+    titlePosition: "below",
+    valueFontColor: "white",
     title: "Noise Floor"
-    // label: "miles traveled"
+  });
 
+    var ap = new JustGage({
+    id: "g2",
+    value: 20,
+    min: 0,
+    max: 100,
+    titleFontColor: "red",
+    titlePosition: "below",
+    valueFontColor: "white",
+    title: "AAR Position"
+  });
+
+    var ping = new JustGage({
+    id: "g2",
+    value: 20,
+    min: 0,
+    max: 100,
+    titleFontColor: "red",
+    titlePosition: "below",
+    valueFontColor: "white",
+    title: "Ping"
+    label: "ms"
   });
 </script>
 
