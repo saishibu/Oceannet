@@ -151,7 +151,7 @@ def AARTestfwd():
 
 @app.route('/update', methods=['POST'])
 def update():
-	try:
+    try:
         path='/home/pi/Oceannet/AAR/ConfigPage/'
         os.chdir(path)
         cmd="git pull"
