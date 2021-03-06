@@ -153,13 +153,13 @@ def AARTestfwd():
 def update():
 	try:
         path='/home/pi/Oceannet/AAR/ConfigPage/'
-		os.chdir(path)
-		cmd="git pull"
-		os.system(cmd)
-		flash ('Update Completed')
-	except:
-		flash("Error Software Updation")
-	return redirect(url_for('mainPage'))
+        os.chdir(path)
+        cmd="git pull"
+        os.system(cmd)
+        flash ('Update Completed')
+    except:
+        flash("Error Software Updation")
+    return redirect(url_for('mainPage'))
 
 @app.route('/reboot', methods=['POST'])
 def reboot():
@@ -171,18 +171,13 @@ def reboot():
 
 @app.route('/LEDTest1', methods=['POST'])#status
 def LEDTest1():
-	try:
+    try:
         cmd="/home/pi/Oceannet/AAR/ConfigPage/LEDtest.py"
         os.system(cmd)
-
-
-		# GPIO.setup(26,GPIO.HIGH)
-		# time.sleep(2)#FWD
-		# GPIO.setup(26,GPIO.LOW)
-		flash ('LED Test Completed')
-	except:
-		flash("Error Testing Notification LED")
-	return redirect(url_for('mainPage'))
+        flash ('LED Test Completed')
+    except:
+        flash("Error Testing Notification LED")
+    return redirect(url_for('mainPage'))
 
 # app.route('/LEDTest2', methods=['POST'])#rssi1
 # def LEDTest2():
