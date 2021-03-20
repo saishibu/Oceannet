@@ -32,8 +32,8 @@ if log=='on':
 ns.statusled(1)
 pos=ns.fromdb()
 #pos=0
+hide=0
 while 1:
-	hide=0
 	ns.stop()
 	ns.statusled(0)
 	signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel = ns.fetchstatus(cj,opener,cpe_ip)
