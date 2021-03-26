@@ -140,22 +140,21 @@ def configIP():
 
 @app.route('/AARTestfwd', methods=['POST'])
 def AARTestfwd():
-    try:
-	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
-        cur=conn.cursor()
-        cur.execute("SELECT ID FROM proto1 ORDER BY ID DESC limit 1;")
-        data=cur.fetchone()
-	ID=data[0]
-	cur.execute("UPDATE proto1 SET POS = 0 WHERE ID='%s'",ID)
-	conn.commit()
-	conn.close()
-	
-        cmd="/home/pi/OceanNet/AAR/ConfigPage/Rotatetest.py"
-        os.system(cmd)
-        flash ('AAR Test Completed')
-    except:
-        flash("Error Testing")
-    return redirect(url_for('mainPage'))
+	try:
+		conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
+		cur=conn.cursor()
+		cur.execute("SELECT ID FROM proto1 ORDER BY ID DESC limit 1;")
+		data=cur.fetchone()
+		ID=data[0]
+		cur.execute("UPDATE proto1 SET POS = 0 WHERE ID='%s'",ID)
+		conn.commit()
+		conn.close()
+		cmd="/home/pi/OceanNet/AAR/ConfigPage/Rotatetest.py"
+		os.system(cmd)
+		flash ('AAR Test Completed')
+	except:
+        	flash("Error Testing")
+	return redirect(url_for('mainPage'))
 
 # @app.route('/AARTestrev', methods=['POST'])
 # def AARTestrev():
