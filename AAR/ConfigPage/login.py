@@ -38,12 +38,12 @@ def mainPage():
     try:
         conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
         cur=conn.cursor()
-        cur.execute("SELECT SS,NF,CCQ,POS,ping,bsip FROM proto1 ORDER BY ID DESC limit 1;")
+        cur.execute("SELECT SS,NF,CCQ,POS,ping,bsip,TIMESTAMP FROM proto1 ORDER BY ID DESC limit 1;")
         data=cur.fetchone()
         conn.close()
-        templateData = {'SS':data[0], 'NF':data[1],'CCQ':data[2],'POS':data[3],'ping':data[4],'bsip':data[5]}
+        templateData = {'SS':data[0], 'NF':data[1],'CCQ':data[2],'POS':data[3],'ping':data[4],'bsip':data[5], 'time':data[6]}
     except:
-        templateData = {'SS':0, 'NF':0,'CCQ':0,'POS':0,'ping':0,'bsip':0}
+        templateData = {'SS':0, 'NF':0,'CCQ':0,'POS':0,'ping':0,'bsip':0,'time':0}
     print(templateData)
     return render_template('index.html', **templateData)
 
