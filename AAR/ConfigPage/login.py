@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
-import os,pymysql, getOTP, time
+import os,pymysql, getOTP, time,datetime
 
 # import RPi.GPIO as GPIO
 # GPIO.setmode(GPIO.BCM) 
@@ -41,7 +41,7 @@ def mainPage():
         cur.execute("SELECT SS,NF,CCQ,POS,ping,bsip,TIMESTAMP FROM proto1 ORDER BY ID DESC limit 1;")
         data=cur.fetchone()
         conn.close()
-        templateData = {'SS':data[0], 'NF':data[1],'CCQ':data[2],'POS':data[3],'ping':data[4],'bsip':data[5], 'time':data[6]}
+        templateData = {'SS':data[0], 'NF':data[1],'CCQ':data[2],'POS':data[3],'ping':data[4],'bsip':data[5], 'time':datetime.datetime.fromtimestamp(data[6]).strftime('%c')}
     except:
         templateData = {'SS':0, 'NF':0,'CCQ':0,'POS':0,'ping':0,'bsip':0,'time':0}
     print(templateData)
