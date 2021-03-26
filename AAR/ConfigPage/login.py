@@ -147,6 +147,8 @@ def AARTestfwd():
         data=cur.fetchone()
 	ID=data[0]
 	cur.execute("UPDATE proto1 SET POS = 0 WHERE ID='%s'",ID)
+	conn.commit()
+	conn.close()
 	
         cmd="/home/pi/OceanNet/AAR/ConfigPage/Rotatetest.py"
         os.system(cmd)
