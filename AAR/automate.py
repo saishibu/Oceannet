@@ -25,7 +25,7 @@ if log=='on':
 	logging.info("Connection Successful\n Boat Name: " + str (boat)+ "\n" + "IP Address: "+str(cpe_ip) + ". Controller Connnected to "+str(ssid))
 	
 cj,opener=ns.login(cpe_ip)
-
+print("Logged in to " + boat + " " +cpe_ip)
 if log=='on':
 	logging.info("login success")
 
