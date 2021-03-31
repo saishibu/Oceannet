@@ -51,10 +51,10 @@ while 1:
 	#automation:
 	if signalinv > th:
 		hide=0
-		if pos>73:
+		if pos>36:
 			pos=0
 			diri='Calibration'
-		elif pos >35 and pos <73:
+		elif pos >18 and pos <36:
 			ns.rev()
 			pos=pos+1
 			diri='Reverse'
@@ -63,10 +63,10 @@ while 1:
 			diri='Forward'
 			pos=pos+1
 	elif signalinv ==0:
-		if pos >73:
+		if pos >36:
 			pos=0
 			diri='Calibration'
-		elif pos >35 and pos<73:
+		elif pos >18 and pos<36:
 			ns.rev()
 			pos=pos+1
 			diri='Rescan & Reverse'
