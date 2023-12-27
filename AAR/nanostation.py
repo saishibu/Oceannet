@@ -1,8 +1,13 @@
-import urllib, urllib2, cookielib
-import ssl,json,time
-import pymysql
-from subprocess import check_output
-import RPi.GPIO as GPIO
+# Import necessary libraries/modules
+import urllib, urllib2, cookielib  # For HTTP requests and cookies
+import ssl  # For SSL/TLS support
+import json  # For JSON parsing
+import time  # For time-related operations
+import pymysql  # For MySQL database connection
+from subprocess import check_output  # For running shell commands
+import RPi.GPIO as GPIO  # For Raspberry Pi GPIO control
+
+# Configure GPIO pins for various purposes
 GPIO.setmode(GPIO.BCM) 
 GPIO.setwarnings(False) 
 GPIO.setup(17,GPIO.OUT)  #REV
@@ -13,6 +18,8 @@ GPIO.setup(13,GPIO.OUT)	#RSSI 1
 GPIO.setup(6,GPIO.OUT)  #RSSI 2
 GPIO.setup(5,GPIO.OUT)  #RSSI 3
 
+# Function to get configuration data from a MySQL database
+# The getConfig function connects to a MySQL database and retrieves configuration settings such as IP, log, and piggyback settings. This function is used to get system configuration data.
 def getConfig():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
@@ -30,6 +37,8 @@ def getConfig():
 	return(ip,log,piggyback)
 
 
+# Function to get boat-related data from a MySQL database
+# The getBoatData function connects to a MySQL database and retrieves boat-related data, including the boat's name and CPE IP address.
 def getBoatData():
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
@@ -44,7 +53,9 @@ def getBoatData():
 		print("Run Configuration first")
 		exit()
 	return(boatName,cpeIP)
-#Extract SSID
+
+# Function to extract the SSID of the connected wireless network
+# The extssid function uses the Linux native iwconfig command to extract the SSID of the wireless network to which the Raspberry Pi is connected. It returns the SSID as a string.
 def extssid():
 	ssid = "No connection"
 	scanoutput = check_output(["iwconfig", "wlan0"],shell=0)
@@ -55,7 +66,8 @@ def extssid():
 	return ssid
 
 
-#Map SSID to CPE IP
+# Function to map an SSID to a CPE IP address in a MySQL database
+# The mapip function maps an SSID to its corresponding CPE IP address by querying a MySQL database. It returns the boat's ID and CPE IP address.
 def mapip(essid):
 	#print type(essid)
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
@@ -73,7 +85,8 @@ def mapip(essid):
 			#ip="Invalid SSID"
 	return ID,ip
 
-#sleep function 
+# Function to simulate a breathing effect (Blinking) on status LED
+# The breathe function controls an LED to simulate a breathing effect. It takes two parameters: t (time duration for the effect) and hide (a sleep time).
 def breathe(t,hide):
 	t1=0
 	for t1 in range(t):
@@ -83,14 +96,17 @@ def breathe(t,hide):
 		time.sleep(0.5)
 	time.sleep(hide)
 
-#write to database
+# Function to write data to a MySQL database
+# The todb function inserts data from a dictionary into a specified database table. It establishes a database connection, inserts the data, and then closes the connection.
 def todb(data):
 	conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
 	cur=conn.cursor()
 	cur.execute("INSERT INTO proto1(TIMESTAMP,BOAT, SS, NF, CCQ, D, RSSI, POS, DIR,frequency,channel,txrate,rxrate,bsip,ping) VALUES(%(TIME)s,%(boat)s,%(ss)s,%(nf)s,%(ccq)s,%(d)s,%(rssi)s,%(pos)s,%(dir)s,%(freq)s,%(channel)s,%(txrate)s,%(rxrate)s,%(bs_ip)s,%(ping_ms)s);",data)
 	conn.commit()
 	conn.close()
-#read last position from database
+
+# Function to read the last position from a MySQL database
+# The fromdb function retrieves the last position value from a specified database table. It establishes a database connection, retrieves the value, and then closes the connection.
 def fromdb():
 	try:
 		conn =pymysql.connect(database="autosys",user="on",password="amma",host="localhost")
@@ -102,13 +118,17 @@ def fromdb():
 	except:
 		pos=0
 	return pos
-#Status LED Config
+
+# Function to control the status LED
+# The statusled function controls the status LED based on a given condition (1 to turn it on, 0 to turn it off).
 def statusled(cond):
 	if cond == 1:
 		GPIO.output(26,GPIO.HIGH) #status led on
 	if cond == 0:
 		GPIO.output(26,GPIO.LOW) #status led on
-#RSSI LED Config
+
+# Function to control RSSI LEDs based on RSSI values
+# The rssiled function controls the RSSI LEDs based on the received RSSI (Received Signal Strength Indicator) value. It illuminates specific LEDs to indicate signal strength.
 def rssiled(rssi):
 	#1-> GREEN 2-> YELLOW 3->YELLOW 4->RED
 	#print rssi
@@ -142,7 +162,9 @@ def rssiled(rssi):
 		GPIO.output(13,GPIO.LOW) #2
 		GPIO.output(19,GPIO.LOW) #1
 		# print "No Signal " + str(rssi)
-#Login to Nanostation
+
+# Function to log in to a NanoStation device using HTTP requests
+# The login function logs in to a NanoStation device using HTTP requests. It takes the device's IP address and returns a cookie jar and opener for authenticated requests.
 def login(ip):
 	url='https://'+ip+'/login.cgi'
 	ssl._create_default_https_context = ssl._create_unverified_context
@@ -152,7 +174,9 @@ def login(ip):
 	login_data=urllib.urlencode({'username':'ubnt', 'password':'1234','action':'login'})
 	r=opener.open(url,login_data)
 	return cj,opener
-#Fetch Status from Nanostation
+
+# Function to fetch status information from a NanoStation device
+# The fetchstatus function fetches various status information from a NanoStation device using authenticated requests. It returns signal strength, RSSI, noise, CCQ, distance, txrate, rxrate, frequency, and channel.
 def fetchstatus(cj,opener,ip):
 	url='https://'+ip+'/status.cgi'
 	status_page=opener.open(url)
@@ -169,7 +193,9 @@ def fetchstatus(cj,opener,ip):
 	channel=json_status['wireless']['channel']
 	
 	return signal,rssi,noise,ccq,distance,txrate,rxrate,freq,channel
-#To get ping status and IP address of BS
+
+# Function to fetch IP address and ping status from a NanoStation device
+# The fetchip function fetches the IP address of the Base Station (BS) and ping latency from a NanoStation device using authenticated requests.
 def fetchip(cj,opener,ip):
 	url='https://'+ip+'/sta.cgi'
 	sta_page=opener.open(url)
@@ -180,7 +206,8 @@ def fetchip(cj,opener,ip):
 	return bs_ip,ping_ms
 
 
-#Threshold mapping based on distance
+# Function to map thresholds based on distance
+# The thmap function maps thresholds based on distance. It takes a distance value and returns specific thresholds and a hide time.
 def thmap(distance):
 	if distance<=1000:
 		th=60
@@ -198,18 +225,19 @@ def thmap(distance):
 		th=95
 		hide=1800
 	return th,hide
-#Direction control for Channel Master
+
+# Functions to control AAR motor direction (forward, reverse, stop)
+# The fwd function is used to control the forward direction using GPIO pins.
+
 def fwd():
 	GPIO.output(27,GPIO.HIGH)
 	GPIO.output(17,GPIO.LOW)
+
+#The rev function is used to control the reverse direction using GPIO pins.
 def rev():
 	GPIO.output(17,GPIO.HIGH)
 	GPIO.output(27,GPIO.LOW)
+# The stop function is used to stop movement by turning off GPIO pins.
 def stop():
 	GPIO.output(27,GPIO.LOW)
 	GPIO.output(17,GPIO.LOW)
-
-#TBD: For inhouse developed rotator
-#def fwd_step():
-#def rev_step():
-#def stop_step():
